@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet-body">
+            <div class="table-toolbar">
+                <div class="form-body">
+                    <div class="col-md-6">
+                        <button *ngIf="isHideKeys===true" class="btn green" id="form-add-btn" (click)="showKeys()">{{'Button.ShowKey'
+                            |translate}}</button>
+                        <button *ngIf="isHideKeys===false" class="btn green" id="form-add-btn" (click)="hideKeys()">{{'Button.HideKey'
+                            |translate}}</button>
+                    </div>
+                </div>
+                <div class="form-body col-md-8">
+                    <div style="padding:10px;"></div>
+
+                    <div class="form-group">
+                        <label for="consumerKey">{{'Application.ProductionKey.ConsumerKeys' |translate}}</label>
+                        <div class="input-group">
+                            <input type="{{ isHideKeys ? 'password' : 'text' }}" class="form-control" id="consumerKey"
+                                placeholder="{{'Application.ProductionKey.ConsumerKeys' |translate}}" [value]="application?.consumerKey">
+                            <span class="input-group-addon" ngxClipboard [cbContent]="application?.consumerKey" title="{{'Button.CopyKey'|translate}}">
+                                <i class="fa fa-files-o font-black"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="consumerSecret">{{'Application.ProductionKey.ConsumerSecret' |translate}}</label>
+                        <div class="input-group">
+                            <input type="{{ isHideKeys ? 'password' : 'text' }}" class="form-control" id="consumerSecret"
+                                placeholder="{{'Application.ProductionKey.ConsumerSecret' |translate}}" [value]="application?.comsumerSecret">
+                            <span class="input-group-addon" ngxClipboard [cbContent]="application?.comsumerSecret"
+                                title="{{'Button.CopyKey'|translate}}">
+                                <i class="fa fa-files-o font-black"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+<div class="row" [formGroupName]="conditionGroupForm">
+  <div class="col-md-12 ">
+    <div class="portlet box default">
+      <div class="portlet-title">
+        <div class="caption font-red-sunglo">
+          <i class="icon-settings font-dark" data-toggle="collapse" href="#collapse1"></i>
+          <span class="caption-subject font-dark sbold uppercase">{{'ConditionGroup.Title'|translate}}</span>
+        </div>
+      </div>
+      <div class="portlet-body form panel-collapse collapse in" id="collapse1">
+        <div role="form">
+          <div class="form-body">
+            <h3 class="block">{{'ConditionGroup.ConditionGroup'|translate}}</h3>
+            <div class="form-group">
+              <label class="col-md-2 control-label">{{'ConditionGroup.Input.Name.Title'|translate}}
+                <span class="required">* </span>
+                <i class="glyphicon glyphicon-question-sign" title="{{'ConditionGroup.Input.Name.Detail'|translate}}"></i>
+              </label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" formControlName="name" placeholder="{{'ConditionGroup.Input.Name.Placeholder'|translate}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label">{{'ConditionGroup.Input.Description.Title'|translate}}</label>
+              <div class="col-md-6">
+                <input type="text" class="form-control" formControlName="description" placeholder="{{'ConditionGroup.Input.Description.Placeholder'|translate}}">
+              </div>
+            </div>
+            <h3 class="block">{{'ConditionGroup.DefaultLimits'|translate}}</h3>
+            <div class="form-group">
+              <label class="col-md-2 control-label"></label>
+              <div class="col-md-6">
+                <div class="radio-list">
+                  <label *ngFor="let quotaType of quotaTypes" class="radio-inline">
+                    <input type="radio" formControlName="quotaType" id="quotaType" [value]="quotaType.id" checked>
+                    {{quotaType.value}}
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" *ngIf="businessForm.get('quotaType').value===1">
+              <label class="col-md-2 control-label">{{'ConditionGroup.Input.RequestCount.Title'|translate}}
+                <span class="required">* </span>
+                <i class="glyphicon glyphicon-question-sign" title="{{'ConditionGroup.Input.RequestCount.Detail'|translate}}"></i>
+              </label>
+              <div class="col-md-6">
+                <input type="number" class="form-control" formControlName="quota" placeholder="{{'ConditionGroup.Input.RequestCount.Placeholder'|translate}}">
+              </div>
+            </div>
+            <div class="form-group" *ngIf="businessForm.get('quotaType').value===2">
+              <label class="col-md-2 control-label">{{'ConditionGroup.Input.RequestBandwidth.Title'|translate}}
+                <span class="required">* </span>
+                <i class="glyphicon glyphicon-question-sign" title="{{'ConditionGroup.Input.RequestBandwidth.Detail'|translate}}"></i>
+              </label>
+              <div class="col-md-6">
+                <input type="number" class="form-control" formControlName="quota" placeholder="{{'ConditionGroup.Input.RequestBandwidth.Placeholder'|translate}}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-2 control-label">{{'ConditionGroup.Input.UnitTime.Title'|translate}}
+                <span class="required">* </span>
+                <i class="glyphicon glyphicon-question-sign" title="{{'ConditionGroup.Input.UnitTime.Detail'|translate}}"></i>
+              </label>
+              <div class="col-md-6">
+                <input type="number" class="form-control" formControlName="unitTime" placeholder="{{'ConditionGroup.Input.UnitTime.Placeholder'|translate}}">
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul class="nav nav-tabs" style="padding: 15px">
+          <li class="active">
+            <a href="#tab_1_1" data-toggle="tab"> Ip Condition </a>
+          </li>
+          <li>
+            <a href="#tab_1_2" data-toggle="tab"> Header Condition </a>
+          </li>
+          <li>
+            <a href="#tab_1_3" data-toggle="tab"> Query Param Condition
+            </a>
+          </li>
+          <li>
+            <a href="#tab_1_4" data-toggle="tab"> JWT Claim Condition
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content" style="padding: 15px">
+          <div class="tab-pane fade active in" id="tab_1_1">
+            <p> Raw denim you probably haven't heard of them jean
+              shorts Austin. Nesciunt tofu stumptown aliqua, retro
+              synth master cleanse. Mustache cliche tempor,
+              williamsburg carles vegan helvetica. Reprehenderit
+              butcher
+              retro keffiyeh dreamcatcher synth. Cosby sweater eu
+              banh mi, qui irure terry richardson ex squid. Aliquip
+              placeat salvia cillum iphone. Seitan aliquip quis
+              cardigan american apparel, butcher voluptate nisi
+              qui. </p>
+          </div>
+          <div class="tab-pane fade" id="tab_1_2">
+            <p> Food truck fixie locavore, accusamus mcsweeney's marfa
+              nulla single-origin coffee squid. Exercitation +1
+              labore velit, blog sartorial PBR leggings next level
+              wes anderson artisan four loko farm-to-table craft
+              beer twee. Qui photo booth letterpress, commodo enim
+              craft beer mlkshk aliquip jean shorts ullamco ad vinyl
+              cillum PBR. Homo nostrud organic, assumenda labore
+              aesthetic magna delectus mollit. Keytar helvetica
+              VHS salvia yr, vero magna velit sapiente labore
+              stumptown. Vegan fanny pack odio cillum wes anderson
+              8-bit, sustainable jean shorts beard ut DIY ethical
+              culpa terry richardson biodiesel. Art party scenester
+              stumptown, tumblr butcher vero sint qui sapiente
+              accusamus tattooed echo park. </p>
+          </div>
+          <div class="tab-pane fade" id="tab_1_3">
+            <p> Etsy mixtape wayfarers, ethical wes anderson tofu
+              before they sold out mcsweeney's organic lomo retro
+              fanny pack lo-fi farm-to-table readymade. Messenger bag
+              gentrify pitchfork tattooed craft beer, iphone
+              skateboard
+              locavore carles etsy salvia banksy hoodie helvetica.
+              DIY synth PBR banksy irony. Leggings gentrify squid
+              8-bit cred pitchfork. Williamsburg banh mi whatever
+              gluten-free, carles pitchfork biodiesel fixie
+              etsy retro mlkshk vice blog. Scenester cred you
+              probably haven't heard of them, vinyl craft beer blog
+              stumptown. Pitchfork sustainable tofu synth chambray
+              yr. </p>
+          </div>
+          <div class="tab-pane fade" id="tab_1_4">
+            <p> Trust fund seitan letterpress, keytar raw denim
+              keffiyeh etsy art party before they sold out master
+              cleanse gluten-free squid scenester freegan cosby
+              sweater. Fanny pack portland seitan DIY, art party
+              locavore
+              wolf cliche high life echo park Austin. Cred vinyl
+              keffiyeh DIY salvia PBR, banh mi before they sold out
+              farm-to-table VHS viral locavore cosby sweater. Lomo
+              wolf viral, mustache readymade thundercats keffiyeh
+              craft beer marfa ethical. Wolf salvia freegan,
+              sartorial keffiyeh echo park vegan. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

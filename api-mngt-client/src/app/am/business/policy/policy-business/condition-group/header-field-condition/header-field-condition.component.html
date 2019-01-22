@@ -1,0 +1,79 @@
+<h3 class="title">{{'ConditionGroup.HeaderField.Title'|translate}}</h3>
+<div class="row">
+  <form class="form-body" [formGroup]="headerFieldForm" (ngSubmit)="addHeaderField(headerFieldForm.value)">
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.HeaderField.Input.Name.Title'|translate}}
+        <span class="required">* </span>
+      </label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="headerFieldName" placeholder="{{'ConditionGroup.HeaderField.Input.Name.Placeholder'|translate}}">
+        <small class="error" *ngIf="headerFieldForm.get('headerFieldName').invalid && (headerFieldForm.get('headerFieldName').touched || headerFieldForm.get('headerFieldName').dirty)">
+          {{'ConditionGroup.HeaderField.Input.Name.Error'|translate}}
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.HeaderField.Input.Value.Title'|translate}}
+        <span class="required">* </span>
+      </label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="headerFieldValue" placeholder="{{'ConditionGroup.HeaderField.Input.Value.Placeholder'|translate}}">
+        <small class="error" *ngIf="headerFieldForm.get('headerFieldValue').invalid && (headerFieldForm.get('headerFieldValue').touched || headerFieldForm.get('headerFieldValue').dirty)">
+          {{'ConditionGroup.HeaderField.Input.Value.Error'|translate}}
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.HeaderField.Input.Directional.Title'|translate}}
+      </label>
+      <div class="col-md-6">
+        <select id="ipConditionType" class="form-control" formControlName="directional">
+          <option *ngFor="let item of listDirectional" [value]="item.id">
+            {{item.value}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.HeaderField.Input.Status.Title'|translate}}
+      </label>
+      <div class="col-md-6">
+        <select id="ipConditionType" class="form-control" formControlName="headerFieldStatus">
+          <option *ngFor="let item of listStatus" [value]="item.id">
+            {{item.value}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <button class="btn green" type="submit">{{'Button.AddNew'|translate}}</button>
+    <div class="table-scrollable">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th> # </th>
+            <th> {{'ConditionGroup.HeaderField.Name'|translate}} </th>
+            <th> {{'ConditionGroup.HeaderField.Value'|translate}} </th>
+            <th> {{'ConditionGroup.HeaderField.Directional'|translate}} </th>
+            <th> {{'ConditionGroup.HeaderField.Status'|translate}} </th>
+            <th> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listHeaderField; let i = index">
+            <td> {{i+1}}</td>
+            <td> {{item.headerFieldName}}</td>
+            <td> {{item.headerFieldValue}}</td>
+            <td> {{getDirectionalById(item.directional)}}</td>
+            <td> {{getStatusById(item.headerFieldStatus)}}</td>
+            <td>
+              <a class="label label-sm label-danger" (click)="removeHeaderField(i)">
+                <i class="fa fa-trash-o"></i>
+                {{'Button.Delete'|translate}}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>

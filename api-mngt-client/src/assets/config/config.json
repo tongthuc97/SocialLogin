@@ -1,0 +1,5 @@
+{
+    "apiUrl": "http://192.168.10.142:9092",
+    "baseUrl": "http://192.168.10.142:9092/savis/categories/api/v1/",
+    "runtimeUrl": "http://192.168.10.142:9090"
+}

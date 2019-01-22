@@ -1,0 +1,272 @@
+<div class="portlet light bordered" id="form_wizard_1">
+	<div class="portlet-title">
+		<div class="caption">
+			<i class=" icon-layers font-red"></i>
+			<span class="caption-subject font-red bold uppercase"> {{'SIDEBAR.API Management'|translate}}</span>
+		</div>
+	</div>
+	<div class="portlet-body form">
+		<form action="#" class="form-horizontal" id="submit_form" role="form" [formGroup]="businessForm">
+			<div class="form-wizard">
+				<div class="form-body">
+					<ul class="nav nav-pills nav-justified steps" id="api-design-tab">
+						<li>
+							<a href="#tab1" data-toggle="tab" class="step">
+								<span class="number"> 1 </span>
+								<span class="desc">
+									<i class="fa fa-check"></i> {{'Api.Create.ApiDesign'|translate}} </span>
+							</a>
+						</li>
+						<li>
+							<a href="#tab2" data-toggle="tab" class="step">
+								<span class="number"> 2 </span>
+								<span class="desc">
+									<i class="fa fa-check"></i> {{'Api.Create.Implement'|translate}} </span>
+							</a>
+						</li>
+						<li>
+							<a href="#tab3" data-toggle="tab" class="step active">
+								<span class="number"> 3 </span>
+								<span class="desc">
+									<i class="fa fa-check"></i> {{'Api.Create.Manage'|translate}} </span>
+							</a>
+						</li>
+					</ul>
+					<div id="bar" class="progress progress-striped" role="progressbar">
+						<div class="progress-bar progress-bar-success"> </div>
+					</div>
+					<div class="tab-content">
+						<div class="alert alert-danger display-none">
+							<button class="close" data-dismiss="alert"></button>{{'Message.FormError'|translate}}</div>
+						<div class="alert alert-success display-none">
+							<button class="close" data-dismiss="alert"></button>{{'Message.FormValidation'|translate}}</div>
+						<div class="tab-pane active" id="tab1">
+							<h3 class="block">{{'Api.Create.GeneralDetails'|translate}}</h3>
+							<div class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.Name.Title'|translate}}
+									<span class="required">* </span>
+									<i class="glyphicon glyphicon-question-sign" title="{{'Api.Create.Input.Name.Detail'|translate}}"></i>
+								</label>
+								<div class="col-md-6">
+									<input formControlName="apiName" type="text" class="form-control" placeholder="{{'Api.Create.Input.Name.Placeholder'|translate}}"
+									 [disabled]="!(business == 'new')" />
+									<small class="error" *ngIf="businessForm.get('apiName').invalid && (businessForm.get('apiName').touched || businessForm.get('apiName').dirty)">
+										{{ 'Api.Create.Input.Name.Error' | translate }}
+									</small>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.Provider.Title'|translate}}
+									<i class="glyphicon glyphicon-question-sign" title="{{'Api.Create.Input.Provider.Detail'|translate}}"></i>
+								</label>
+								<div class="col-md-6">
+									<input formControlName="apiProvider" type="text" class="form-control" placeholder="{{'Api.Create.Input.Provider.Placeholder'|translate}}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.GroupApi.Title'|translate}}
+									<span class="required">* </span>
+									<i class="glyphicon glyphicon-question-sign" title="{{'Api.Create.Input.GroupApi.Detail'|translate}}"></i>
+								</label>
+								<div class="col-md-6">
+									<select class="form-control" formControlName="groupApiId">
+										<option value="">{{'Api.Create.Input.GroupApi.Placeholder'|translate}}</option>
+										<option *ngFor="let groupApi of groupApis" [value]="groupApi.id">
+											{{groupApi.name}}
+										</option>
+									</select>
+									<small class="error" *ngIf="businessForm.get('groupApiId').invalid && (businessForm.get('groupApiId').touched || businessForm.get('groupApiId').dirty)">
+										{{ 'Api.Create.Input.GroupApi.Error' | translate }}
+									</small>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.Context.Title'|translate}}
+									<span class="required"> * </span>
+									<i class="glyphicon glyphicon-question-sign" title="{{'Api.Create.Input.Context.Detail'|translate}}"></i>
+								</label>
+								<div class="col-md-6">
+									<input formControlName="contextTemplate" #context type="text" class="form-control" placeholder="{{'Api.Create.Input.Context.Placeholder'|translate}}"
+									 [readonly]="business=='edit'||business=='clone'" />
+									<small class="error" *ngIf="businessForm.get('contextTemplate').invalid && (businessForm.get('contextTemplate').touched || businessForm.get('contextTemplate').dirty)">
+										{{ 'Api.Create.Input.Context.Error' | translate }}
+									</small>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.Version.Title'|translate}}
+									<span class="required">* </span>
+								</label>
+								<div class="col-md-6">
+									<input formControlName="apiVersion" #version type="text" class="form-control" placeholder="{{'Api.Create.Input.Version.Placeholder'|translate}}"
+									 [readonly]="business=='edit'" />
+									<small class="error" *ngIf="businessForm.get('apiVersion').invalid && (businessForm.get('apiVersion').touched || businessForm.get('apiVersion').dirty)">
+										{{ 'Api.Create.Input.Version.Error' | translate }}
+									</small>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.Description.Title'|translate}}
+								</label>
+								<div class="col-md-6">
+									<textarea formControlName="description" type="text" class="form-control" placeholder="{{'Api.Create.Input.Description.Placeholder'|translate}}"></textarea>
+								</div>
+							</div>
+							<h3 class="block">{{'Api.Create.ApiDefinition'|translate}}</h3>
+							<div *ngIf="type != 'wsdl'">
+								<div class="form-group">
+									<label class="control-label col-md-3">{{'Api.Create.Input.UrlPattern.Title'|translate}}
+									</label>
+									<div class="col-md-6">
+										<div class="input-group">
+											<span class="input-group-addon">/{{context.value !='' ? context.value :'{context}'}}/{{version.value !='' ?
+												version.value :'{version}'}}/</span>
+											<input type="text" class="form-control" placeholder="{{'Api.Create.Input.UrlPattern.Placeholder'|translate}}"
+											 id="txtUrlPattern" />
+										</div>
+										<small class="error" *ngIf="!urlPatternIsValid">
+											{{'Api.Create.Input.UrlPattern.Error'|translate}}
+										</small>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3"></label>
+									<div class="col-md-6">
+										<div style="padding-left: 35px;" class="row">
+											<div *ngFor="let item of apiMethods" class="checkbox checkbox-primary checkbox-inline">
+												<input type="checkbox" class="styled" id="inlineCheckbox2" name="{{item?.httpMethod}}" [(ngModel)]="item.checked"
+												 [ngModelOptions]="{standalone: true}">
+												<label for="inlineCheckbox2"> {{item?.httpMethod}} </label>
+											</div>
+										</div>
+										<small class="error" *ngIf="!methodIsChoose">
+											{{'Api.Create.Input.Method.Error'|translate}}
+										</small>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3"></label>
+									<div class="col-md-6">
+										<button type="button" class="btn blue" (click)="addMethod()">
+											<i class="fa fa-plus"></i>{{'Button.Add'|translate}}</button>
+									</div>
+								</div>
+								<div *ngIf="liApiMethods">
+									<app-api-method *ngFor="let method of (liApiMethods ? liApiMethods : []); let i = index" [apiMethod]="method"
+									 (removeMethodMes)="removeMethod(i)" (changeMethodInfoMes)="changeMethodInfo($event,i)"></app-api-method>
+								</div>
+							</div>
+							<div *ngIf="type=='wsdl'">
+								<div class="form-group">
+									<label class="control-label col-md-3">{{'Api.Create.Input.Wsdl.Title'|translate}}</label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" placeholder="{{'Api.Create.Input.Wsdl.Placeholder'|translate}}"
+										 [value]="wsdlUrl" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="tab2">
+							<h3 class="block">{{'Api.Create.Implement'|translate}}</h3>
+							<div class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.EndpointType.Title'|translate}}
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6">
+									<select class="form-control" autofocus formControlName="endpointType">
+										<option value="1">HTTP/REST Endpoint</option>
+										<option value="2">HTTP/SOAP Endpoint</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.ProductEndpoint.Title'|translate}}
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6">
+									<input formControlName="productEndpoint" type="text" pattern="^[a-zA-Z0-9?%+&:/._=-]+$" class="form-control"
+									 placeholder="{{'Api.Create.Input.ProductEndpoint.Placeholder'|translate}}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.Secured.Title'|translate}}</label>
+								<label style="padding-left: 35px; padding-top: 8px;">
+									<div class="checkbox checkbox-primary checkbox-inline">
+										<input type="checkbox" class="styled" formControlName="secured" />
+										<label for="inlineCheckbox2"> {{item?.methodName}} </label>
+									</div>
+								</label>
+							</div>
+							<div *ngIf="businessForm.get('secured').value===true" class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.Username.Title'|translate}}</label>
+								<div class="col-md-3">
+									<input formControlName="username" type="text" class="form-control" placeholder="{{'Api.Create.Input.Username.Placeholder'|translate}}" />
+								</div>
+							</div>
+							<div *ngIf="businessForm.get('secured').value===true" class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.Password.Title'|translate}}</label>
+								<div class="col-md-3">
+									<input formControlName="password" type="password" class="form-control" placeholder="{{'Api.Create.Input.Password.Placeholder'|translate}}" />
+								</div>
+							</div>
+							<div *ngIf="businessForm.get('secured').value===true" class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.CustomHeader.Title'|translate}}
+								</label>
+								<div class="col-md-6">
+									<input formControlName="customHeader" type="text" class="form-control" placeholder="{{'Api.Create.Input.CustomHeader.Placeholder'|translate}}" />
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="tab3">
+							<h3 class="block">{{'Api.Create.Manage'|translate}}</h3>
+							<div class="form-group">
+								<label class="control-label col-md-3"></label>
+								<label style="padding-left: 35px; padding-top: 8px;" class="col-md-4">
+									<div class="checkbox checkbox-primary checkbox-inline">
+										<input type="checkbox" class="styled" formControlName="defaultVersion" [checked]="intToBoolean(apiVersion?.isDefaultVersion)" />
+										<label for="inlineCheckbox2"> {{'Api.Create.Input.MakeDefaultVersion.Title'|translate}} </label>
+									</div>
+								</label>
+								<label style="padding-left: 35px; padding-top: 8px;" class="col-md-4">
+									<div class="checkbox checkbox-primary checkbox-inline">
+										<input type="checkbox" class="styled" formControlName="responseCaching" [checked]="intToBoolean(apiVersion?.isCache)" />
+										<label for="inlineCheckbox2"> {{'Api.Create.Input.MakeCache.Title'|translate}} </label>
+									</div>
+								</label>
+							</div>
+							<h3 class="block">{{'Api.Create.ThrottingSettings'|translate}}</h3>
+							<div class="form-group">
+								<label class="control-label col-md-3">{{'Api.Create.Input.ThrottingSettingTo.Title'|translate}}
+									<span class="required">* </span>
+								</label>
+								<div class="col-md-4">
+									<select class="form-control" formControlName="policyId">
+										<option *ngFor="let policy of policies" [value]="policy.amPolicyId">
+											{{policy.displayName}}
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-actions">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-9">
+							<input type="hidden" id="tab-index" />
+							<a href="javascript:;" class="btn default button-previous">
+								<i class="fa fa-angle-left"></i> {{ 'Common.Back' | translate }}</a>
+							<a href="javascript:;" class="btn btn-outline green button-next"> {{ 'Common.Continue' | translate }}
+								<i class="fa fa-angle-right"></i>
+							</a>
+							<a href="javascript:;" class="btn green button-submit" (click)="submitData(businessForm.value)"> {{
+								'Common.Submit' | translate }}
+								<i class="fa fa-check"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

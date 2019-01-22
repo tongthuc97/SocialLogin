@@ -1,0 +1,58 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.Conditions'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="/block-condition">{{'BlockCondition.Title'|translate}}</a>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h4 class="page-title">{{'BlockCondition.Business.DetailTitle'|translate}}</h4>
+<!-- END PAGE TITLE-->
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal align-middle">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="displayName">{{'BlockCondition.Type'|translate}}</label>
+            <div class="col-md-8">
+              <input id="blockName" type="text" [value]="blockCondition?.blockName" class="form-control" disabled />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-4" for="name">{{'BlockCondition.Value'|translate}}</label>
+            <div class="col-md-8">
+              <input id="blockValue" type="text" [value]="blockCondition?.blockValue" class="form-control" disabled />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="blockStatus">{{'BlockCondition.Status'|translate}}</label>
+            <div class="col-md-8">
+              <input id="blockStatus" type="text" [value]="getStatusById(blockCondition?.blockStatus)" class="form-control"
+                disabled />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{
+          'Button.Back' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>

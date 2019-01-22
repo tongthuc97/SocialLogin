@@ -1,0 +1,78 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="/home">{{'Header.Home'|translate}}</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">{{'SIDEBAR.API Management'|translate}}</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>{{'Api.Title'|translate}}</span>
+        </li>
+    </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title">{{'Api.UpdateState.Title'|translate}}</h3>
+<hr>
+<!-- END PAGE TITLE-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal align-middle">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="name">{{'Api.UpdateState.ApiName'|translate}}</label>
+                        <div class="col-md-8">
+                            <input id="name" type="text" readonly value="{{apiVersion?.amApi.apiName}}" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="apiVersion">{{'Api.UpdateState.ApiVersion'|translate}}</label>
+                        <div class="col-md-8">
+                            <input id="apiVersion" type="text" readonly value="{{apiVersion?.apiVersion}}" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="apiVersion">{{'Api.UpdateState.CurentState'|translate}}</label>
+                        <div class="col-md-8">
+                            <input id="apiVersion" type="text" readonly value="{{getApiStateById(apiVersion?.currentState)}}"
+                                class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="status">{{'Api.UpdateState.NewState'|translate}}</label>
+                        <div class="col-md-8">
+                            <input type="hidden" required>
+                            <select class="form-control" autofocus #state>
+                                <option *ngFor="let status of listStatus" [value]="status.id">{{status.value}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="updateState(state.value)">{{ 'Button.Save' |
+                    translate }}</button>
+                <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{
+                    'Button.Back' | translate }}</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- END CONTENT PAGE-->

@@ -1,0 +1,292 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.Conditions'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="/policy">{{'Policy.Title'|translate}}</a>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title">{{'Policy.Detail.Title'|translate}}</h3>
+<hr>
+<!-- END PAGE TITLE-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal" role="form">
+      <div class="form-body">
+        <!-- BEGIN POLICY FORM-->
+        <!-- BEGIN POLICY INFOMATION-->
+        <div class="form-group">
+          <h3 class="col-md-3">{{'Policy.Detail.PolicyType'|translate}}</h3>
+          <div class="col-md-6">
+            <input type="text" class="form-control" [value]="getPolicyTypeById(policy?.policyType)">
+          </div>
+        </div>
+        <h3>{{'Policy.Detail.GeneralDetails'|translate}}</h3>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{'Policy.Detail.Name'|translate}}
+          </label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" [value]="policy?.name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{'Policy.Detail.DisplayName'|translate}}
+          </label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" [value]="policy?.displayName">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{'Policy.Detail.Description'|translate}}</label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" [value]="policy?.description">
+          </div>
+        </div>
+        <h3>{{'Policy.Detail.DefaultLimits'|translate}}</h3>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{'Policy.Detail.QuotaType'|translate}}</label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" [value]="getQuotaTypeById(policy?.quotaType)">
+          </div>
+        </div>
+        <div class="form-group" *ngIf="policy?.quotaType===2">
+          <label class="col-md-3 control-label">{{'Policy.Detail.RequestCount'|translate}}
+          </label>
+          <div class="col-md-6">
+            <input type="number" class="form-control" [value]="policy?.requestCount">
+          </div>
+        </div>
+        <div class="form-group" *ngIf="policy?.quotaType===1">
+          <label class="col-md-3 control-label">{{'Policy.Detail.RequestBandwidth'|translate}}
+          </label>
+          <div class="col-md-6">
+            <input type="number" class="form-control" [value]="policy?.requestBandwidth">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{'Policy.Detail.UnitTime'|translate}}
+          </label>
+          <div class="col-md-6">
+            <input type="number" class="form-control" [value]="policy?.unitTime">
+          </div>
+        </div>
+        <!-- END POLICY INFOMATION-->
+        <!-- BEGIN CONDITION GROUPS-->
+        <div *ngIf="policy?.policyType===2">
+          <h3>{{'Policy.Business.ConditionalGroups'|translate}}</h3>
+          <hr>
+          <div class="clearfix margin-bottom-20"> </div>
+          <div class="row" *ngFor="let conditionGroup of conditionGroups; let i=index">
+            <div class="col-md-12 ">
+              <div class="portlet box default">
+                <div class="portlet-title">
+                  <div class="caption font-red-sunglo" data-toggle="collapse" [attr.href]="'#collapse'+i">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject font-dark sbold uppercase">{{'ConditionGroup.Title'|translate}}</span>
+                  </div>
+                </div>
+                <div class="portlet-body form panel-collapse collapse in" [id]="'collapse'+i">
+                  <!--BEGIN CONDITION GROUP INFOMATION-->
+                  <div class="form-body">
+                    <h3>{{'ConditionGroup.Title'|translate}}</h3>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label">{{'ConditionGroup.Input.Name.Title'|translate}}
+                      </label>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" [value]="conditionGroup?.name">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label">{{'ConditionGroup.Input.Description.Title'|translate}}</label>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" [value]="conditionGroup?.description">
+                      </div>
+                    </div>
+                    <h3>{{'ConditionGroup.DefaultLimits'|translate}}</h3>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label"></label>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" [value]="getQuotaTypeById(conditionGroup.quotaType)">
+                      </div>
+                    </div>
+                    <div class="form-group" *ngIf="conditionGroup.quotaType===2">
+                      <label class="col-md-3 control-label">{{'ConditionGroup.Input.RequestCount.Title'|translate}}
+                      </label>
+                      <div class="col-md-6">
+                        <input type="number" class="form-control" [value]="conditionGroup?.quota">
+                      </div>
+                    </div>
+                    <div class="form-group" *ngIf="conditionGroup.quotaType===1">
+                      <label class="col-md-3 control-label">{{'ConditionGroup.Input.RequestBandwidth.Title'|translate}}
+                      </label>
+                      <div class="col-md-6">
+                        <input type="number" class="form-control" [value]="conditionGroup?.quota">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label">{{'ConditionGroup.Input.UnitTime.Title'|translate}}
+                      </label>
+                      <div class="col-md-6">
+                        <input type="number" class="form-control" [value]="conditionGroup?.unitTime">
+                      </div>
+                    </div>
+                  </div>
+                  <!--END CONDITION GROUP INFOMATION-->
+                  <ul class="nav nav-tabs" style="padding: 15px">
+                    <li class="active">
+                      <a href="#tab_1_1" data-toggle="tab"> {{'ConditionGroup.Ip.Title'|translate}} </a>
+                    </li>
+                    <li>
+                      <a href="#tab_1_2" data-toggle="tab"> {{'ConditionGroup.HeaderField.Title'|translate}} </a>
+                    </li>
+                    <li>
+                      <a href="#tab_1_3" data-toggle="tab"> {{'ConditionGroup.QueryParam.Title'|translate}}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#tab_1_4" data-toggle="tab"> {{'ConditionGroup.JwtClaim.Title'|translate}}
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="tab-content" style="padding: 0 15px 0 15px">
+                    <div class="tab-pane fade active in" id="tab_1_1">
+                      <h3 class="title">{{'ConditionGroup.Ip.Title'|translate}}</h3>
+                      <div class="row">
+                        <div class="table-scrollable">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th> # </th>
+                                <th> {{'ConditionGroup.Ip.StartingIp'|translate}} </th>
+                                <th> {{'ConditionGroup.Ip.EndingIp'|translate}} </th>
+                                <th> {{'ConditionGroup.Ip.SpecificIp'|translate}} </th>
+                                <th> {{'ConditionGroup.Ip.Directional'|translate}} </th>
+                                <th> {{'ConditionGroup.Ip.Status'|translate}} </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of conditionGroup?.amIpConditions; let i = index">
+                                <td> {{i+1}}</td>
+                                <td> {{item.startingIp}}</td>
+                                <td> {{item.endingIp}}</td>
+                                <td> {{item.specificIp}}</td>
+                                <td> {{getDirectionalById(item.directional)}}</td>
+                                <td> {{getStatusById(item.ipConditionStatus)}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab_1_2">
+                      <h3 class="title">{{'ConditionGroup.HeaderField.Title'|translate}}</h3>
+                      <div class="row">
+                        <div class="table-scrollable">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th> # </th>
+                                <th> {{'ConditionGroup.HeaderField.Name'|translate}} </th>
+                                <th> {{'ConditionGroup.HeaderField.Value'|translate}} </th>
+                                <th> {{'ConditionGroup.HeaderField.Directional'|translate}} </th>
+                                <th> {{'ConditionGroup.HeaderField.Status'|translate}} </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of conditionGroup?.amHeaderFieldConditions; let i = index">
+                                <td> {{i+1}}</td>
+                                <td> {{item.headerFieldName}}</td>
+                                <td> {{item.headerFieldValue}}</td>
+                                <td> {{getDirectionalById(item.directional)}}</td>
+                                <td> {{getStatusById(item.headerFieldStatus)}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab_1_3">
+                      <h3 class="title">{{'ConditionGroup.QueryParam.Title'|translate}}</h3>
+                      <div class="row">
+                        <div class="table-scrollable">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th> # </th>
+                                <th> {{'ConditionGroup.QueryParam.Name'|translate}} </th>
+                                <th> {{'ConditionGroup.QueryParam.Value'|translate}} </th>
+                                <th> {{'ConditionGroup.QueryParam.IsParamMapping'|translate}} </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of conditionGroup?.amQueryParameterConditions; let i = index">
+                                <td> {{i+1}}</td>
+                                <td> {{item.parameterName}}</td>
+                                <td> {{item.parameterValue}}</td>
+                                <td> {{item.isParamMapping}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab_1_4">
+                      <h3 class="title">{{'ConditionGroup.JwtClaim.Title'|translate}}</h3>
+                      <div class="row">
+                        <div class="table-scrollable">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th> # </th>
+                                <th> {{'ConditionGroup.JwtClaim.ClaimAttrib'|translate}} </th>
+                                <th> {{'ConditionGroup.JwtClaim.ClaimUri'|translate}} </th>
+                                <th> {{'ConditionGroup.JwtClaim.IsClaimMapping'|translate}} </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of conditionGroup?.amJwtClaimConditions; let i = index">
+                                <td> {{i+1}}</td>
+                                <td> {{item.claimAttrib}}</td>
+                                <td> {{item.claimUri}}</td>
+                                <td> {{item.isClaimMapping}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- BEGIN CONDITION GROUPS-->
+        <!-- END POLICY FORM-->
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-9">
+            <button type="submit" class="btn btn-primary">{{ 'Button.Save' | translate }}</button>
+            <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{
+              'Button.Back' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END CONTENT PAGE-->

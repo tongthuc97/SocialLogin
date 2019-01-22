@@ -1,0 +1,56 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="/home">{{'Header.Home'|translate}}</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">{{'SIDEBAR.API Management'|translate}}</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>{{'ApiProcess.Title'|translate}}</span>
+        </li>
+    </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title">{{'ApiProcess.Process.Title'|translate}}</h3>
+<hr>
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal align-middle">
+            <div class="row">
+                <div class="form-group">
+                    <label class="control-label col-md-4">{{'ApiProcess.Process.Input.ApiName.Title'|translate}}</label>
+                    <div class="col-md-6">{{taskData?.description}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label class="control-label col-md-4">{{'ApiProcess.Process.Input.Process.Title'|translate}}</label>
+                    <div class="col-md-6">{{taskData?.name}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="processContent">{{'ApiProcess.Process.Input.Content.Title'|translate}}
+                    </label>
+                    <div class="col-md-6">
+                        <textarea id="processContent" class="form-control" placeholder="{{'ApiProcess.Process.Input.Content.Placeholder'|translate}}"
+                            #processContent></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button *ngFor="let state of states" type="button" class="btn btn-primary" (click)="process(state.id, processContent.value)">{{state.value}}</button>
+                <button type="button" class="btn default" (click)="goBack()">
+                    <i class="fa fa-undo" aria-hidden="true"></i>{{ 'Button.Back' | translate }}</button>
+            </div>
+        </form>
+    </div>
+</div>

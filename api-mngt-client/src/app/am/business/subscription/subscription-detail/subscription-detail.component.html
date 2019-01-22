@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal align-middle">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <label class="col-md-4 text-right" for="provider">{{ 'Application.Subscription.Policy' | translate }}</label>
+            <div class="col-md-8">
+              {{subscription?.amPolicy.displayName}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 text-right" for="contextTemplate">{{ 'Application.Subscription.Application' | translate }}</label>
+            <div class="col-md-8">
+              {{subscription?.amApplication.name}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 text-right" for="createdBy">{{ 'Application.Subscription.Version' | translate }}</label>
+            <div class="col-md-8">
+              {{subscription?.amApiVersion.amApi.apiName }} &lt;{{subscription?.amApiVersion.apiVersion}}&gt;
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 text-right" for="updatedDate">{{ 'Application.Subscription.Status' | translate }}</label>
+            <div class="col-md-8">
+              {{getStatusById(subscription?.subStatus)}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 text-right" for="description">{{ 'Application.Subscription.CreateBy' | translate }}</label>
+            <div class="col-md-8">
+              {{subscription?.createdBy}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 text-right" for="description">{{ 'Application.Subscription.CreateTime' | translate }}</label>
+            <div class="col-md-8">
+              {{subscription?.createdTime | date:'dd-MM-yyyy'}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 text-right" for="description">{{ 'Application.Subscription.UpdateBy' | translate }}</label>
+            <div class="col-md-8">
+              {{subscription?.updatedBy}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 text-right" for="description">{{ 'Application.Subscription.UpdateTime' | translate }}</label>
+            <div class="col-md-8">
+              {{subscription?.updatedTime | date:'dd-MM-yyyy'}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 text-right" for="description">{{ 'Application.Subscription.LastAccessed' | translate }}</label>
+            <div class="col-md-8">
+              {{subscription?.lastAccessed}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{ 'Button.Back' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>

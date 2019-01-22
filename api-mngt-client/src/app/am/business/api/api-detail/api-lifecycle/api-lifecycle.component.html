@@ -1,0 +1,21 @@
+<div class="portlet-title">
+    <h3 class="page-title">{{'Api.ApiLifecycle.Title'|translate}}</h3>
+</div>
+<div class="portlet-body">
+    <table class="table table-condensed table-hover">
+        <thead>
+            <td>{{'Api.ApiLifecycle.UpdateTime'|translate}}</td>
+            <td>{{'Api.ApiLifecycle.UpdateBy'|translate}}</td>
+            <td>{{'Api.ApiLifecycle.UpdateFrom'|translate}}</td>
+            <td>{{'Api.ApiLifecycle.UpdateTo'|translate}}</td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let lifecycle of apiLifecycles">
+                <td>{{lifecycle.eventDate| date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                <td>{{lifecycle.userId}}</td>
+                <td>{{getApiStateById(lifecycle.previousState)}}</td>
+                <td>{{getApiStateById(lifecycle.newState)}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

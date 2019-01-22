@@ -1,0 +1,70 @@
+
+<header>
+  <div class="container">
+    <h1>AngularJS 2.x Countdown LocalStorage Timer</h1>
+    <p>Countdown and place all the information in localstoage. when the timer reach 0 - the last updated time will be saved.</p>
+    <p>For debugging purposes I recommend <a href="https://addons.mozilla.org/en-US/firefox/addon/firestorage/" target="_blank"> FireStorage Plus! </a> and view the console logs</p>
+  </div>
+</header>
+
+Event msg
+<pre>
+    {{ event_msg }}
+</pre>
+
+<div ng-controller="GenericCtrl">
+    <h3> Define our timer </h3>
+    <table>
+        <tr>
+            <td> LocalStorage Timer ID/Name</td>
+            <td> <input [(ngModel)]="properties.id" type="text" />  <button (click)="reload()"> Reload </button> </td>
+        </tr>
+        <tr>
+            <td> Start from </td>
+            <td> <input name="count_from" [(ngModel)]="properties.counter" type="number" /> </td>
+        </tr>
+        <tr>
+            <td> Interval </td>
+            <td> <input name="counter_interval" [(ngModel)]="properties.interval" type="number" /> </td>
+        </tr>        
+        <tr>
+            <td> Create new timer based on paraemetrs above ? </td>
+            <td> <button (click)="recreate()"> Create new </button> </td>
+        </tr>
+        
+        <span *ngIf="AppTimer">
+            <tr> 
+                <td> Set debugging ( console.logs ? ) </td>
+                <td> 
+                    <select [(ngModel)]="AppTimer.DEBUG">
+                        <option [ngValue]="false"> False </option>
+                        <option [ngValue]="true"> True </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> Remove this timer ? </td>
+                <td> <button (click)="destory()"> Remove </button> </td>
+            </tr>
+            <tr>
+                <td> Update the counter with 120 seconds </td>
+                <td> <button (click)="AppTimer.update('counter', 120)"> Update </button> </td>
+
+            <tr ng-if="AppTimer">
+                <td valign="top"> Timer Actions </td>
+                <td>
+                    <button (click)="AppTimer.restart()">   Restart</button>
+                    <button (click)="AppTimer.start()">     Start</button>
+                    <button (click)="resume()">             Resume</button>
+                    <button (click)="AppTimer.stop()">      Stop</button>
+                </td>
+            </tr>
+        </span>
+    </table>
+
+    <div *ngIf="AppTimer">
+        <h3> Timer "live" information </h3>
+        <pre>{{ AppTimer.getInfo() | json }}</pre>
+    </div>
+
+</div>

@@ -1,0 +1,220 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.Statistics'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>{{'Statistics.ServiceResponseTime'|translate}}</span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<div style="padding:10px;"></div>
+<!-- BEGIN TABLE TOOLBAR-->
+<div class="table-toolbar">
+  <div class="row">
+    <div class="col-md-12">
+      <form class="form-horizontal align-middle" [formGroup]="filterForm" (ngSubmit)="search(filterForm.value, 0)">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-md-3 control-label col-md-4">{{'Statistics.From'|translate}}</label>
+                <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-6" style="padding-right: 2px;">
+                      <input class="form-control" type="date" formControlName="startDate" required>
+                      <small class="error" *ngIf="filterForm.get('startDate').invalid && (filterForm.get('startDate').touched)">
+                          <span *ngIf="filterForm.get('startDate').errors.required">
+                            {{'err.Title'|translate}}
+                          </span>
+                      </small>
+                    </div>
+                    <div class="col-md-6" style="padding-left: 2px;">
+                      <input class="form-control col-md-5" type="time" step="1" formControlName="startTime" required><br>
+                      <small class="error" *ngIf="filterForm.get('startTime').invalid && (filterForm.get('startTime').touched)">
+                          <span *ngIf="filterForm.get('startTime').errors.required">
+                            {{'err.Title'|translate}}
+                          </span>
+                        </small>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-md-3 control-label col-md-4">{{'Statistics.To'|translate}}</label>
+                <div class="col-md-8" style="align-content: left;">
+                    <div class="row">
+                      <div class="col-md-6" style="padding-right: 2px;">
+                        <input class="col-md-7" class="form-control" value="2018-10-16" type="date" formControlName="endDate" required>
+                        <small class="error" *ngIf="filterForm.get('endDate').invalid && (filterForm.get('endDate').touched)">
+                            <span *ngIf="filterForm.get('endDate').errors.required">
+                              {{'err.Title'|translate}}
+                            </span>
+                          </small>
+                      </div>
+                      <div class="col-md-6" style="padding-left: 2px;">
+                          <input class="col-md-5" class="form-control" type="time" step="1" value="22:53:05" formControlName="endTime" required>
+                          <small class="error" *ngIf="filterForm.get('endTime').invalid && (filterForm.get('endTime').touched)">
+                              <span *ngIf="filterForm.get('endTime').errors.required">
+                                {{'err.Title'|translate}}
+                              </span>
+                            </small>
+                      </div>
+                    </div>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-md-3 control-label col-md-4">{{'Statistics.Api'|translate}}</label>
+              <div class="col-md-8">
+                <ng-select [allowClear]="true" [disabled]="disabled" [items]="apiSelections" (selected)="filterForm.get('apiId').setValue($event?.id);getListApiVersion($event?.id)"
+                  (removed)="filterForm.get('apiId').setValue('');
+                  filterForm.get('apiVersionId').setValue(null);removeApiSelection()"
+                  placeholder="Chọn dịch vụ" ngDefaultControl>
+                </ng-select>
+                <small class="error" *ngIf="filterForm.get('apiId').invalid && (filterForm.get('apiId').touched)">
+                  <span *ngIf="filterForm.get('apiId').value == null">
+                    {{'err.Title'|translate}}
+                  </span>
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="col-md-3 control-label col-md-4">{{'Statistics.Version'|translate}}</label>
+              <div class="col-md-8">
+                <ng-select [allowClear]="true" [multiple]="true" [disabled]="disabled" [items]="apiVersionSelections" (selected)="filterForm.get('apiVersionId').setValue($event?.id);"
+                  (removed)="filterForm.get('apiVersionId').setValue(null)" placeholder="Chọn phiên bản" ngDefaultControl>
+                </ng-select>
+                <small class="error" *ngIf="filterForm.get('apiVersionId').invalid && (filterForm.get('apiVersionId').touched)">
+                  <span *ngIf="filterForm.get('apiVersionId').value == null">
+                    {{'err.Title'|translate}}
+                  </span>
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+              <!-- [disabled]="!isValidForm()" -->
+            <button type="submit"  class="btn green"><i class="fa fa-search"></i>{{'Common.Search'|translate}}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="portlet-body">
+  <div *ngIf="isData">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <div class="portlet light bordered">
+        <div class="portlet-title">
+          <div class="caption">
+            <i class="fa fa-table font-blue"></i>
+            <span class="caption-subject font-blue bold uppercase">{{'Statistics.ServiceResponseTime'|translate}}</span>
+          </div>
+
+        </div>
+        <div class="portlet-body">
+          <div style="display: block">
+            <canvas baseChart #baseChart="base-chart" [datasets]="barChartData" [options]="barChartOptions1" [labels]="barChartLabels" [legend]="barChartLegend"
+              [chartType]="barChartType"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END TABLE TOOLBAR-->
+  <!-- BEGIN TABLE CONTENT-->
+  <table class="table table-striped table-bordered table-hover" id="list-data-table" [mfData]="serviceResponseTimes"
+    #mf="mfDataTable">
+    <thead>
+      <tr>
+        <th>
+          <mfDefaultSorter by="stt">{{'Statistics.NO'|translate}}</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="applicationName">{{'Statistics.ApplicationName'|translate}}</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="apiName">{{'Statistics.Api'|translate}}</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="ipClient">{{'Statistics.IPClient'|translate}}</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="timeRequest">{{'Statistics.TimeRequest'|translate}}</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="timeResponse">{{'Statistics.TimeResponse'|translate}}</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="timeResponse">{{'Statistics.ProcessingTime'|translate}}</mfDefaultSorter>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="odd gradeX" *ngFor="let item of mf.data; let i = index">
+        <td style="text-align:center">{{i+1}}</td>
+        <td style="text-align:left">{{item.applicationName}}</td>
+        <td style="text-align:left">{{item.apiName}}</td>
+        <td style="text-align:center">{{item.ipClient}}</td>
+        <td style="text-align:center">{{item.timeRequest | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+        <td style="text-align:center">{{item.timeResponse | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+        <td style="text-align:center">{{item.timeResponse - item.timeRequest}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- END TABLE CONTENT-->
+  <!-- BEGIN PAGING-->
+  <div class="row">
+    <div class="col-md-4">
+      {{fromNumber}} - {{toNumber}} {{ 'Common.InTotal' | translate }} {{totalElements}} {{ 'Common.Items' |
+      translate }}
+    </div>
+    <div class="col-md-4 pull-right">
+      {{ 'Common.Page' | translate }}
+      <button type="button" title="{{ 'Common.FirstPage' | translate }}" class="btn btn-sm default prev" [disabled]="(currentPage+1)<=1"
+        (click)="choosePageNumber(0)">
+        <i class="fa fa-angle-double-left"></i>
+      </button>
+      <button type="button" title="{{ 'Common.Previous' | translate }}" class="btn btn-sm default prev" [disabled]="(currentPage+1)<=1"
+        (click)="choosePageNumber(currentPage-1)">
+        <i class="fa fa-angle-left"></i>
+      </button>
+      <input type="number" step="1" style="border: none; width: 30px; text-align: center;"
+        [value]="currentPageView" #pagepage (keyup.enter)="choosePageNumber(pagepage)"> /
+      <label style="padding-right: 5px;">{{totalPages}}</label>
+      <button type="button" title="{{ 'Common.Next' | translate }}" class="btn btn-sm default next" [disabled]="(currentPage+1)>=totalPages"
+        (click)="choosePageNumber(currentPage+1)">
+        <i class="fa fa-angle-right"></i>
+      </button>
+      <button type="button" title="{{ 'Common.LastPage' | translate }}" class="btn btn-sm default next" [disabled]="(currentPage+1)>=totalPages"
+        (click)="choosePageNumber(totalPages-1)">
+        <i class="fa fa-angle-double-right"></i>
+      </button>
+    </div>
+  </div>
+  </div>
+  <!-- END PAGING-->
+  <div *ngIf="!isData">
+    {{ 'Statistics.NoData' | translate }}
+  </div>
+</div>

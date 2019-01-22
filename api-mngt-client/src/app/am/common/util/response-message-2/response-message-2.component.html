@@ -1,0 +1,8 @@
+<div *ngIf="responseMessage.isHide===false" >
+  <div  [ngClass]="succeed===true
+              ?'custom-alerts alert alert-success fade in'
+              :'custom-alerts alert alert-danger fade in'">
+    <button type="button" class="close" (click)="closeMessage()">
+    </button>{{printMessage()}}
+  </div>
+</div>

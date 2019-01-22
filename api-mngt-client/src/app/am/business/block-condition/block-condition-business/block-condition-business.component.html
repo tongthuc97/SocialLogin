@@ -1,0 +1,96 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.Conditions'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="/block-condition">{{'BlockCondition.Title'|translate}}</a>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h4 class="page-title" *ngIf="isUpdate===false">{{'BlockCondition.Business.CreateTitle'|translate}}</h4>
+<h4 class="page-title" *ngIf="isUpdate===true">{{'BlockCondition.Business.UpdateTitle'|translate}}</h4>
+<!-- END PAGE TITLE-->
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal align-middle" [formGroup]="blockForm" (ngSubmit)="submit(blockForm.value)">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="col-md-3 control-label col-md-4" for="blockName">{{'BlockCondition.Business.Input.Type.Title'|translate}}</label>
+            <div class="col-md-8">
+              <select id="blockName" class="form-control" formControlName="blockName" (change)="updateBlockName(blockForm.get('blockName').value)">
+                <option value="" disabled>{{'BlockCondition.Business.Input.Type.Placeholder'|translate}}</option>
+                <option *ngFor="let BlockCondition of blackLists" [value]="BlockCondition.value">
+                  {{BlockCondition.value}}
+                </option>
+              </select>
+              <small class="error" *ngIf="blockForm.get('blockName').invalid && (blockForm.get('blockName').touched || isHideError===true)">
+                <span *ngIf="blockForm.get('blockName').errors.required">
+                  {{ 'Message.Required' | translate }}
+                </span>
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="col-md-3 control-label col-md-4" for="blockStatus">{{'BlockCondition.Business.Input.Status.Title'|translate}}</label>
+            <div class="col-md-8">
+              <select id="blockStatus" class="form-control" formControlName="blockStatus">
+                <option *ngFor="let status of statuses" [value]="status.id">
+                  {{status.value}}
+                </option>
+              </select>
+              <small class="error" *ngIf="blockForm.get('blockStatus').invalid && (blockForm.get('blockStatus').touched || isHideError===true)">
+                <span *ngIf="blockForm.get('blockStatus').errors.required">
+                  {{ 'Message.Required' | translate }}
+                </span>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="col-md-3 control-label col-md-4" for="blockValue">{{'BlockCondition.Business.Input.Value.Title'|translate}}</label>
+            <div class="col-md-8">
+              <input id="blockValue" type="text" class="form-control" formControlName="blockValue" placeholder="{{'BlockCondition.Business.Input.Value.Placeholder'|translate}}"
+                (keyup)="blockExistWithValue(blockForm.get('blockValue').value)" />
+              <small class="error" *ngIf="blockForm.get('blockValue').invalid && (blockForm.get('blockValue').touched || isHideError===true)">
+                <span *ngIf="blockForm.get('blockValue').errors.required">
+                  {{ 'Message.Required' | translate }}
+                </span>
+                <span *ngIf="blockForm.get('blockValue').errors.pattern!=null">
+                  {{ 'Message.Invalid' | translate }}
+                </span>
+                <span *ngIf="blockForm.get('blockValue').errors.maxlength!=null">
+                  {{ 'Message.MaxLength' | translate }} 50
+                </span>
+              </small>
+              <small class="error" *ngIf="checkBlockExistWithValue===true">
+                {{ 'Message.Existing' | translate }}
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">{{ 'Button.Save' | translate }}</button>
+        <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{
+          'Button.Back' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>

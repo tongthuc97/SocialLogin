@@ -1,0 +1,83 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.API Management'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>{{'GroupApi.Title'|translate}}</span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title" *ngIf="isUpdate===false">{{'GroupApi.Business.CreateTitle'|translate}}</h3>
+<h3 class="page-title" *ngIf="isUpdate===true">{{'GroupApi.Business.UpdateTitle'|translate}}</h3>
+<hr>
+<!-- END PAGE TITLE-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal align-middle" [formGroup]="groupApiForm" (ngSubmit)="submit(groupApiForm.value)">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="name">{{'GroupApi.Business.Input.Name.Title'|translate}}<span
+                style="color:red;"> *</span></label>
+            <div class="col-md-8">
+              <input id="name" type="text" maxlength="200" class="form-control" formControlName="name" placeholder="{{'GroupApi.Business.Input.Name.Placeholder'|translate}}" />
+              <small class="error" *ngIf="groupApiForm.get('name').invalid && (groupApiForm.get('name').touched || groupApiForm.get('name').dirty)">
+                {{ 'GroupApi.Business.Input.Name.Error' | translate }}
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="code">{{'GroupApi.Business.Input.Code.Title'|translate}}<span
+                style="color:red;"> *</span></label>
+            <div class="col-md-8">
+              <input id="code" type="text" maxlength="200" class="form-control" formControlName="code" placeholder="{{'GroupApi.Business.Input.Code.Placeholder'|translate}}" />
+              <small class="error" *ngIf="groupApiForm.get('code').invalid && (groupApiForm.get('code').touched || groupApiForm.get('code').dirty)">
+                {{ 'GroupApi.Business.Input.Code.Error' | translate }}
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="status">{{'GroupApi.Business.Input.Status.Title'|translate}}<span
+                style="color:red;"> *</span></label>
+            <div class="col-md-8">
+              <input type="hidden" required>
+              <select class="form-control" formControlName="status" autofocus>
+                <option *ngFor="let status of listStatus" [value]="status.id">{{status.value}}</option>
+              </select>
+              <small class="error" *ngIf="groupApiForm.get('status').invalid 
+                                && (groupApiForm.get('status').touched || isHideErrorCreating===true)">
+                <span *ngIf="groupApiForm.get('status').errors.min!=null">
+                  {{ 'Message.Select' | translate }}
+                </span>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">{{ 'Button.Save' | translate }}</button>
+        <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{
+          'Button.Back' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END CONTENT PAGE-->

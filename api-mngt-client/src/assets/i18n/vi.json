@@ -1,0 +1,1454 @@
+{
+	"Common": {
+		"Back": "Quay lại",
+		"Save": "Lưu",
+		"Create": "Thêm Mới",
+		"Update": "Cập Nhật",
+		"Process": "Xử lý",
+		"Clone": "Sao chép",
+		"Delete": "Xóa",
+		"Detail": "Chi Tiết",
+		"Search": "Tìm kiếm",
+		"Action": "Hành động",
+		"InTotal": "trong số",
+		"Items": "đối tượng",
+		"Page": "Trang",
+		"Next": "Trang sau",
+		"Previous": "Trang trước",
+		"FirstPage": "Trang đầu",
+		"LastPage": "Trang cuối",
+		"Continue": "Tiếp theo",
+		"Submit": "Thực hiện",
+		"MyProfile": "Thông tin cá nhân",
+		"Login": "Đăng nhập",
+		"Logout": "Đăng xuất",
+		"All": "Tất cả",
+		"ChooseStatus": "Chọn trạng thái",
+		"Add": "Thêm",
+		"Cancel": "Hủy",
+		"ChangePassword": "Đổi Mật Khẩu",
+		"Disable": "Disable",
+		"Download": "Download",
+		"View": "View Detail"
+	},
+	"Lable": {
+		"All": "ALl"
+	},
+	"Dialog": {
+		"OK": "Đồng ý",
+		"Cancel": "Hủy",
+		"ConfirmInfo": "Xác nhận",
+		"MessageConfirm": "Bạn có thật sự muốn xóa?"
+	},
+	"LOGIN": {
+		"AppName": "Hệ thống API",
+		"CompanyName": "Công ty Savis",
+		"Error1": "Tên đăng nhập hoặc tài khoản không đúng.",
+		"Login": "Đăng nhập",
+		"Password": "Mật khẩu",
+		"Remember": "Ghi nhớ",
+		"SignIn": "Đăng nhập hệ thống",
+		"Username": "Tài khoản",
+		"Version": "Phiên bản dùng thử"
+	},
+	"Message": {
+		"CreateSuccess": "Tạo mới thành công!",
+		"UpdateSuccess": "Cập nhật thành công!",
+		"DeleteSuccess": "Xóa thành công!",
+		"ProcessInstanceSuccess": "Bắt đầu quy trình thành công!",
+		"ProcessInstanceFail": "Bắt đầu quy trình lỗi!",
+		"CreateFail": "Tạo mới không thành công!",
+		"UpdateFail": "Cập nhật không thành công!",
+		"DeleteFail": "Xóa bản ghi không thành công!",
+		"Required": "Trường bắt buộc",
+		"Select": "Trường băt buộc chọn",
+		"NoSpace": "Không nhập kí tự trắng",
+		"Invalid": "Giá trị không hợp lệ",
+		"Existing": "Giá trị đã tồn tại",
+		"IpFomat": "Địa chỉ IP không đúng định dạng (xxx.xxx.xxx.xxx)",
+		"StartDate": "Ngày bắt đầu phải lớn hơn ngày hiện tại",
+		"EndDate": "Ngày hết hạn phải lớn hơn ngày bắt đầu",
+		"FormError": "Có lỗi xảy ra. Hãy kiểm tra lại.",
+		"FormValidation": "Xác thực dữ liệu thành công!",
+		"UrlPattern": "URL pattern không được để trống.",
+		"SelectHttp": "Phải chọn ít nhất 1 HTTP Method.",
+		"MaxLength": "Độ dài vượt quá giới hạn kí tự ",
+		"MinLength": "Độ dài vượt quá giới hạn kí tự ",
+		"UserNameInvalid": "Trường hợp không hợp lệ",
+		"PasswordInvalid": "Trường hợp không hợp lệ(Vui lòng nhập mật khẩu hợp lệ)",
+		"NameInvalid": "Trường hợp không hợp lệ",
+		"CodeInvalid": "Trường hợp không hợp lệ(Mã không có dấu cách)",
+		"IpInvalid": "Trường hợp không hợp lệ(Vui lòng nhập địa chỉ IP hợp lệ: xxx.xxx.xxx.xxx)",
+		"EmailInvalid": "Trường hợp không hợp lệ (Vui lòng nhập email hợp lệ)",
+		"MobileInvalid": "Trường hợp không hợp lệ (Vui lòng nhập SĐT hợp lệ)"
+	},
+	"Error": {},
+	"ApiVersion": {
+		"Title": "Api liên quan",
+		"Version": "Phiên bản",
+		"ChooseApiVersion": "Chọn phiên bản API",
+		"Context": "Context",
+		"CurrentState": "Trạng thái",
+		"Cache": "Cache",
+		"DefaultVersion": "Phiên bản mặc định",
+		"MakeDefaultVersion": "Đặt làm phiên bản mặc định",
+		"MakeCache": "Phản hồi bộ nhớ đệm",
+		"ApiMethods": "Phương thức",
+		"Status": "Trạng thái"
+	},
+	"ApiMethod": {
+		"Title": "Phương thức API",
+		"HttpMethod": "Phương thức HTTP",
+		"UrlPattern": "Url Pattern"
+	},
+	"ApiEndpoint": {
+		"Title": "Api Endpoint",
+		"CustomHeader": "Custom Header",
+		"EndpointType": "Endpoint Type",
+		"Secured": "Secured",
+		"Url": "Url"
+	},
+	"ApiLifecycle": {
+		"Title": "Vòng đời API",
+		"EventDate": "Event Date",
+		"NewState": "Trạng thái mới",
+		"PreviousState": "Trạng thái trước",
+		"User": "User"
+	},
+	"ActionHistory": {
+		"Title": "Lịch sử hoạt động",
+		"UserName": "Người dùng",
+		"Action": "Thao tác",
+		"DetailAction": "Chi tiết",
+		"Module": "Chức năng",
+		"DateAction": "Ngày thực hiện",
+		"StartDate": "Ngày bắt đầu",
+		"EndDate": "Ngày kết thúc"
+	},
+	"HEADER": {
+		"AppName": "HTQT API"
+	},
+	"SIDEBAR": {
+		"API": "API",
+		"Group Api": "Nhóm API",
+		"API Management": "Quản lý API",
+		"API Process": "Xử lý Api",
+		"Action History": "Log hành động",
+		"Application": "Ứng dụng",
+		"History": "Lịch sử cập nhật",
+		"Blacklist Condition": "Danh sách đen",
+		"Condition Group": "Nhóm điều kiện",
+		"Conditions": "Điều kiện",
+		"Department": "Phòng ban",
+		"Directory": "Chức năng",
+		"District": "Quận huyện",
+		"Log Data": "Các lỗi ngoại lệ",
+		"Ministry": "Bộ ngành",
+		"Organizational Unit": "Đơn vị tổ chức",
+		"Policy": "Quyền hạn",
+		"Province": "Tỉnh thành",
+		"Query Parameter": "Tham số truy vấn",
+		"Statistics": "Thống kê",
+		"Subscriber": "Người theo dõi",
+		"Ward": "Phường xã",
+		"Administration": "Quản trị hệ thống",
+		"Users": "Người dùng",
+		"User": "Người dùng",
+		"AD Organizational Unit": "Đơn vị AD",
+		"AD Group": "Nhóm người dùng AD",
+		"AD User": "Người dùng AD",
+		"LDAP Group": "Nhóm người dùng LDAP",
+		"LDAP User": "Người dùng LDAP",
+		"Para System": "Para System",
+		"Top API Users": "API được sử dụng nhiều",
+		"App Throttled Requests": "Yêu cầu điều chỉnh ứng dụng",
+		"API Usage": "Số lần truy cập dịch vụ",
+		"Service Feedback Time": "Thời gian phản hồi của dịch vụ",
+		"API Last Access Time": "Thời gian gần nhất sử dụng dịch vụ",
+		"Service Method": "Các phương thức của dịch vụ",
+		"Result Service Usage": "Kết quả sử dụng dịch vụ",
+		"Top API Application": "Sử dụng dịch vụ theo ứng dụng",
+		"Message Service Portal": "Thông điệp trao đổi qua cổng dịch vụ",
+		"Adm User": "Người dùng",
+		"Adm Role": "Nhóm người dùng",
+		"Adm Right": "Chức năng",
+		"Adm Api": "Api",
+		"Adm Access": "Nút truy cập"
+	},
+	"Button": {
+		"AddNew": "Thêm mới",
+		"Add": "Thêm",
+		"Create": "Tạo mới",
+		"Update": "Cập Nhật",
+		"Detail": "Chi Tiết",
+		"Delete": "Xóa",
+		"Browse": "Browse",
+		"Search": "Tìm kiếm",
+		"CopyApi": "Sao chép API",
+		"CopyToken": "Sao chép Token",
+		"StartProcess": "Bắt đầu quy trình",
+		"ProcessMultiple": "Xử lý nhiều task",
+		"Process": "Xử lý",
+		"Cancel": "Hủy",
+		"Save": "Lưu",
+		"Back": "Quay lại",
+		"SDKAndroid": "Android",
+		"SDKJava": "Java",
+		"OK": "Đồng ý",
+		"Login": "Đăng kí",
+		"Logout": "Đăng xuất",
+		"Register": "Đăng nhập",
+		"ChangePassword": "Đổi Mật Khẩu",
+		"Next": "Trang sau",
+		"Previous": "Trang trước",
+		"FirstPage": "Trang đầu",
+		"LastPage": "Trang cuối",
+		"View": "Xem",
+		"Download": "Tải xuống",
+		"ShowKey": "Hiện Mã",
+		"HideKey": "Ẩn Mã",
+		"CopyKey": "Copy Keys",
+		"Response": "Chi tiết phản hồi",
+		"Request": "Chi tiết yêu cầu",
+		"UpdateState": "Cập nhật trạng thái"
+	},
+	"Label": {
+		"InTotal": "trong số",
+		"Items": "đối tượng",
+		"Page": "Trang",
+		"Action": "Hành động"
+	},
+	"Header": {
+		"Home": "Trang chủ",
+		"AddNew": "Thêm mới",
+		"Update": "Cập Nhật",
+		"Detail": "Chi Tiết"
+	},
+	"Api": {
+		"Title": "API",
+		"Name": "Tên API",
+		"Context": "Mẫu Context",
+		"Version": "Phiên bản",
+		"Status": "Trạng thái",
+		"Policy": "Quyền hạn",
+		"Input": {
+			"Api": {
+				"Title": "Api",
+				"Placeholder": "Chọn Api"
+			},
+			"Context": {
+				"Title": "Context",
+				"Placeholder": "Nhập Context"
+			},
+			"Version": {
+				"Title": "Phiên bản",
+				"Placeholder": "Nhập Phiên bản"
+			},
+			"Policy": {
+				"Title": "Quyền hạn",
+				"Placeholder": "Chọn Quyền hạn"
+			},
+			"Status": {
+				"Title": "Trạng thái",
+				"Placeholder": "Chọn trạng thái"
+			},
+			"Document": {
+				"Title": "Tài liệu",
+				"Placeholder": "Nhập tên tài liệu"
+			},
+			"Description": {
+				"Title": "Mô tả",
+				"Placeholder": "Nhập mô tả"
+			}
+		},
+		"StartCreate": {
+			"Title1": "Hãy bắt đầu!",
+			"Title2": "Tạo mới API",
+			"Option1": {
+				"Title1": "Hệ thống đã có một API tồn tại ",
+				"Title2": "Tạo mới với API có sẵn hoặc API swagger"
+			},
+			"Option2": {
+				"Title1": "Hệ thống đã có một SOAP Endpoint",
+				"Title2": "Tạo mới với SOAP Endpoint. Sử dụng WSDL của SOAP Endpoint có sẵn"
+			},
+			"Option3": {
+				"Title1": "Thiết kế một REST API",
+				"Title2": "Thiết kế và thử nghiệm một API mới."
+			},
+			"Input": {
+				"SwaggerFile": {
+					"Title": "Swagger File",
+					"Placeholder": "Chọn Browse để thêm file"
+				},
+				"SwaggerUrl": {
+					"Title": "Swagger URL",
+					"Placeholder": "http://petstore.swagger.io/v2/swagger.json"
+				},
+				"WsdlUrl": {
+					"Placeholder": "http://appserver/services/echo?wsdl"
+				}
+			}
+		},
+		"Create": {
+			"ApiDesign": "Thiết kế API",
+			"Implement": "Triển khai",
+			"Manage": "Quản lý",
+			"GeneralDetails": "Thông tin chung",
+			"ApiDefinition": "Định nghĩa API",
+			"ManagedApi": "Quản lý API",
+			"ThrottingSettings": "Thiết lập quyền hạn",
+			"Input": {
+				"Name": {
+					"Title": "Tên Api",
+					"Placeholder": "Nhập tên Api",
+					"Detail": "Tên hiển thị của Api",
+					"Error": "Trường bắt buộc nhập"
+				},
+				"Provider": {
+					"Title": "Nguồn cung cấp",
+					"Placeholder": "Nhập nguồn cung cấp",
+					"Detail": "Nguồn cung cấp Api"
+				},
+				"Context": {
+					"Title": "Context",
+					"Placeholder": "Nhập context",
+					"Detail": "Đường dẫn URI context của API (Phân biệt chữ hoa chữ thường).",
+					"Error": "Vui lòng nhập đúng định dạng"
+				},
+				"GroupApi": {
+					"Title": "Nhóm Api",
+					"Placeholder": "Chọn nhóm Api",
+					"Detail": "Nhóm Api",
+					"Error": "Trường bắt buộc nhập"
+				},
+				"Version": {
+					"Title": "Phiên bản",
+					"Placeholder": "Nhập phiên bản",
+					"Detail": "",
+					"Error": "Trường bắt buộc nhập"
+				},
+				"Description": {
+					"Title": "Mô tả",
+					"Placeholder": "Nhập mô tả",
+					"Detail": ""
+				},
+				"UrlPattern": {
+					"Title": "Url Pattern",
+					"Placeholder": "E.g., path/to/resource",
+					"Detail": "",
+					"Error": "Url pattern không hợp lệ"
+				},
+				"Method": {
+					"Title": "Phương thức",
+					"Placeholder": "Chọn phương thức",
+					"Detail": "",
+					"Error": "Vui lòng chọn phương thức"
+				},
+				"Wsdl": {
+					"Title": "WSDL",
+					"Placeholder": "Wsdl url",
+					"Detail": ""
+				},
+				"EndpointType": {
+					"Title": "Kiểu Endpoint",
+					"Placeholder": "Kiểu Endpoint",
+					"Detail": ""
+				},
+				"ProductEndpoint": {
+					"Title": "Product Endpoint",
+					"Placeholder": "Product Endpoint",
+					"Detail": ""
+				},
+				"Secured": {
+					"Title": "Bảo mật",
+					"Placeholder": "Bảo mật",
+					"Detail": ""
+				},
+				"Username": {
+					"Title": "Tên người dùng",
+					"Placeholder": "Username",
+					"Detail": ""
+				},
+				"Password": {
+					"Title": "Mật khẩu",
+					"Placeholder": "Password",
+					"Detail": ""
+				},
+				"CustomHeader": {
+					"Title": "Tiêu đề tuỳ chỉnh",
+					"Placeholder": "Custom Header",
+					"Detail": ""
+				},
+				"MakeDefaultVersion": {
+					"Title": "Là phiên bản mặc định",
+					"Placeholder": "Là phiên bản mặc định",
+					"Detail": ""
+				},
+				"MakeCache": {
+					"Title": "Tạo Cache",
+					"Placeholder": "Tạo Cache",
+					"Detail": ""
+				},
+				"ThrottingSettingTo": {
+					"Title": "Quyền hạn cho Api",
+					"Placeholder": "Quyền hạn cho Api",
+					"Detail": ""
+				}
+			},
+			"MethodParameter": {
+				"Title": "Tham số",
+				"HttpMethod": "Phương thức",
+				"Name": "Tên tham số",
+				"Description": "Mô tả",
+				"ParameterType": "Loại tham số",
+				"DataType": "Loại dữ liệu",
+				"Required": "Bắt buộc",
+				"AddParameter": "Thêm tham số",
+				"ParameterIsValid": "Tên tham số không phù hợp",
+				"MethodPolicy": "Quyền hạn"
+			}
+		},
+		"Overview": {
+			"Title": "Thông tin chung",
+			"Provider": "Nguồn cung cấp",
+			"Context": "Context",
+			"CreatedBy": "Người tạo",
+			"Updated": "Ngày cập nhật",
+			"ProductEndpoint": "Địa chỉ endpoint",
+			"Description": "Mô tả",
+			"PublishAPI": "Publish API"
+		},
+		"ApiVersion": {
+			"Title": "Các phiên bản",
+			"Context": "Mẫu Context",
+			"Version": "Phiên bản",
+			"Status": "Trạng thái",
+			"Policy": "Quyền hạn",
+			"Cache": "Cache",
+			"DefaultVersion": "Phiên bản mặc định",
+			"Input": {
+				"Context": {
+					"Title": "Context",
+					"Placeholder": "Nhập Context"
+				},
+				"Version": {
+					"Title": "Phiên bản",
+					"Placeholder": "Nhập Phiên bản"
+				},
+				"Policy": {
+					"Title": "Quyền hạn",
+					"Placeholder": "Tất cả"
+				},
+				"Status": {
+					"Title": "Trạng thái",
+					"Placeholder": "Tất cả"
+				}
+			}
+		},
+		"ApiLifecycle": {
+			"Title": "Lịch sử cập nhật",
+			"UpdateTime": "Thời gian",
+			"UpdateBy": "Người cập nhật",
+			"UpdateFrom": "Trạng thái cũ",
+			"UpdateTo": "Trạng thái mới"
+		},
+		"Subscription": {
+			"Title": "Đăng kí",
+			"Application": "Ứng dụng",
+			"Policy": "Quyền hạn",
+			"Status": "Trạng thái",
+			"Input": {
+				"Application": {
+					"Title": "Ứng dụng",
+					"Placeholder": "Tất cả"
+				},
+				"Policy": {
+					"Title": "Quyền hạn",
+					"Placeholder": "Tất cả"
+				},
+				"Status": {
+					"Title": "Trạng thái",
+					"Placeholder": "Tất cả"
+				}
+			},
+			"Create": {
+				"Input": {
+					"Name": {
+						"Title": "Ứng dụng",
+						"Placeholder": "Ứng dụng"
+					},
+					"Description": {
+						"Title": "Mô tả"
+					},
+					"Application": {
+						"Title": "Ứng dụng",
+						"Placeholder": "Chọn ứng dụng"
+					},
+					"Policy": {
+						"Title": "Quyền hạn",
+						"Placeholder": "Chọn quyền hạn"
+					},
+					"Status": {
+						"Title": "Trạng thái",
+						"Placeholder": "Chọn trạng thái"
+					}
+				}
+			}
+		},
+		"Document": {
+			"Title": "Tài liệu mô tả",
+			"Name": "Tên tài liệu",
+			"Type": "Loại tài liệu",
+			"Updated": "Ngày cập nhật",
+			"Input": {
+				"Search": {
+					"Title": "Tìm kiếm",
+					"Placeholder": "Tìm kiếm"
+				}
+			},
+			"Create": {
+				"Input": {
+					"Name": {
+						"Title": "Tên tài liệu",
+						"Placeholder": "Nhập tên tài liệu"
+					},
+					"Description": {
+						"Title": "Mô tả",
+						"Placeholder": "Nhập mô tả"
+					},
+					"Type": {
+						"Title": "Kiểu",
+						"Placeholder": "Kiểu"
+					},
+					"Source": {
+						"Title": "Nguồn cung cấp",
+						"UrlPlaceholder": "Nhập Url",
+						"FilePlaceholder": "Chọn Browse để upload file"
+					}
+				}
+			}
+		},
+		"Sdk": {
+			"Title": "SDKs",
+			"Message": "Download client-side SDKs for this API."
+		},
+		"UpdateState": {
+			"Title": "Update State Api",
+			"ApiName": "Api Name",
+			"ApiVersion": "Api Version",
+			"CurentState": "Current State",
+			"NewState": "New State"
+		}
+	},
+	"GroupApi": {
+		"Title": "GroupApi",
+		"Name": "Nhóm Dịch Vụ",
+		"Status": "Trạng thái",
+		"Created": "Ngày tạo",
+		"Modified": "Ngày cập nhật",
+		"Input": {
+			"Name": {
+				"Title": "Nhóm dịch vụ",
+				"Placeholder": "Nhập tên Nhóm dịch vụ"
+			},
+			"Code": {
+				"Title": "Mã ",
+				"Placeholder": "Nhập mã Nhóm dịch vụ"
+			},
+			"Status": {
+				"Title": "Trạng thái",
+				"Placeholder": "Tất cả"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Tạo mới nhóm dịch vụ",
+			"UpdateTitle": "Cập nhật thông tin Nhóm dịch vụ",
+			"Input": {
+				"Name": {
+					"Title": "Tên nhóm dịch vụ",
+					"Placeholder": "Nhập tên nhóm dịnh vụ",
+					"Error": "Tên không được để trống hoặc chứa kí tự đặc biệt."
+				},
+				"Code": {
+					"Title": "Mã ",
+					"Placeholder": "Nhập mã nhóm dịch vụ",
+					"Error": "Mã không được để trống hoặc chứa kí tự đặc biệt."
+				},
+				"Status": {
+					"Title": "Trạng thái",
+					"Placeholder": "Chọn trạng thái"
+				}
+			}
+		}
+	},
+	"Application": {
+		"Title": "Ứng dụng",
+		"Name": "Tên Ứng dụng",
+		"Policy": "Quyền hạn",
+		"Status": "Trạng thái",
+		"Input": {
+			"Name": {
+				"Title": "Tên ứng dụng",
+				"Placeholder": "Nhập tên ứng dụng"
+			},
+			"Policy": {
+				"Title": "Quyền hạn",
+				"Placeholder": "Chọn quyền hạn"
+			},
+			"Description": {
+				"Title": "Mô tả",
+				"Placeholder": "Nhập mô tả"
+			},
+			"Status": {
+				"Title": "Trạng thái",
+				"Placeholder": "Tất cả"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Tạo mới ứng dụng",
+			"UpdateTitle": "Cập nhật thông tin ứng dụng",
+			"Input": {
+				"Name": {
+					"Title": "Tên ứng dụng",
+					"Placeholder": "Nhập tên ứng dụng"
+				},
+				"Policy": {
+					"Title": "Quyền hạn",
+					"Placeholder": "Chọn quyền hạn"
+				},
+				"Description": {
+					"Title": "Mô tả",
+					"Placeholder": "Nhập mô tả"
+				},
+				"Status": {
+					"Title": "Trạng thái",
+					"Placeholder": "Chọn trạng thái"
+				},
+				"Subscriber": {
+					"Title": "Người theo dõi",
+					"Placeholder": "Chọn người theo dõi"
+				}
+			}
+		},
+		"Overview": {
+			"Title": "Tổng quan",
+			"Name": "Tên Ứng dụng",
+			"Policy": "Quyền hạn",
+			"Status": "Trạng thái",
+			"Description": "Mô tả"
+		},
+		"ApplicationToken": {
+			"Title": "Token ứng dụng",
+			"StartDate": "Ngày bắt đầu",
+			"EndDate": "Ngày hết hạn",
+			"GrantType": "Grant type",
+			"Status": "Trạng thái",
+			"Input": {
+				"StartDate": {
+					"Title": "Ngày bắt đầu",
+					"Placeholder": "Ngày bắt đầu"
+				},
+				"EndDate": {
+					"Title": "Ngày hết hạn",
+					"Placeholder": "Ngày hết hạn"
+				},
+				"GrantType": {
+					"Title": "Kiểu cung cấp",
+					"Placeholder": "Tất cả"
+				},
+				"Status": {
+					"Title": "Trạng thái",
+					"Placeholder": "Tất cả"
+				}
+			},
+			"Create": {
+				"Input": {
+					"StartDate": {
+						"Title": "Ngày bắt đầu",
+						"Placeholder": "Ngày bắt đầu"
+					},
+					"EndDate": {
+						"Title": "Ngày hết hạn",
+						"Placeholder": "Ngày hết hạn"
+					},
+					"GrantType": {
+						"Title": "Kiểu cung cấp",
+						"Placeholder": "Chọn Grant Type"
+					},
+					"Status": {
+						"Title": "Trạng thái",
+						"Placeholder": "Chọn Trạng thái"
+					}
+				}
+			}
+		},
+		"Subscription": {
+			"Title": "Đăng kí",
+			"Policy": "Quyền hạn",
+			"Version": "Phiên bản Api",
+			"Application": "Ứng dụng",
+			"Status": "Trạng thái",
+			"CreateState": "Tạo trạng thái",
+			"CreateBy": "Người tạo",
+			"CreateTime": "Thời gian tạo",
+			"UpdateBy": "Người cập nhật",
+			"UpdateTime": "Thời cập nhật",
+			"LastAccessed": "Lần truy cập cuối cùng",
+			"Input": {
+				"Policy": {
+					"Title": "Quyền hạn",
+					"Placeholder": "Tất cả"
+				},
+				"Version": {
+					"Title": "Phiên bản",
+					"Placeholder": "Tất cả"
+				},
+				"Status": {
+					"Title": "Trạng thái",
+					"Placeholder": "Tất cả"
+				}
+			},
+			"Create": {
+				"Input": {
+					"Version": {
+						"Title": "Phiên bản",
+						"Placeholder": "Chọn Api"
+					},
+					"Policy": {
+						"Title": "Quyền hạn",
+						"Placeholder": "Chọn quyền hạn"
+					},
+					"Status": {
+						"Title": "Trạng thái",
+						"Placeholder": "Chọn trạng thái"
+					}
+				}
+			}
+		},
+		"ProductionKey": {
+			"Title": "Key sản phẩm",
+			"ConsumerKeys": "Khách hàng Keys",
+			"ConsumerSecret": "Bảo mật khách hàng"
+		}
+	},
+	"ApiUpdateHistory": {
+		"Title": "Lịch sử cập nhật Api",
+		"Api": "Dịch vụ",
+		"Version": "Phiên bản",
+		"Status": "Trạng thái",
+		"UpdateBy": "Người cập nhật",
+		"Updated": "Thời gian",
+		"Input": {
+			"FromDate": {
+				"Title": "Từ ngày",
+				"Placeholder": ""
+			},
+			"ToDate": {
+				"Title": "Đến ngày",
+				"Placeholder": ""
+			},
+			"Api": {
+				"Title": "Dịch vụ",
+				"Placeholder": "Tất cả"
+			},
+			"UpdateBy": {
+				"Title": "Người cập nhật",
+				"Placeholder": "Tất cả"
+			}
+		}
+	},
+	"BlockCondition": {
+		"Title": "Danh sách đen",
+		"Type": "Loại điều kiện",
+		"Status": "Trạng thái",
+		"Value": "Giá trị",
+		"Input": {
+			"Type": {
+				"Title": "Loại điều kiện",
+				"Placeholder": "Tất cả"
+			},
+			"Status": {
+				"Title": "Trạng thái",
+				"Placeholder": "Tất cả"
+			},
+			"Value": {
+				"Title": "Giá trị",
+				"Placeholder": "Nhập giá trị"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Thêm mới điều kiện",
+			"UpdateTitle": "Cập nhật thông tin điều kiện",
+			"DetailTitle": "Thông tin chi tiết điều kiện",
+			"Input": {
+				"Type": {
+					"Title": "Loại điều kiện",
+					"Placeholder": "Chọn loại điều kiện"
+				},
+				"Status": {
+					"Title": "Trạng thái",
+					"Placeholder": "Chọn trạng thái"
+				},
+				"Value": {
+					"Title": "Giá trị",
+					"Placeholder": "Nhập giá trị"
+				}
+			}
+		}
+	},
+	"Policy": {
+		"Title": "Quyền hạn",
+		"Name": "Tên",
+		"DisplayName": "Tên hiển thị",
+		"PolicyType": "Kiểu quyền hạn",
+		"QuotaType": "Kiều giới hạn",
+		"Quota": "Giới hạn",
+		"UnitTime": "Giới hạn thời gian",
+		"Bandwidth": "Băng thông",
+		"RequestCount": "Số lần truy cập",
+		"Status": "Trạng thái",
+		"Description": "Mô tả",
+		"Input": {
+			"Name": {
+				"Title": "Tên",
+				"Placeholder": "Nhập tên"
+			},
+			"DisplayName": {
+				"Title": "Tên hiển thị",
+				"Placeholder": "Nhập tên hiển thị"
+			},
+			"Status": {
+				"Title": "Trạng thái",
+				"Placeholder": "Tất cả"
+			},
+			"PolicyType": {
+				"Title": "Kiểu quyền hạn",
+				"Placeholder": "Tất cả"
+			},
+			"QuotaType": {
+				"Title": "Kiểu giới hạn",
+				"Placeholder": "Tất cả"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Thêm mới quyền hạn",
+			"UpdateTitle": "Cập nhật thông tin quyền hạn",
+			"GeneralDetails": "Chi tiết",
+			"DefaultLimits": "Giới hạn mặc định",
+			"ConditionalGroups": "Nhóm điều kiện",
+			"Input": {
+				"PolicyType": {
+					"Title": "Loại điều kiện",
+					"Placeholder": "Chọn loại điều kiện"
+				},
+				"Name": {
+					"Title": "Tên",
+					"Placeholder": "Nhập tên",
+					"Detail": "Tên quyền hạn",
+					"Error": "Tên không được để trống hoặc chứa kí tự đặc biệt."
+				},
+				"DisplayName": {
+					"Title": "Tên hiển thị",
+					"Placeholder": "Nhập tên hiển thị",
+					"Detail": "Tên hiển thị quyền hạn",
+					"Error": "Tên hiển thị không được để trống hoặc chứa kí tự đặc biệt."
+				},
+				"Description": {
+					"Title": "Mô tả",
+					"Placeholder": "Nhập mô tả"
+				},
+				"RequestCount": {
+					"Title": "Số lượng yêu cầu ",
+					"Placeholder": "Số lượng yêu cầu",
+					"Detail": "Số lượng yêu cầu cho phép",
+					"Error": "Số lượng yêu cầu phải lớn hơn 0."
+				},
+				"RequestBandwidth": {
+					"Title": "Yêu cầu băng thông",
+					"Placeholder": "Request Bandwidth",
+					"Detail": "Dung lượng cho phép",
+					"Error": "Yêu cầu băng thông phải lớn hơn 0."
+				},
+				"UnitTime": {
+					"Title": "Thời gian giới hạn",
+					"Placeholder": "Unit Time",
+					"Detail": "Thời gian cấu hình",
+					"Error": "Thời gian giới hạn phải lớn hơn 0."
+				}
+			}
+		},
+		"Detail": {
+			"Title": "Thông tin chi tiết quyền hạn",
+			"GeneralDetails": "Chi tiết",
+			"DefaultLimits": "Giới hạn mặc định",
+			"ConditionalGroups": "Nhóm điều kiện",
+			"PolicyType": "Kiểu quyền hạn điều chỉnh",
+			"Name": "Tên",
+			"DisplayName": "Tên thay thế",
+			"Description": "Mô tả",
+			"RequestCount": "Số lượng yêu cầu",
+			"QuotaType": "Kiểu hạn mức",
+			"RequestBandwidth": "Yêu cầu băng thông",
+			"UnitTime": "Thời gian giới hạn"
+		}
+	},
+	"ConditionGroup": {
+		"Title": "Nhóm điều kiện",
+		"GeneralDetails": "Chi tiết",
+		"DefaultLimits": "Giới hạn mặc định",
+		"Input": {
+			"Name": {
+				"Title": "Tên",
+				"Placeholder": "Nhập tên",
+				"Detail": "",
+				"Error": "Tên không được để trống hoặc chứa kí tự đặc biệt."
+			},
+			"Description": {
+				"Title": "Mô tả",
+				"Placeholder": "Nhập mô tả",
+				"Detail": ""
+			},
+			"RequestCount": {
+				"Title": "Số lượt truy cập",
+				"Placeholder": "Request Count",
+				"Detail": "Số lượng truy cập cho phép",
+				"Error": "Request Count phải lớn hơn 0."
+			},
+			"RequestBandwidth": {
+				"Title": "Yêu cầu băng thông",
+				"Placeholder": "Request Bandwidth",
+				"Detail": "Dung lượng cho phép",
+				"Error": "Request Bandwidth phải lớn hơn 0."
+			},
+			"UnitTime": {
+				"Title": "Giới hạn thời gian",
+				"Placeholder": "Unit Time",
+				"Detail": "Thời gian cấu hình",
+				"Error": "Unit Time phải lớn hơn 0."
+			}
+		},
+		"Ip": {
+			"Title": "Điều kiện IP",
+			"IpType": "IP Condition Type",
+			"StartingIp": "Start IP Address",
+			"SpecificIp": "IP Address",
+			"EndingIp": "End IP Address",
+			"Directional": "Ip Directional",
+			"Status": "Status",
+			"Input": {
+				"IpType": {
+					"Title": "Điều kiện IP:",
+					"Placeholder": "Enter IP Condition Type",
+					"Detail": ""
+				},
+				"StartingIp": {
+					"Title": "Địa chỉ IP bắt đầu:",
+					"Placeholder": "Enter Start IP Address",
+					"Detail": "",
+					"Error": "Trường không được để trống và phải có định dạng IP."
+				},
+				"SpecificIp": {
+					"Title": "Địa chỉ IP:",
+					"Placeholder": "Enter IP Address",
+					"Detail": "",
+					"Error": "Trường không được để trống và phải có định dạng IP."
+				},
+				"EndingIp": {
+					"Title": "Địa chỉ IP kết thúc:",
+					"Placeholder": "Enter End IP Address",
+					"Detail": "",
+					"Error": "Trường không được để trống và phải có định dạng IP."
+				},
+				"Directional": {
+					"Title": " IP điều hướng:",
+					"Placeholder": "Ip Directional",
+					"Detail": ""
+				},
+				"Status": {
+					"Title": "Trạng thái:",
+					"Placeholder": "Enter Status",
+					"Detail": ""
+				}
+			}
+		},
+		"HeaderField": {
+			"Title": "Trường tiêu đề",
+			"Name": "Header Field Name",
+			"Value": "Header Field Value",
+			"Directional": "Header Field Directional",
+			"Status": "Status",
+			"Input": {
+				"Name": {
+					"Title": "Tên:",
+					"Placeholder": "Enter Header Field Name",
+					"Detail": "",
+					"Error": "Tên không được để trống hoặc chứa kí tự đặc biệt."
+				},
+				"Value": {
+					"Title": "Gía trị:",
+					"Placeholder": "Enter Header Field Value",
+					"Detail": "",
+					"Error": "Giá trị không được để trống hoặc chứa kí tự đặc biệt."
+				},
+				"Directional": {
+					"Title": "Điều hướng:",
+					"Placeholder": "Header Field Directional",
+					"Detail": ""
+				},
+				"Status": {
+					"Title": "Trạng thái:",
+					"Placeholder": "Enter Status",
+					"Detail": ""
+				}
+			}
+		},
+		"JwtClaim": {
+			"Title": "Yêu cầu điều kiện JWT (Json web Tokens",
+			"ClaimAttrib": "Claim Attrib",
+			"ClaimUri": "Claim Uri",
+			"IsClaimMapping": "Is Claim Mapping",
+			"Input": {
+				"ClaimAttrib": {
+					"Title": "Thuộc tính yêu cầu:",
+					"Placeholder": "Enter Claim Attrib",
+					"Detail": "",
+					"Error": "Trường không được để trống hoặc chứa kí tự đặc biệt."
+				},
+				"ClaimUri": {
+					"Title": "Yêu cầu Uri:",
+					"Placeholder": "Enter Claim Uri",
+					"Detail": "",
+					"Error": "Trường không được để trống hoặc chứa kí tự đặc biệt."
+				},
+				"IsClaimMapping": {
+					"Title": "Yêu cầu kết nối:",
+					"Placeholder": "Is Claim Mapping",
+					"Detail": ""
+				}
+			}
+		},
+		"QueryParam": {
+			"Title": "Điều kiện tham số truy vấn",
+			"Name": "Query Param Name",
+			"Value": "Query Param Value",
+			"IsParamMapping": "Is Param Mapping",
+			"Input": {
+				"Name": {
+					"Title": "Tên thông số truy vấn:",
+					"Placeholder": "Enter Query Param Name",
+					"Detail": "",
+					"Error": "Tên không được để trống hoặc chứa kí tự đặc biệt."
+				},
+				"Value": {
+					"Title": "Gía trị thông số truy vấn:",
+					"Placeholder": "Query Param Value",
+					"Detail": "",
+					"Error": "Giá trị không được để trống hoặc chứa kí tự đặc biệt."
+				},
+				"IsParamMapping": {
+					"Title": "Tham số kết nối:",
+					"Placeholder": "Is Param Mapping",
+					"Detail": ""
+				}
+			}
+		}
+	},
+	"ApiMostUsedByApplication": {
+		"Title": "Quản lý sử dụng dịch vụ theo ứng dụng",
+		"Api": "Dịch vụ",
+		"Version": "Phiên bản",
+		"requestCount": "Số lần gọi"
+	},
+	"ResulServiceUsage": {
+		"Title": "Quản lý kết quả sử dụng dịch vụ"
+	},
+	"err": {
+		"Title": "*Lỗi"
+	},
+	"LogData": {
+		"Title": "Mục quản lý các lỗi ngoại lệ",
+		"Api": "Dịch vụ",
+		"Version": "Phiên bản",
+		"Ip": "Địa chỉ IP",
+		"Code": "Mã lỗi",
+		"ErrorDetail": "Chi tiết",
+		"RequestTime": "Thời gian yêu cầu",
+		"ResponseTime": "Thời gian phản hồi",
+		"Input": {
+			"Api": {
+				"Title": "Dịch vụ",
+				"Placeholder": "Chọn dịch vụ"
+			},
+			"Version": {
+				"Title": "Phiên bản",
+				"Placeholder": "Chọn phiên bản"
+			},
+			"Application": {
+				"Title": "Ứng dụng",
+				"Placeholder": "Chọn ứng dụng"
+			},
+			"ErrorCode": {
+				"Title": "Mã lỗi",
+				"Placeholder": "Nhập mã lỗi"
+			},
+			"StartDate": {
+				"Title": "Từ ngày",
+				"Placeholder": "Chọn ngày bắt đầu"
+			},
+			"EndDate": {
+				"Title": "Đến ngày",
+				"Placeholder": "Chọn ngày kết thúc"
+			}
+		}
+	},
+	"Statistics": {
+		"ApiLastAccessTime": "Thời gian gần nhất sử dụng dịch vụ",
+		"ApiMostUsedByApplication": "Sử dụng dịch vụ theo ứng dụng",
+		"ApiUsage": "Theo dõi số lần truy cập dịch vụ",
+		"LogData": "Các lỗi ngoại lệ",
+		"MessageServicePortal": {
+			"Title": "Thông điệp trao đổi qua cổng dịch vụ",
+			"Request": "Chi tiết thông tin thông điệp yêu cầu",
+			"Response": "Chi tiết thông tin thông điệp phản hồi"
+		},
+		"ResultServiceUsage": "Kết quả sử dụng dịch vụ",
+		"ServiceMethodUsage": "Sử dụng các phương thức của dịch vụ",
+		"ServiceResponseTime": "Thời gian phản hồi của dịch vụ",
+		"TopApiUsers": "Thời gian phản hồi của dịch vụ",
+		"From": "Từ",
+		"To": "Tới",
+		"NO": "Stt",
+		"Api": "Dịch vụ",
+		"Application": "Ứng dụng",
+		"Version": "Phiên bản",
+		"RequestCount": "Số lượng yêu cầu",
+		"SubscriptionApplication": "Ứng dụng đăng ký",
+		"Hits": "Truy cập",
+		"Subscription": "Đăng ký",
+		"ApiVersion": "Phiên bản dịch vụ",
+		"ApplicationName": "Tên ứng dụng",
+		"IPClient": "IP truy cập",
+		"TimeRequest": "Thời gian yêu cầu",
+		"TimeResponse": "Thời gian phản hồi",
+		"ProcessingTime": "Thời gian xử lý",
+		"Milliseconds": "Mili giây",
+		"Search": "Tìm kiếm",
+		"AppCount": "Số ứng dụng đăng ký",
+		"ApplicationUses": "Ứng dụng sử dụng",
+		"Method": "Phương thức",
+		"Calls": "Số lần gọi",
+		"SuccessfulCalls": "Số lần thành công",
+		"FailedCalls": "Số lần thất bại",
+		"Page": "Trang",
+		"Action": "Hành động",
+		"ErrorCode": "Mã lỗi",
+		"Detail": "Chi tiết",
+		"DataOutputApi": "Dữ liệu đầu ra API",
+		"DataOutputEndpoint": "Dữ liệu đầu ra Endpoint",
+		"ErrorDetail": "Chi tiết lỗi",
+		"TimeBackendLatency": "Độ trễ của backend",
+		"TimeSecurityLatency": "Độ trễ xác thực",
+		"TimeOtherLatency": "Độ trễ khác",
+		"TimeResponeseMediation": "Thời gian phản hồi trung bình",
+		"DataInputApi": "Dữ liệu đầu vào API",
+		"DataInputEndpoint": "Dữ liệu đầu vào Endpoint",
+		"TimeThrottlingLatency": "Độ trễ thời gian điều chỉnh",
+		"TimeRequestMediationLatency": "Độ trễ trung bình của yêu cầu",
+		"NoData": "Không có dữ liệu"
+	},
+	"AdmApi": {
+		"Title": "Api",
+		"ApiName": "Api Name",
+		"ApiMethod": "Api Method",
+		"ApiUrl": "Api Url",
+		"Input": {
+			"ApiName": {
+				"Title": "Api Name",
+				"Placeholder": "Enter Api Name"
+			},
+			"ApiMethod": {
+				"Title": "Api Method",
+				"Placeholder": "Choose Api Method"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create Api",
+			"UpdateTitle": "Update Api",
+			"Input": {
+				"ApiName": {
+					"Title": "Api Name",
+					"Placeholder": "Enter Api Name"
+				},
+				"ApiMethod": {
+					"Title": "Api Method",
+					"Placeholder": "Choose Api Method"
+				},
+				"ApiUrl": {
+					"Title": "Api Url",
+					"Placeholder": "Enter Api Url"
+				}
+			}
+		}
+	},
+	"AdmAccess": {
+		"Title": "Access",
+		"AccessName": "Access Name",
+		"AccessType": "Access Type",
+		"AccessKey": "Access Key",
+		"ViewOrder": "View Order",
+		"Input": {
+			"AccessName": {
+				"Title": "Access Name",
+				"Placeholder": "Enter Access Name"
+			},
+			"AccessKey": {
+				"Title": "Access Key",
+				"Placeholder": "Enter Access Key"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create Access",
+			"UpdateTitle": "Update Access",
+			"Input": {
+				"AccessName": {
+					"Title": "Access Name",
+					"Placeholder": "Enter Access Name"
+				},
+				"AccessType": {
+					"Title": "Access Type",
+					"Placeholder": "Choose Access Type"
+				},
+				"AccessKey": {
+					"Title": "Access Key",
+					"Placeholder": "Choose Access Key"
+				},
+				"ViewOrder": {
+					"Title": "View Order",
+					"Placeholder": "Enter View Order"
+				}
+			}
+		}
+	},
+	"AdmRight": {
+		"Title": "Right",
+		"RightName": "Right Name",
+		"RightCode": "Right Code",
+		"RightParent": "Right Parent",
+		"Status": "Is Show",
+		"RightOrder": "Right Order",
+		"HasChild": "Has Child",
+		"UrlRewrite": "Url Rewrite",
+		"IconUrl": "Icon Url",
+		"Description": "Description",
+		"Application": "Application",
+		"Input": {
+			"RightName": {
+				"Title": "Right Name",
+				"Placeholder": "Enter Right Name"
+			},
+			"RightCode": {
+				"Title": "Right Code",
+				"Placeholder": "Enter Right Code"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create Right",
+			"UpdateTitle": "Update Right",
+			"Input": {
+				"RightName": {
+					"Title": "Right Name",
+					"Placeholder": "Enter Right Name"
+				},
+				"RightCode": {
+					"Title": "Right Code",
+					"Placeholder": "Enter Right Code"
+				},
+				"RightParent": {
+					"Title": "Right Parent",
+					"Placeholder": "Choose Right Parent"
+				},
+				"Status": {
+					"Title": "Is Show",
+					"Placeholder": "Is Show"
+				},
+				"RightOrder": {
+					"Title": "Right Order",
+					"Placeholder": "Enter Right Order"
+				},
+				"HasChild": {
+					"Title": "Has Child",
+					"Placeholder": "Has Child"
+				},
+				"UrlRewrite": {
+					"Title": "Url Rewrite",
+					"Placeholder": "Enter Url Rewrite"
+				},
+				"IconUrl": {
+					"Title": "IconUrl",
+					"Placeholder": "Enter Icon Url"
+				},
+				"Description": {
+					"Title": "Description",
+					"Placeholder": "Description"
+				},
+				"Application": {
+					"Title": "Application",
+					"Placeholder": "Choose Application"
+				}
+			}
+		}
+	},
+	"AdmRole": {
+		"Title": "Role",
+		"RoleName": "Role Name",
+		"RoleCode": "Role Code",
+		"LoweredRoleName": "Lowered Role Name",
+		"Status": "Status",
+		"EnableDelete": "Enable Delete",
+		"Description": "Description",
+		"Application": "Application",
+		"Input": {
+			"RoleName": {
+				"Title": "Role Name",
+				"Placeholder": "Enter Role Name"
+			},
+			"RoleCode": {
+				"Title": "Role Code",
+				"Placeholder": "Enter Role Code"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create Role",
+			"UpdateTitle": "Update Role",
+			"Input": {
+				"RoleName": {
+					"Title": "Role Name",
+					"Placeholder": "Enter Role Name"
+				},
+				"RoleCode": {
+					"Title": "Role Code",
+					"Placeholder": "Enter Role Code"
+				},
+				"LoweredRoleName": {
+					"Title": "Lowered Role Name",
+					"Placeholder": "Choose Lowered Role Name"
+				},
+				"Status": {
+					"Title": "Status",
+					"Placeholder": "Choose Status"
+				},
+				"EnableDelete": {
+					"Title": "Enable Delete",
+					"Placeholder": "Enter Enable Delete"
+				},
+				"Description": {
+					"Title": "Description",
+					"Placeholder": "Description"
+				},
+				"Application": {
+					"Title": "Application",
+					"Placeholder": "Choose Application"
+				}
+			}
+		}
+	},
+	"AdmUser": {
+		"Title": "User",
+		"UserName": "User Name",
+		"LoweredUserName": "Lowered User Name",
+		"MobileAlias": "Mobile Alias",
+		"IsAnonymous": "Is Anonymous",
+		"LastActivityDate": "Last Activity Date",
+		"UserType": "User Type",
+		"Application": "Application",
+		"Input": {
+			"UserName": {
+				"Title": "User Name",
+				"Placeholder": "Enter User Name"
+			},
+			"MobileAlias": {
+				"Title": "Mobile Alias",
+				"Placeholder": "Mobile Alias"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create User",
+			"UpdateTitle": "Update User",
+			"Input": {
+				"UserName": {
+					"Title": "User Name",
+					"Placeholder": "Enter User Name"
+				},
+				"MobileAlias": {
+					"Title": " Mobile Alias",
+					"Placeholder": "Enter Mobile Alias"
+				},
+				"LoweredUserName": {
+					"Title": "Lowered User Name",
+					"Placeholder": "Enter Lowered User Name"
+				},
+				"Surname": {
+					"Title": "Surname",
+					"Placeholder": "Enter Surname"
+				},
+				"GivenName": {
+					"Title": "Given Name",
+					"Placeholder": "Enter Given Name"
+				},
+				"DisplayName": {
+					"Title": "Display Name",
+					"Placeholder": "Enter Display Name"
+				},
+				"IsAnonymous": {
+					"Title": "Is Anonymous",
+					"Placeholder": "Is Anonymous"
+				},
+				"UserType": {
+					"Title": "User Type",
+					"Placeholder": "User Type"
+				},
+				"Application": {
+					"Title": "Application",
+					"Placeholder": "Choose Application"
+				}
+			}
+		}
+	},
+	"ApiProcess": {
+		"Title": "Xử lý Api",
+		"ApiName": "Tên Api",
+		"TaskName": "Tên bước xử lý",
+		"Process": {
+			"Title": "Xử lý Api",
+			"Input": {
+				"ApiName": {
+					"Title": "Tên Api",
+					"Placeholder": "Nhập tên Api"
+				},
+				"Process": {
+					"Title": "Tên bước xử lý",
+					"Placeholder": ""
+				},
+				"Content": {
+					"Title": "Nội dung xử lý",
+					"Placeholder": "Nhập nội dung xử lý"
+				}
+			}
+		}
+	},
+	"UserProfile": {
+		"Title": "Thông Tin Người Dùng",
+		"ProfileAccount": "Tông Tin Tài Khoản",
+		"PersonalInfo": "Thông Tin Cá Nhân",
+		"UserName": "Tên đăng nhập",
+		"Surname":"Họ",
+		"GivenName":"Tên",
+		"DisplayName":"Tên hiển thị",
+		"LoweredUsername": "Tên đăng nhập",
+		"MobileAlias": "Số Điện Thoại",
+		"CurrentPassword": "Mật Khẩu Hiện Tại",
+		"NewPassword": "Mật Khẩu Mới",
+		"ReTypeNewPassword": "Nhập Lại Mật Khẩu Mới"
+	}
+}

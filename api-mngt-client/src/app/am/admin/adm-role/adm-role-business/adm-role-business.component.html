@@ -1,0 +1,148 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.Administration'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>{{'AdmRole.Title'|translate}}</span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title" *ngIf="isUpdate===false">{{'AdmRole.Business.CreateTitle'|translate}}</h3>
+<h3 class="page-title" *ngIf="isUpdate===true">{{'AdmRole.Business.UpdateTitle'|translate}}</h3>
+<hr>
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal align-middle" [formGroup]="admRoleForm" (ngSubmit)="submit(admRoleForm.value)">
+      <div class="row">
+        <div class="col-md-6">
+          <input id="id" type="hidden" class="form-control" formControlName="roleId" />
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmRole.Business.Input.RoleName.Title' | translate
+              }}
+              <span style="color:red;"> *</span>
+            </label>
+            <div class="col-md-8">
+              <input id="roleName" type="text" ng-trim="true" class="form-control" formControlName="roleName"
+                placeholder="{{ 'AdmRole.Business.Input.RoleName.Placeholder' | translate }}" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmRole.Business.Input.RoleCode.Title' |
+              translate }}
+            </label>
+            <div class="col-md-8">
+              <input id="roleCode" type="text" class="form-control" formControlName="roleCode" placeholder="{{'AdmRole.Business.Input.RoleCode.Placeholder' | translate}}" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmRole.Business.Input.Description.Title' | translate
+              }}
+              <span style="color:red;"> *</span>
+            </label>
+            <div class="col-md-8">
+              <input id="description" type="text" class="form-control" formControlName="description" placeholder="{{'AdmRole.Business.Input.Description.Placeholder' | translate}}" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmRole.Business.Input.LoweredRoleName.Title' | translate
+              }}
+            </label>
+            <div class="col-md-8">
+              <input id="loweredRoleName" type="text" class="form-control" formControlName="loweredRoleName"
+                placeholder="{{'AdmRole.Business.Input.LoweredRoleName.Placeholder' | translate}}" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmRole.Business.Input.EnableDelete.Title' | translate
+              }}
+            </label>
+            <div class="col-md-8">
+              <select class="form-control ng-pristine ng-invalid ng-touched" formControlName="enableDelete">
+                <option selected="(status == Enable) ? selected">Enable</option>
+                <option selected="(status == Disable) ? selected">Disable</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmRole.Business.Input.Status.Title' | translate
+              }}
+            </label>
+            <div class="col-md-8">
+              <select class="form-control ng-pristine ng-invalid ng-touched" formControlName="status">
+                <option selected="(status == Enable) ? selected">Enable</option>
+                <option selected="(status == Disable) ? selected">Disable</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="portlet light bordered">
+      <div class="portlet-title">
+        <div class="caption">
+          <span class="caption-subject font-dark sbold uppercase">Right In Role</span>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover table-checkable order-column">
+          <tbody>
+            <tr class="odd gradeX" *ngFor="let right of listRight">
+              <td class="table-checkbox">
+                <div class="checker">
+                  <span [class.checked]="right.checked">
+                    <input id="checkOne" type="checkbox" [(ngModel)]="right.checked" />
+                  </span>
+                </div>
+              </td>
+              <td> {{right.rightName}} </td>
+              <td>
+                <span *ngFor="let accessRight of right.admAccessRights " [class.checked]="accessRight.checked">
+                  <input id="checkOne" type="checkbox" [(ngModel)]="accessRight.checked" />
+                  {{accessRight.admAccessList.accessName}}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" [disabled]="!isValidForm()" (click)="submit(admRoleForm.value)">{{ 'Button.Save' |
+    translate
+    }}</button>
+  <button type="button" class="btn default" (click)="goBack()">
+    <i class="fa fa-undo" aria-hidden="true"></i>{{ 'Button.Back' | translate }}</button>
+</div>
+<!-- END PAGE CONTENT-->

@@ -1,0 +1,56 @@
+
+
+<div id="full-width" class="container">
+    <div class="modal-header">
+        <h4 class="modal-title" >{{'Statistics.Detail'|translate}}</h4>
+    </div>
+    <div class="modal-body" style="padding-left: 0px; padding-right: 0px">
+        <table  class="table table-striped table-bordered table-hover" id="list-data-table">
+            <thead>
+              <tr>
+                <th>{{'LogData.Api'|translate}}</th>
+                <th>{{'LogData.Version'|translate}}</th>
+                <th>{{'LogData.Ip'|translate}}</th>
+                <th>{{'LogData.Code'|translate}}</th>
+                <th>{{'LogData.ErrorDetail'|translate}}</th>
+                <th>{{'LogData.RequestTime'|translate}}</th>
+                <th>{{'LogData.ResponseTime'|translate}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="odd gradeX" *ngFor="let item of logdatas; let i = index">
+                <td style="text-align:left">{{item.apiName}}</td>
+                <td style="text-align:center">{{item.apiVersion}}</td>
+                <td style="text-align:center">{{item.ipClient}}</td>
+                <td style="text-align:center">{{item?.errorCode}}</td>
+                <td style="text-align:center">{{item.errorDetail}}</td>
+                <td style="text-align:center">{{item.timeRequest | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                <td style="text-align:center">{{item.timeResponese | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row">
+              <div class="col-md-4">
+                {{fromNumber}} - {{toNumber}} {{'Label.InTotal'|translate}} {{logdataInfo?.totalElements}}
+                {{'Label.Items'|translate}}
+              </div>
+              <div class="col-md-4 pull-right">
+                {{'Label.Page'|translate}}
+                <button type="button" title="{{'Button.FirstPage'|translate}}" class="btn btn-sm default prev" [disabled]="(currentPageView)<=1"
+                  (click)="choosePageNumber(0)"><i class="fa fa-angle-double-left"></i></button>
+                <button type="button" title="{{'Button.Previous'|translate}}" class="btn btn-sm default prev" [disabled]="(currentPageView)<=1"
+                  (click)="choosePageNumber(logdataInfo?.number - 1)"><i class="fa fa-angle-left"></i></button>
+                <input type="number" min="1" max="{{logdataInfo?.totalPages}}" style="border: none; width: 30px; text-align: center;"
+                  [value]="currentPageView" #page (keyup.enter)="choosePageNumber(page)"> /
+                <label style="padding-right: 5px;">{{logdataInfo?.totalPages}}</label>
+                <button type="button" title="{{'Button.Next'|translate}}" class="btn btn-sm default next" [disabled]="currentPageView>=logdataInfo?.totalPages"
+                  (click)="choosePageNumber(currentPageView)"><i class="fa fa-angle-right"></i></button>
+                <button type="button" title="{{'Button.LastPage'|translate}}" class="btn btn-sm default next" [disabled]="currentPageView>=logdataInfo?.totalPages"
+                  (click)="choosePageNumber(logdataInfo?.totalPages - 1)"><i class="fa fa-angle-double-right"></i></button>
+              </div>
+          </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" (click)="dialogRef.close()" data-dismiss="modal" class="btn default"><i class="fa fa-undo" aria-hidden="true"></i>Quay lại</button>
+    </div>
+</div>

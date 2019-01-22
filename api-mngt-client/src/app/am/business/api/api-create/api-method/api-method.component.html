@@ -1,0 +1,72 @@
+<div class="form-group">
+	<div class="col-sm-12">
+		<table id="api-method-title">
+			<tr>
+				<td id="{{apiMethod.httpMethod}}-title" (click)="onChange()">{{apiMethod.httpMethod}}</td>
+				<td><span>/{{apiMethod.urlPattern}}</span></td>
+				<td></td>
+				<td>
+					<select class="form-control" [(ngModel)]="apiMethod.throttlingTier" (change)="changeMethodInfo()">
+						<option value="0">{{'Api.Create.MethodParameter.MethodPolicy'|translate}}</option>
+						<option *ngFor="let policy of policies" [value]="policy.amPolicyId">
+							{{policy.displayName}}
+						</option>
+					</select>
+				</td>
+				<td><a (click)="removeMethod()"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+			</tr>
+		</table>
+		<table [style.display]="showStyle" id="api-method-detail">
+			<tr>
+				<td colspan="4">
+					<table id="parameter-list" *ngIf="methodParams?.length > 0" class="table table-striped table-bordered table-advance table-hover">
+						<tr>
+							<th>{{'Api.Create.MethodParameter.Name'|translate}}</th>
+							<th>{{'Api.Create.MethodParameter.Description'|translate}}</th>
+							<th>{{'Api.Create.MethodParameter.ParameterType'|translate}}</th>
+							<th>{{'Api.Create.MethodParameter.DataType'|translate}}</th>
+							<th>{{'Api.Create.MethodParameter.Required'|translate}}</th>
+							<th>{{'Button.Delete'|translate}}</th>
+						</tr>
+						<tr *ngFor="let item of methodParams; let i = index">
+							<td><input type="text" [(ngModel)]="item.name" class="form-control" name="name" (change)="changeMethodInfo()"
+								 readonly /></td>
+							<td><input type="text" [(ngModel)]="item.description" class="form-control" name="description" (change)="changeMethodInfo()"></td>
+							<td>
+								<select class="form-control" [(ngModel)]="item.parameterType" name="parameterType" (change)="changeMethodInfo()">
+									<option *ngFor="let i of parameterTypes" value="{{i.value}}">{{i.text}}</option>
+								</select>
+							</td>
+							<td>
+								<select class="form-control" [(ngModel)]="item.dataType" name="dataType" (change)="changeMethodInfo()">
+									<option *ngFor="let i of dataTypes" value="{{i.value}}">{{i.text}}</option>
+								</select>
+							</td>
+							<td>
+								<select class="form-control" [(ngModel)]="item.required" (change)="changeMethodInfo()">
+									<option *ngFor="let i of requireds" value="{{i.value}}">{{i.text}}</option>
+								</select>
+							</td>
+							<td><a class="btn btn-icon-only red" id="business-btn" (click)="deleteParam(i)"><i class="fa fa-trash-o"
+									 aria-hidden="true"></i></a></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4"><b>{{'Api.Create.MethodParameter.Title'|translate}}: </b></td>
+			</tr>
+			<tr>
+				<td colspan="4" *ngIf="!paramNameIsValid" style="color: red">
+					{{'Api.Create.MethodParameter.ParameterIsValid'|translate}}
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<input type="text" placeholder="{{'Api.Create.MethodParameter.ParameterType'|translate}}" class="form-control" id="{{apiMethod.httpMethod}}-{{apiMethod.urlPattern}}-param-name" />
+					<button type="button" class="btn blue" (click)="addParam()"><i class="fa fa-plus"></i>{{'Api.Create.MethodParameter.AddParameter'|translate}}</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

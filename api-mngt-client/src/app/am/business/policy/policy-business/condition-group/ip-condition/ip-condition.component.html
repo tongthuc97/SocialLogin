@@ -1,0 +1,109 @@
+<h3 class="title">{{'ConditionGroup.Ip.Title'|translate}}</h3>
+<div class="row">
+  <form class="form-body" [formGroup]="ipConditionForm" (ngSubmit)="addIpCondition(ipConditionForm.value)">
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.Ip.Input.IpType.Title'|translate}}
+        <span class="required">* </span>
+      </label>
+      <div class="col-md-6">
+        <select id="ipConditionType" class="form-control" formControlName="ipConditionType">
+          <option *ngFor="let item of ipConditionTypes" [value]="item.id">
+            {{item.value}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group" *ngIf="ipConditionForm.get('ipConditionType').value==1">
+      <label class="col-md-3 control-label">{{'ConditionGroup.Ip.Input.SpecificIp.Title'|translate}}
+        <span class="required">* </span>
+      </label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="specificIp" placeholder="{{'ConditionGroup.Ip.Input.SpecificIp.Placeholder'|translate}}">
+        <small class="error" *ngIf="ipConditionForm.get('specificIp').invalid && (ipConditionForm.get('specificIp').touched || ipConditionForm.get('specificIp').dirty)">
+          {{'ConditionGroup.Ip.Input.SpecificIp.Error'|translate}}
+        </small>
+      </div>
+    </div>
+    <div class="form-group" *ngIf="ipConditionForm.get('ipConditionType').value==2">
+      <label class="col-md-3 control-label">{{'ConditionGroup.Ip.Input.StartingIp.Title'|translate}}
+        <span class="required">* </span>
+      </label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="startingIp" placeholder="{{'ConditionGroup.Ip.Input.StartingIp.Placeholder'|translate}}">
+        <small class="error" *ngIf="ipConditionForm.get('startingIp').invalid && (ipConditionForm.get('startingIp').touched || ipConditionForm.get('startingIp').dirty)">
+          {{'ConditionGroup.Ip.Input.StartingIp.Error'|translate}}
+        </small>
+      </div>
+    </div>
+    <div class="form-group" *ngIf="ipConditionForm.get('ipConditionType').value==2">
+      <label class="col-md-3 control-label">{{'ConditionGroup.Ip.Input.EndingIp.Title'|translate}}
+        <span class="required">* </span>
+      </label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="endingIp" placeholder="{{'ConditionGroup.Ip.Input.EndingIp.Placeholder'|translate}}">
+        <small class="error" *ngIf="ipConditionForm.get('endingIp').invalid && (ipConditionForm.get('endingIp').touched || ipConditionForm.get('endingIp').dirty)">
+          {{'ConditionGroup.Ip.Input.EndingIp.Error'|translate}}
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.Ip.Input.Directional.Title'|translate}}
+      </label>
+      <div class="col-md-6">
+        <select id="ipConditionType" class="form-control" formControlName="directional">
+          <option *ngFor="let item of listDirectional" [value]="item.id">
+            {{item.value}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.Ip.Input.Status.Title'|translate}}
+      </label>
+      <div class="col-md-6">
+        <select id="ipConditionType" class="form-control" formControlName="ipConditionStatus">
+          <option *ngFor="let item of listStatus" [value]="item.id">
+            {{item.value}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label"></label>
+      <div class="col-md-6">
+        <button class="btn green" type="submit">{{'Button.AddNew'|translate}}</button>
+      </div>
+    </div>
+    <div class="table-scrollable">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th> # </th>
+            <th> {{'ConditionGroup.Ip.StartingIp'|translate}} </th>
+            <th> {{'ConditionGroup.Ip.EndingIp'|translate}} </th>
+            <th> {{'ConditionGroup.Ip.SpecificIp'|translate}} </th>
+            <th> {{'ConditionGroup.Ip.Directional'|translate}} </th>
+            <th> {{'ConditionGroup.Ip.Status'|translate}} </th>
+            <th> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listIpCondition; let i = index">
+            <td> {{i+1}}</td>
+            <td> {{item.startingIp}}</td>
+            <td> {{item.endingIp}}</td>
+            <td> {{item.specificIp}}</td>
+            <td> {{getDirectionalById(item.directional)}}</td>
+            <td> {{getStatusById(item.ipConditionStatus)}}</td>
+            <td>
+              <a class="label label-sm label-danger" (click)="removeIpCondition(i)">
+                <i class="fa fa-trash-o"></i>
+                {{'Button.Delete'|translate}}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>

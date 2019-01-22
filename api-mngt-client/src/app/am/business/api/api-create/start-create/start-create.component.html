@@ -1,0 +1,111 @@
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+    <div class="portlet light bordered">
+      <div class="portlet-title">
+        <div class="caption-subject">
+          <h3 class="font-dark bold uppercase">{{'Api.StartCreate.Title1'|translate}}</h3>
+        </div>
+        <div class="caption-subject">
+          <h3 class="font-dark">{{'Api.StartCreate.Title2'|translate}}</h3>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <div class="panel-group" id="accordion">
+          <!-- create a api from swagger -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <!-- <i class="icon-settings font-red-sunglo col-md-1"></i> -->
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                <h5 class="font-dark bold">{{'Api.StartCreate.Option1.Title1'| translate }}</h5>
+                <h5 class="font-dark"> {{'Api.StartCreate.Option1.Title2'| translate }}</h5>
+              </a>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <div class="form-group">
+                  <div class="md-radio-inline">
+                    <div class="md-radio">
+                      <input type="radio" id="radio6" name="radio2" class="md-radiobtn" (change)="onSelectionChange('file')">
+                      <label for="radio6">
+                        <span></span>
+                        <span class="check"></span>
+                        <span class="box"></span>{{'Api.StartCreate.Input.SwaggerFile.Title'| translate }}</label>
+                    </div>
+                    <div class="md-radio">
+                      <input type="radio" id="radio7" name="radio2" class="md-radiobtn" (change)="onSelectionChange('url')" checked>
+                      <label for="radio7">
+                        <span></span>
+                        <span class="check"></span>
+                        <span class="box"></span>{{'Api.StartCreate.Input.SwaggerUrl.Title'| translate }}</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- input swagger url -->
+                <div class="form-group" *ngIf="swaggerType=='url'">
+                  <input class="form-control" type="text" [(ngModel)]="swaggerUrl" placeholder="{{'Api.StartCreate.Input.SwaggerUrl.Placeholder'| translate }}" />
+                </div>
+                <!-- input swagger file -->
+                <div class="input-group" *ngIf="swaggerType=='file'"  style="margin-bottom: 15px">
+                  <input class="form-control" type="text" readonly [(ngModel)]="swaggerFile" placeholder="{{'Api.StartCreate.Input.SwaggerFile.Placeholder'| translate }}"/>
+                  <span class="input-group-btn">
+                    <label class="btn btn-primary" for="upload-file-selector">
+                      <input id="upload-file-selector" type="file" (change)="onImport($event)">
+                      <i class="fa fa-folder"></i>{{'Button.Browse'|translate}}
+                    </label>
+                  </span>
+                </div>
+                <div class="form-group">
+                  <a class="btn btn-primary" (click)="createApiFromSwagger()"><i class="fa fa-plus"></i>{{'Button.Create'|translate}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- create a api from wsdl -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                <h5 class="font-dark bold"> {{'Api.StartCreate.Option2.Title1'| translate }}</h5>
+                <h5 class="font-dark">
+                  {{'Api.StartCreate.Option2.Title2'| translate }}
+                </h5>
+              </a>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="form-group">
+                  <input class="form-control" type="text" #wsdlUrl placeholder="{{'Api.StartCreate.Input.WsdlUrl.Placeholder'| translate }}"/>
+                </div>
+                <div class="form-group">
+                  <a class="btn btn-primary" (click)="getWsdlFromUrl(wsdlUrl.value)"><i class="fa fa-plus"></i>{{'Button.Create'|translate}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- design a api rest api -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                <h5 class="font-dark bold"> {{'Api.StartCreate.Option3.Title1'| translate }}</h5>
+                <h5 class="font-dark">
+                  {{'Api.StartCreate.Option3.Title2'| translate }}
+                </h5>
+              </a>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="form-group">
+                  <a class="btn btn-primary" [routerLink]="['../design', 0, 'new','rest']"><i class="fa fa-plus"></i>{{'Button.Create'|translate}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn default" (click)="goBack()">
+            <i class="fa fa-undo" aria-hidden="true"></i>{{ 'Common.Back' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

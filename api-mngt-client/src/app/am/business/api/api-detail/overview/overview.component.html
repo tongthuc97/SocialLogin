@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal align-middle">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="col-md-3 text-right" for="provider">{{'Api.Overview.Provider'|translate}}</label>
+              <div class="col-md-9">
+                {{amApi?.apiProvider}}
+              </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 text-right" for="contextTemplate">{{'Api.Overview.Context'|translate}}</label>
+            <div class="col-md-9">
+              {{amApi?.contextTemplate}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 text-right" for="createdBy">{{'Api.Overview.CreatedBy'|translate}}</label>
+            <div class="col-md-9">
+              {{amApi?.createdBy}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 text-right" for="updatedDate">{{'Api.Overview.Updated'|translate}}</label>
+            <div class="col-md-9">
+              {{amApi?.updatedDate | date: 'dd/MM/yyyy HH:mm:ss'}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 text-right" >{{'Api.Overview.ProductEndpoint'|translate}}</label>
+            <div class="col-md-9">
+              {{amApiEndpoint?.url}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 text-right" for="description">{{'Api.Overview.Description'|translate}}</label>
+            <div class="col-md-9">
+              {{amApi?.description}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 text-right" for="description">{{'Api.Overview.PublishAPI'|translate}}</label>
+            <div class="col-md-9">
+              <div *ngFor="let publishApi of publishApis">
+                <div class="col-md-1">
+                  {{publishApi.httpMethod}}
+                </div>
+                <div class="col-md-11">
+                  {{publishApi.publishRuntimeUrl}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

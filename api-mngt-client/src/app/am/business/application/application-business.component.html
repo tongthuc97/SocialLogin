@@ -1,0 +1,130 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.API Management'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>{{'Application.Title'|translate}}</span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title" *ngIf="isUpdate===false">{{'Application.Business.CreateTitle'|translate}}</h3>
+<h3 class="page-title" *ngIf="isUpdate===true">{{'Application.Business.UpdateTitle'|translate}}</h3>
+<hr>
+<!-- END PAGE TITLE-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal align-middle" [formGroup]="applicationForm" (ngSubmit)="submit(applicationForm.value)">
+      <div class="row">
+        <div class="col-md-6">
+          <input id="applicationId" type="hidden" class="form-control" formControlName="applicationId" />
+          <div class="form-group" formGroupName="amSubscriber">
+            <label class="control-label col-md-4" for="subscriberId">{{'Application.Business.Input.Subscriber.Title'|translate}}<span
+                style="color:red;"> *</span></label>
+            <div class="col-md-8">
+              <input type="hidden" required>
+              <ng-select [active]="indexSubscriberSelection!=null?[subscriberSelections[indexSubscriberSelection]]:''"
+                [allowClear]="true" [disabled]="disabled" [items]="subscriberSelections" (selected)="applicationForm.get('amSubscriber.subscriberId').setValue($event?.id)"
+                (removed)="refreshSubscriberValue($event)" placeholder="{{ 'Application.Business.Input.Subscriber.Placeholder' | translate }}  "
+                ngDefaultControl>
+              </ng-select>
+              <small class="error" *ngIf="applicationForm.get('amSubscriber.subscriberId').invalid 
+                                && (applicationForm.get('amSubscriber.subscriberId').touched || responseMessage!=null)">
+                <span *ngIf="applicationForm.get('amSubscriber.subscriberId').errors.required">
+                  {{ 'Message.Select' | translate }}
+                </span>
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group" formGroupName="amPolicy">
+            <label class="control-label col-md-4" for="amPolicyId">{{'Application.Business.Input.Policy.Title'|translate}}<span
+                style="color:red;"> *</span></label>
+            <div class="col-md-8">
+              <ng-select [active]="indexPolicySelection!=null?[policySelections[indexPolicySelection]]:''" [allowClear]="true"
+                [disabled]="disabled" [items]="policySelections" (selected)="applicationForm.get('amPolicy.amPolicyId').setValue($event?.id)"
+                (removed)="refreshPolicyValue($event)" placeholder="{{'Application.Business.Input.Policy.Placeholder'|translate}}"
+                ngDefaultControl>
+              </ng-select>
+              <small class="error" *ngIf="applicationForm.get('amPolicy.amPolicyId').invalid 
+                                && (applicationForm.get('amPolicy.amPolicyId').touched || responseMessage!=null)">
+                <span *ngIf="applicationForm.get('amPolicy.amPolicyId').errors.required">
+                  {{ 'Message.Select' | translate }}
+                </span>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="name">{{'Application.Business.Input.Name.Title'|translate}}<span
+                style="color:red;"> *</span></label>
+            <div class="col-md-8">
+              <input id="name" type="text" maxlength="200" class="form-control" formControlName="name" placeholder="{{'Application.Business.Input.Name.Placeholder'|translate}}"
+                (keyup)="applicationExistWithName(applicationForm.get('name').value)" />
+              <small class="error" *ngIf="applicationForm.get('name').invalid && (applicationForm.get('name').touched || responseMessage!=null)">
+                <span *ngIf="applicationForm.get('name').errors.required||applicationForm.get('name').errors.pattern!=null">
+                  {{ 'Message.Required' | translate }}
+                </span>
+                <span *ngIf="applicationForm.get('name').errors.required||applicationForm.get('name').errors.maxlength!=null">
+                  {{ 'Message.MaxLength' | translate }} 200
+                </span>
+              </small>
+              <small class="error" *ngIf="applicationForm.get('name').valid && checkApplicationExistWithName===true">
+                {{ 'Message.Existing' | translate }}
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="description">{{'Application.Business.Input.Description.Title'|translate}}</label>
+            <div class="col-md-8">
+              <input id="description" type="text" class="form-control" formControlName="description" placeholder="{{'Application.Business.Input.Description.Placeholder'|translate}}" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="applicationStatus">{{'Application.Business.Input.Status.Title'|translate}}<span
+                style="color:red;"> *</span></label>
+            <div class="col-md-8">
+              <input type="hidden" required>
+              <select class="form-control" formControlName="applicationStatus" autofocus>
+                <option *ngFor="let status of listStatus" [value]="status.id">{{status.name}}</option>
+              </select>
+              <small class="error" *ngIf="applicationForm.get('applicationStatus').invalid 
+                                && (applicationForm.get('applicationStatus').touched || isHideErrorCreating===true)">
+                <span *ngIf="applicationForm.get('applicationStatus').errors.min!=null">
+                  {{ 'Message.Select' | translate }}
+                </span>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">{{ 'Button.Save' | translate }}</button>
+        <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{
+          'Button.Back' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END CONTENT PAGE-->

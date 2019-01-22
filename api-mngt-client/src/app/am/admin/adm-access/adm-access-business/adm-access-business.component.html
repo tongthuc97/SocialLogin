@@ -1,0 +1,85 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.Administration'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>{{'AdmAccess.Title'|translate}}</span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title" *ngIf="isUpdate===false">{{'AdmAccess.Business.CreateTitle'|translate}}</h3>
+<h3 class="page-title" *ngIf="isUpdate===true">{{'AdmAccess.Business.UpdateTitle'|translate}}</h3>
+<hr>
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal align-middle" [formGroup]="admAccessForm" (ngSubmit)="submit(admAccessForm.value)">
+      <div class="row">
+        <div class="col-md-6">
+          <input id="id" type="hidden" class="form-control" formControlName="accessId" />
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmAccess.Business.Input.AccessName.Title' | translate
+              }}
+              <span style="color:red;"> *</span>
+            </label>
+            <div class="col-md-8">
+              <input id="accessName" type="text" ng-trim="true" class="form-control" formControlName="accessName"
+                placeholder="{{ 'AdmAccess.Business.Input.AccessName.Placeholder' | translate }}" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmAccess.Business.Input.AccessType.Title' |
+              translate }}
+            </label>
+            <div class="col-md-8">
+              <input id="accessType" type="text" class="form-control" formControlName="accessType" placeholder="{{'AdmAccess.Business.Input.AccessType.Placeholder' | translate}}" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmAccess.Business.Input.AccessKey.Title' | translate
+              }}
+              <span style="color:red;"> *</span>
+            </label>
+            <div class="col-md-8">
+              <input id="accessKey" type="text" class="form-control" formControlName="accessKey" placeholder="{{'AdmAccess.Business.Input.AccessKey.Placeholder' | translate}}" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmAccess.Business.Input.ViewOrder.Title' | translate
+              }}
+            </label>
+            <div class="col-md-8">
+              <input id="viewOrder" type="text" class="form-control" formControlName="viewOrder" placeholder="{{'AdmAccess.Business.Input.ViewOrder.Placeholder' | translate}}" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="!isValidForm()">{{ 'Button.Save' | translate
+          }}</button>
+        <button type="button" class="btn default" (click)="goBack()">
+          <i class="fa fa-undo" aria-hidden="true"></i>{{ 'Button.Back' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END PAGE CONTENT-->

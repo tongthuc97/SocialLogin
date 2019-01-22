@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+    <div class="portlet-body">
+        <div class="table-toolbar">
+
+        <div class="row">
+          <div class="col-md-12">
+            <form class="form-horizontal align-middle" [formGroup]="subscriptionForm" (ngSubmit)="submit(subscriptionForm.value)">
+              <div class="row">
+                <div class="col-md-6">
+                  <input id="subscriptionId" type="hidden" class="form-control" formControlName="subscriptionId"/>
+                  <div class="form-group" formGroupName="amPolicy">
+                    <label class="control-label col-md-4" for="amPolicyId">{{'Api.Subscription.Create.Input.Policy.Title'|translate}}<span style = "color:red;"> *</span></label>
+                    <div class="col-md-8">
+                      <input type="hidden" required>
+                      <select class="form-control" formControlName="amPolicyId"  autofocus>
+                        <option value="0" disabled>{{'Api.Subscription.Create.Input.Policy.Placeholder'|translate}}</option>   
+                        <option *ngFor="let policy of policies"  [value]="policy.amPolicyId" >{{policy.name}}</option> 
+                      </select>
+                       <small class="error" 
+                              *ngIf="subscriptionForm.get('amPolicy.amPolicyId').invalid 
+                              && (subscriptionForm.get('amPolicy.amPolicyId').touched || responseMessage!=null)">                        
+                      <span *ngIf="subscriptionForm.get('amPolicy.amPolicyId').errors.min!=null">
+                        {{ 'Message.Select' | translate }}
+                      </span>
+                    </small> 
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" formGroupName="amApplication">
+                    <label class="control-label col-md-4" for="applicationId">{{'Api.Subscription.Create.Input.Application.Title'|translate}}<span style = "color:red;"> *</span></label>
+                    <div class="col-md-8">
+                      <input type="hidden" required>
+                      <select class="form-control" formControlName="applicationId"  autofocus>
+                        <option value="0" disabled>{{'Api.Subscription.Create.Input.Application.Placeholder'|translate}}</option>   
+                        <option *ngFor="let application of applications"  [value]="application.applicationId" >{{application.name}}</option> 
+                      </select>
+                      <small class="error" 
+                              *ngIf="subscriptionForm.get('amApplication.applicationId').invalid 
+                              && (subscriptionForm.get('amApplication.applicationId').touched || responseMessage!=null)">                        
+                      <span *ngIf="subscriptionForm.get('amApplication.applicationId').errors.min!=null">
+                        {{ 'Message.Select' | translate }}
+                      </span>
+                    </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label col-md-4" for="subStatus">{{'Api.Subscription.Create.Input.Status.Title'|translate}}<span style = "color:red;"> *</span></label>
+                  <div class="col-md-8">
+                    <input type="hidden" required>
+                    <select class="form-control" formControlName="subStatus"  autofocus>
+                      <option *ngFor="let status of statuses"  [value]="status.id" >{{status.value}}</option> 
+                    </select>
+                    <small class="error" 
+                              *ngIf="subscriptionForm.get('subStatus').invalid 
+                              && (subscriptionForm.get('subStatus').touched || responseMessage!=null)">                        
+                      <span *ngIf="subscriptionForm.get('subStatus').errors.min!=null">
+                        {{ 'Message.Select' | translate }}
+                      </span>
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group" formGroupName="amApiVersion">
+                  <input id="apiVersionId" type="hidden" class="form-control" formControlName="apiVersionId"/>
+                </div>
+              </div>
+            </div>
+              <div class="modal-footer">
+                <input  type="submit" class="btn btn-primary"  value="{{ 'Button.Save' | translate }}" />
+                <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{ 'Button.Back' | translate }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END EXAMPLE TABLE PORTLET-->
+  </div>
+</div>

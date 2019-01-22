@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+    <div class="portlet box grey-cascade">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="fa fa-globe"></i>{{businessName}}
+        </div>
+      </div>
+      <div class="portlet-body">
+        <div class="row">
+          <div class="col-md-12">
+            <form class="form-horizontal align-middle" [formGroup]="subscriberForm" (ngSubmit)="submit(subscriberForm.value)">
+              <div class="row">
+                <div class="col-md-6">
+                  <input id="subscriberId" type="hidden" class="form-control" formControlName="subscriberId"/>
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="userId">UserId</label>
+                    <div class="col-md-8">
+                      <input id="userId" type="text" class="form-control" formControlName="userId" placeholder="UserId"/>
+                      <small class="error" *ngIf="subscriberForm.get('userId').invalid && (subscriberForm.get('userId').touched || responseMessage!=null)">
+                        <span *ngIf="subscriberForm.get('userId').errors.required">
+                          This field is required
+                        </span>
+                        <span *ngIf="subscriberForm.get('userId').errors.min!=null">
+                          The value must be greater than 0
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="name">Name</label>
+                    <div class="col-md-8">
+                      <input id="name" type="text" class="form-control" formControlName="name" placeholder="Name"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="emailAddress">Email Address</label>
+                    <div class="col-md-8">
+                      <input id="emailAddress" type="text" class="form-control" formControlName="emailAddress" placeholder="Email Address"/>
+                      <small class="error" *ngIf="subscriberForm.get('emailAddress').invalid && (subscriberForm.get('emailAddress').touched || responseMessage!=null)">
+                        <span *ngIf="subscriberForm.get('emailAddress').errors.email">
+                          The value must be email format
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button *ngIf="!disabledForm" type="submit" class="btn btn-primary">{{ 'Common.Save' | translate }}</button>
+                <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{ 'Common.Back' | translate }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END EXAMPLE TABLE PORTLET-->
+  </div>
+</div>

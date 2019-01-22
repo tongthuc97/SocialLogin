@@ -1,0 +1,158 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.API Management'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>{{'Application.Title'|translate}}</span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<div style="padding:2px;"></div>
+<!-- BEGIN TABLE TOOLBAR-->
+<div class="table-toolbar">
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn green" *ngIf="isAuthoriziedNavigation()" [routerLink]="['/application', '', 'create']" id="form-add-btn"><i
+          class="fa fa-plus"></i>{{ 'Button.Create' | translate }}</button>
+      <button class="btn red" *ngIf="getNumberDeleteItems()>0&&isAuthoriziedNavigation()" (click)="deleteCheckedItems()"
+        id="form-remove-btn"><i class="fa fa-trash-o"></i>{{ 'Button.Delete' | translate }}</button>
+    </div>
+  </div>
+  <div style="padding:2px;"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <form class="form-horizontal align-middle" [formGroup]="filterForm" (ngSubmit)="search(filterForm.value, 0)"
+        method="POST">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label col-md-4" for="name">{{'Application.Input.Name.Title'|translate}}</label>
+              <div class="col-md-8">
+                <input id="name" type="text" class="form-control" placeholder="{{'Application.Input.Name.Placeholder'|translate}}"
+                  formControlName="name">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group" formGroupName="amPolicy">
+              <label class="control-label col-md-4" for="amPolicyId">{{'Application.Input.Policy.Title'|translate}}</label>
+              <div class="col-md-8">
+                <ng-select [allowClear]="true" [disabled]="disabled" [items]="policySelections" (selected)="filterForm.get('amPolicy.amPolicyId').setValue($event?.id)"
+                  (removed)="filterForm.get('amPolicy.amPolicyId').setValue(0)" placeholder="{{'Application.Input.Policy.Placeholder'|translate}}"
+                  ngDefaultControl>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label col-md-4" for="description">{{'Application.Input.Description.Title'|translate}}</label>
+              <div class="col-md-8">
+                <input id="description" type="text" class="form-control" placeholder="{{'Application.Input.Description.Placeholder'|translate}}"
+                  formControlName="description">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label col-md-4" for="applicationStatus">{{'Application.Input.Status.Title'|translate}}</label>
+              <div class="col-md-8">
+                <select id="applicationStatus" class="form-control" formControlName="applicationStatus" autofocus>
+                  <option value="">{{ 'Application.Input.Status.Placeholder' | translate }}</option>
+                  <option *ngFor="let status of listStatus" [value]="status.id">{{status.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <button type="submit" class="btn green"><i class="fa fa-search"></i>{{ 'Button.Search' | translate }}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- END TABLE TOOLBAR-->
+<!-- BEGIN TABLE CONTENT-->
+<table class="table table-striped table-bordered table-hover" id="list-data-table" [mfData]="applications" #mf="mfDataTable">
+  <thead>
+    <tr>
+      <th (change)="countNumberDeleteItems()">
+        <div class="checker">
+          <span [class.checked]="checkAllItemFlag">
+            <input id="checkAll" type="checkbox" [(ngModel)]="checkAllItemFlag" (click)="checkAllItem()" />
+          </span>
+        </div>
+      </th>
+      <th>
+        <mfDefaultSorter by="name">{{'Application.Name'|translate}}</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="amPolicy.name">{{'Application.Policy'|translate}}</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="applicationStatus">{{'Application.Status'|translate}}</mfDefaultSorter>
+      </th>
+      <th><a>{{ 'Label.Action' | translate }}</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="odd gradeX" *ngFor="let item of mf.data" [ngClass]="item.checked===true?'info':''">
+      <td class="table-checkbox" (change)="countNumberDeleteItems()">
+        <div class="checker">
+          <span [class.checked]="item.checked">
+            <input id="checkOne" type="checkbox" [(ngModel)]="item.checked" />
+          </span>
+        </div>
+      </td>
+      <td><a [routerLink]="['/application', item.applicationId, 'detail']">{{item.name}}</a></td>
+      <td>{{item.amPolicy?.name}}</td>
+      <td>{{getListStatusById(item.applicationStatus)}}</td>
+      <td text-align="center">
+        <a class="btn btn-icon-only blue" title="{{ 'Button.Detail' | translate }}" id="business-btn" [routerLink]="['/application', item.applicationId, 'detail']"><i
+            class="fa fa-info" aria-hidden="true"></i></a>
+        <a *ngIf="isAuthoriziedNavigation()" title="{{ 'Button.Update' | translate }}" class="btn btn-icon-only green"
+          id="business-btn" [routerLink]="['/application', item.applicationId, 'update']"><i class="fa fa-pencil-square-o"
+            aria-hidden="true"></i></a>
+        <a *ngIf="isAuthoriziedNavigation()" title="{{ 'Button.Delete' | translate }}" class="btn btn-icon-only red" id="business-btn"
+          (click)="delete(item)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- END TABLE CONTENT-->
+<!-- BEGIN PAGING-->
+<div class="row">
+  <div class="col-md-4">
+    {{fromNumber}} - {{toNumber}} {{ 'Label.InTotal' | translate }} {{totalElements}} {{ 'Label.Items' | translate }}
+  </div>
+  <div class="col-md-4 pull-right">
+    {{ 'Label.Page' | translate }}
+    <button type="button" title="{{ 'Button.FirstPage' | translate }}" class="btn btn-sm default prev" [disabled]="(currentPage+1)<=1"
+      (click)="choosePageNumber(0)"><i class="fa fa-angle-double-left"></i></button>
+    <button type="button" title="{{ 'Button.Previous' | translate }}" class="btn btn-sm default prev" [disabled]="(currentPage+1)<=1"
+      (click)="choosePageNumber(currentPage-1)"><i class="fa fa-angle-left"></i></button>
+    <input type="number" min="1" max="{{applicationInfo?.totalPages}}" style="border: none; width: 30px; text-align: center;"
+      [value]="currentPageView" #page (keyup.enter)="choosePageNumber(page.value - 1)"> /
+    <label style="padding-right: 5px;">{{totalPages}}</label>
+    <button type="button" title="{{ 'Button.Next' | translate }}" class="btn btn-sm default next" [disabled]="(currentPage+1)>=totalPages"
+      (click)="choosePageNumber(currentPage+1)"><i class="fa fa-angle-right"></i></button>
+    <button type="button" title="{{ 'Button.LastPage' | translate }}" class="btn btn-sm default next" [disabled]="(currentPage+1)>=totalPages"
+      (click)="choosePageNumber(totalPages-1)"><i class="fa fa-angle-double-right"></i></button>
+  </div>
+</div>
+<!-- END PAGING-->

@@ -1,0 +1,80 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.Administration'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>{{'AdmApi.Title'|translate}}</span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title" *ngIf="isUpdate===false">{{'AdmApi.Business.CreateTitle'|translate}}</h3>
+<h3 class="page-title" *ngIf="isUpdate===true">{{'AdmApi.Business.UpdateTitle'|translate}}</h3>
+<hr>
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal align-middle" [formGroup]="admApiForm" (ngSubmit)="submit(admApiForm.value)">
+      <div class="row">
+        <div class="col-md-6">
+          <input id="id" type="hidden" class="form-control" formControlName="apiId" />
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmApi.Business.Input.ApiName.Title' | translate
+              }}
+              <span style="color:red;"> *</span>
+            </label>
+            <div class="col-md-8">
+              <input id="apiName" type="text" ng-trim="true" class="form-control" formControlName="apiName" placeholder="{{ 'AdmApi.Business.Input.ApiName.Placeholder' | translate }}" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmApi.Business.Input.ApiMethod.Title' |
+              translate }}
+              <span style="color:red;"> *</span>
+            </label>
+            <div class="col-md-8">
+              <select id="apiMethod" class="form-control" formControlName="apiMethod">
+                <option value="">{{'AdmApi.Input.ApiMethod.Placeholder'|translate}}</option>
+                <option *ngFor="let method of listApiMethod" [value]="method.id">
+                  {{method.value}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4">{{ 'AdmApi.Business.Input.ApiUrl.Title' | translate
+              }}
+              <span style="color:red;"> *</span>
+            </label>
+            <div class="col-md-8">
+              <input id="apiUrl" type="text" class="form-control" formControlName="apiUrl" placeholder="{{'AdmApi.Business.Input.ApiUrl.Placeholder' | translate}}" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="!isValidForm()">{{ 'Button.Save' | translate
+          }}</button>
+        <button type="button" class="btn default" (click)="goBack()">
+          <i class="fa fa-undo" aria-hidden="true"></i>{{ 'Button.Back' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END PAGE CONTENT-->

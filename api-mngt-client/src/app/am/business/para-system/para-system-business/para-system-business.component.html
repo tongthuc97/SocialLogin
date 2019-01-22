@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+    <div class="portlet box grey-cascade">
+      <div class="portlet-title">
+        <div class="caption">
+          Administration > Para System > {{isUpdatingBusiness==true?'Edit':'Add'}}
+        </div>
+      </div>
+      <div class="portlet-body">
+
+        <div class="row">
+         
+          <div class="col-md-12">
+            <form class="form-horizontal align-middle" [formGroup]="paraSystemForm" (ngSubmit)="submitParaSystemForm(paraSystemForm.value)">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label class="control-label col-md-4">Name <span style = "color:red;"> *</span></label>
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" formControlName="name" placeholder="Enter Name"/>
+                            <small class="error" *ngIf="paraSystemForm.get('name').invalid 
+                            && (paraSystemForm.get('name').touched || isHideErrorFormControl==false)">
+                                <span *ngIf="paraSystemForm.get('name').errors.required">
+                                  This field is required
+                                </span>    
+                            </small>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Name col -->
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label class="control-label col-md-4">Value <span style = "color:red;"> *</span></label>
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" formControlName="value" placeholder="Enter Value"
+                             />
+                            <small class="error" *ngIf="paraSystemForm.get('value').invalid 
+                            && (paraSystemForm.get('value').touched || isHideErrorFormControl==false)">
+                                <span *ngIf="paraSystemForm.get('value').errors.required">
+                                  This field is required
+                                </span>    
+                            </small>
+                            <!-- <small class="error" *ngIf="paraSystemForm.get('value').valid && paraSystemWithCode!=null">
+                                This code is existing, let type another value please!
+                              </small> -->
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Code col -->
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label class="control-label col-md-4">Status <span style = "color:red;"> *</span></label>
+                          <div class="col-md-8">
+                            <select class="form-control" formControlName="status">
+                              <option value="1">Active</option>
+                              <option value="2">Deactivate</option>
+                            </select>
+                            <small class="error" *ngIf="paraSystemForm.get('status').invalid 
+                            && (paraSystemForm.get('status').touched || isHideErrorFormControl==false)">
+                                <span *ngIf="paraSystemForm.get('status').errors.required">
+                                  This field is required
+                                </span>
+                                <span *ngIf="paraSystemForm.get('status').errors.min!=null">
+                                    The value must be greater than 0
+                                  </span>
+                            </small>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Status col -->
+                 
+              </div>
+              
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>Back</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <!-- END EXAMPLE TABLE PORTLET-->
+  </div>
+</div>

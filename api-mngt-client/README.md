@@ -1,0 +1,1 @@
+ngx-translate-extract -i ./src -o ./src/assets/i18n/{vi,en,fr}.json

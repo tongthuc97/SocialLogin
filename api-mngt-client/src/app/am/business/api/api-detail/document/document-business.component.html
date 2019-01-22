@@ -1,0 +1,58 @@
+<div class="portlet-body form">
+    <form role="form" [formGroup]="documentForm" (ngSubmit)="submit(documentForm.value)">
+        <div class="form-body col-md-4">
+            <div class="form-group">
+                <label class="control-label">{{ 'Api.Document.Create.Input.Name.Title' | translate }}</label>
+                <div class="input-icon right">
+                    <input id="name" type="text" class="form-control" formControlName="name"
+                        placeholder="{{ 'Api.Document.Create.Input.Name.Placeholder' | translate }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">{{ 'Api.Document.Create.Input.Description.Title' | translate }}</label>
+                <div class="input-icon right">
+                    <textarea rows="4" id="summary" ng-trim="true" class="form-control" formControlName="summary"
+                        placeholder="{{ 'Api.Document.Create.Input.Description.Placeholder' | translate }}"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-body col-md-4">
+            <div class="form-group">
+                <label>{{ 'Api.Document.Create.Input.Type.Title' | translate }}</label>
+                <div class="radio-list">
+                    <label *ngFor="let type of listType">
+                        <input type="radio" name="type" formControlName="type" [value]="type.id"> {{type.value}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-body col-md-4">
+            <div class="form-group">
+                <label>{{ 'Api.Document.Create.Input.Source.Title' | translate }}</label>
+                <div class="radio-list">
+                    <label *ngFor="let type of listSourceType">
+                        <input type="radio" name="sourceType" formControlName="sourceType" [value]="type.id" (change)="selectSourceType()">
+                        {{type.value}}
+                    </label>
+                </div>
+            </div>
+            <div class="input-group" *ngIf="sourceType==2" style="margin-bottom: 15px">
+                <input id="source" type="text" class="form-control" formControlName="source" placeholder="{{ 'Api.Document.Create.Input.Source.FilePlaceholder' | translate }}" />
+                <span class="input-group-btn">
+                    <label class="btn btn-primary" for="upload-file-selector">
+                        <input id="upload-file-selector" type="file" (change)="onImport($event)">
+                        <i class="fa fa-folder"></i>{{ 'Button.Browse' | translate }}
+                    </label>
+                </span>
+            </div>
+            <div class="form-group" *ngIf="sourceType==1">
+                <input id="source" type="text" class="form-control" formControlName="source" placeholder="{{ 'Api.Document.Create.Input.Source.UrlPlaceholder' | translate }}" />
+            </div>
+        </div>
+        <div class="form-actions right">
+            <input type="submit" class="btn btn-primary" value="{{ 'Button.Save' | translate }}" />
+            <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{
+                'Button.Back' | translate }}</button>
+        </div>
+    </form>
+</div>

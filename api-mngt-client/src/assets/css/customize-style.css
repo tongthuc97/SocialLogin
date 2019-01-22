@@ -1,0 +1,57 @@
+.portlet.box.grey-cascade > .portlet-title{
+    background-color: #E4E4E4;
+    color: black;
+}
+.portlet.box.grey-cascade > .portlet-title > .caption{
+    color: black;
+}
+#list-search-btn{
+    text-align: center;
+    margin-top: 10px;
+}
+#list-data-table tr th{
+    text-align: center;
+    background-color: #F2F2F2;
+    color: black;
+}
+#list-data-table tr td:first-child{
+    text-align: center;
+}
+#list-data-table tr td:last-child{
+    text-align: center;
+    width: 15%;
+}
+#list-paging{
+    text-align: center;
+}
+a.disabled {
+     pointer-events: none;
+     cursor:default;
+}
+#business-btn{
+    border-radius: 50%;
+}
+#form-add-btn{
+    background-color: #006699;
+}
+#form-remove-btn{
+    background-color: #FF6666;
+}
+.text-bold {
+    font-weight: 700 !important;
+}
+.font-white {
+    color: #fff!important;
+}
+.popover-content {
+    padding: 10px 20px;
+}
+#business-btn{
+    border-radius: 50% !important;
+}
+.owl-datetime-main-input{
+    height: 2.5em;
+}
+.scroll-bar[_ngcontent-c3] {
+    height: 379px;
+}

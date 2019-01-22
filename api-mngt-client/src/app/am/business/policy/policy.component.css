@@ -1,0 +1,43 @@
+.form-horizontal .form-body label{
+	color: black; 
+	font-size: 14px;
+}
+/* table tr .table-checkbox input[type = checkbox]{ */
+/* 	width: 30px; */
+/*   height: 30px; */
+/*   margin-right: 8px; */
+/*   cursor: pointer; */
+/*   font-size: 27px; */
+/* } */
+/* table tr .table-checkbox input[type = checkbox]:after{ */
+/* content: " "; */
+/*     background-color: #9FFF9D; */
+/*     display: inline-block; */
+/*     visibility: visible; */
+/* } */
+/* table tr .table-checkbox input[type = checkbox]:checked:after{ */
+/* 	content: "\2714"; */
+/* } */
+
+table-checkbox .checkbox input:checked {
+    border-color: red;
+    background-color:red;
+}
+
+.pending-delete { 
+	background-color: pink;
+	color:black;
+	font-size:17px;
+}
+table td{
+	text-align: center;
+	float: center;
+}
+
+table th {
+	text-align: center;
+	float: center;
+}
+a {
+    text-decoration: none;
+}

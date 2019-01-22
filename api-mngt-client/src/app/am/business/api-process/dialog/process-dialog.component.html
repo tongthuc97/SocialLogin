@@ -1,0 +1,16 @@
+<div style="min-width: 500px;">
+	<p>Process Multiple task</p>
+	<div class="row">
+		<div class="form-group">
+			<label class="control-label col-md-4" for="processContent">Nội dung xử lý
+			</label>
+			<div class="col-md-8">
+				<textarea id="processContent" class="form-control" placeholder="Process Content" #processContent></textarea>
+			</div>
+		</div>
+	</div>
+	<div style="width: 100%; text-align: right;">
+		<button *ngFor="let state of states" type="button" class="btn btn-primary" (click)="dialogRef.close(state.id)">{{state.value}}</button>
+		<button type="button" md-raised-button (click)="dialogRef.close()">{{ 'Dialog.Cancel' | translate }}</button>
+	</div>
+</div>

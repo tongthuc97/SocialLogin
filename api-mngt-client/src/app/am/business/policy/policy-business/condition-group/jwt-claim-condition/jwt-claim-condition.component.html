@@ -1,0 +1,66 @@
+<h3 class="title">{{'ConditionGroup.JwtClaim.Title'|translate}}</h3>
+<div class="row">
+  <form class="form-body" [formGroup]="jwtClaimForm" (ngSubmit)="addJwtClaim(jwtClaimForm.value)">
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.JwtClaim.Input.ClaimAttrib.Title'|translate}}
+        <span class="required">* </span>
+      </label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="claimAttrib" placeholder="{{'ConditionGroup.JwtClaim.Input.ClaimAttrib.Placeholder'|translate}}">
+        <small class="error" *ngIf="jwtClaimForm.get('claimAttrib').invalid && (jwtClaimForm.get('claimAttrib').touched || jwtClaimForm.get('claimAttrib').dirty)">
+          {{'ConditionGroup.JwtClaim.Input.ClaimAttrib.Error'|translate}}
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.JwtClaim.Input.ClaimUri.Title'|translate}}
+        <span class="required">* </span>
+      </label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="claimUri" placeholder="{{'ConditionGroup.JwtClaim.Input.ClaimUri.Placeholder'|translate}}">
+        <small class="error" *ngIf="jwtClaimForm.get('claimUri').invalid && (jwtClaimForm.get('claimUri').touched || jwtClaimForm.get('claimUri').dirty)">
+          {{'ConditionGroup.JwtClaim.Input.ClaimUri.Error'|translate}}
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.JwtClaim.Input.IsClaimMapping.Title'|translate}}
+      </label>
+      <div class="col-md-6">
+        <select id="ipConditionType" class="form-control" formControlName="isClaimMapping">
+          <option *ngFor="let item of listStatus" [value]="item.id">
+            {{item.value}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <button class="btn green" type="submit">{{'Button.AddNew'|translate}}</button>
+    <div class="table-scrollable">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th> # </th>
+            <th> {{'ConditionGroup.JwtClaim.ClaimAttrib'|translate}} </th>
+            <th> {{'ConditionGroup.JwtClaim.ClaimUri'|translate}} </th>
+            <th> {{'ConditionGroup.JwtClaim.IsClaimMapping'|translate}} </th>
+            <th> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listJwtClaim; let i = index">
+            <td> {{i+1}}</td>
+            <td> {{item.claimAttrib}}</td>
+            <td> {{item.claimUri}}</td>
+            <td> {{item.isClaimMapping}}</td>
+            <td>
+              <a class="label label-sm label-danger" (click)="removeJwtClaim(i)">
+                <i class="fa fa-trash-o"></i>
+                {{'Button.Delete'|translate}}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,1466 @@
+{
+	"Common": {
+		"Back": "Back",
+		"Save": "Save",
+		"Create": "Add New",
+		"Update": "Update",
+		"Process": "Process",
+		"Clone": "Clone",
+		"Delete": "Delete",
+		"Detail": "Detail",
+		"Search": "Search",
+		"Action": "Action",
+		"InTotal": "In total",
+		"Items": "Items",
+		"Page": "Page",
+		"Next": "Next Page",
+		"Previous": "Previous Page",
+		"FirstPage": "Go to first page",
+		"LastPage": "Go to last page",
+		"Continue": "Continue",
+		"Submit": "Submit",
+		"MyProfile": "My Profile",
+		"Login": "Login",
+		"Logout": "Logout",
+		"All": "All",
+		"ChooseStatus": "Choose Status",
+		"Add": "Add",
+		"Cancel": "Cancel",
+		"ChangePassword": "Change Password",
+		"Disable": "Disable",
+		"Download": "Download",
+		"View": "View Detail"
+	},
+	"Dialog": {
+		"OK": "OK",
+		"Cancel": "Cancel",
+		"ConfirmInfo": "Confirm Information",
+		"MessageConfirm": "Are you sure to delete?"
+	},
+	"LOGIN": {
+		"AppName": "API MNGT",
+		"CompanyName": "Savis",
+		"Error1": "Username or password is incorrect.",
+		"Login": "Login",
+		"Password": "Password",
+		"Remember": "Remember",
+		"SignIn": "Sign In",
+		"Username": "Username",
+		"Version": "Trial version"
+	},
+	"Message": {
+		"CreateSuccess": "Created successfully!",
+		"UpdateSuccess": "Updated successfully!",
+		"DeleteSuccess": "Deleted successfully!",
+		"ProcessInstanceSuccess": "Process instance successfully!",
+		"ProcessInstanceFail": "Process instance failed!",
+		"CreateFail": "Create process failed!",
+		"UpdateFail": "Update process failed!",
+		"DeleteFail": "Delete process failed!",
+		"Required": "This field is required",
+		"Select": "Please selected one option",
+		"NoSpace": "Code must be no spaces",
+		"Invalid": "The value is invalid",
+		"Existing": "The value is existing",
+		"IpFomat": "The field must be formatted by Ip Address (xxx.xxx.xxx.xxx)",
+		"StartDate": "Start Date must more than date now",
+		"EndDate": "End Date must more than Start Date",
+		"FormError": "You have some form errors. Please check below.",
+		"FormValidation": "Your form validation is successful!",
+		"UrlPattern": "URL pattern cannot be empty.",
+		"SelectHttp": "You should select at least one HTTP verb.",
+		"MaxLength": "Length must lest than ",
+		"MinLength": "Length must more than ",
+		"UserNameInvalid": "The field is invalid",
+		"PasswordInvalid": "The field is invalid(Please specify a valid password)",
+		"NameInvalid": "The field is invalid",
+		"CodeInvalid": "The field is invalid(Code must be no spaces)",
+		"IpInvalid": "The field is invalid (Please specify a valid Ip address: xxx.xxx.xxx.xxx)",
+		"EmailInvalid": "The field is invalid (Please specify a valid email)",
+		"MobileInvalid": "The field is invalid (Please specify a valid phone number)"
+	},
+	"Error": {},
+	"ApiVersion": {
+		"Title": "Related Api Version",
+		"Version": "Version",
+		"ChooseApiVersion": "Choose Api Version",
+		"Context": "Context",
+		"CurrentState": "Current State",
+		"Cache": "Cache",
+		"DefaultVersion": "Default Version",
+		"MakeDefaultVersion": "Make this the Default version",
+		"MakeCache": "Response caching",
+		"ApiMethods": "Api Methods",
+		"Status": "Status"
+	},
+	"ApiMethod": {
+		"Title": "Api Method",
+		"HttpMethod": "Http Method",
+		"UrlPattern": "Url Pattern"
+	},
+	"ApiEndpoint": {
+		"Title": "Api Endpoint",
+		"CustomHeader": "Custom Header",
+		"EndpointType": "Endpoint Type",
+		"Secured": "Secured",
+		"Url": "Url"
+	},
+	"ApiLifecycle": {
+		"Title": "Api Lifecycle",
+		"EventDate": "Event Date",
+		"NewState": "New State",
+		"PreviousState": "Previous State",
+		"User": "User"
+	},
+	"ActionHistory": {
+		"Title": "Action History",
+		"UserName": "User Name",
+		"Action": "Action",
+		"DetailAction": "Detail Action",
+		"Module": "Module",
+		"DateAction": "Date Action",
+		"StartDate": "Start Date",
+		"EndDate": "End Date"
+	},
+	"HEADER": {
+		"AppName": "API MNGT"
+	},
+	"SIDEBAR": {
+		"API": "API",
+		"Group Api": "Group Api",
+		"API Management": "API Management",
+		"API Process": "API Process",
+		"Action History": "Action History",
+		"Application": "Application",
+		"History": "History",
+		"Blacklist Condition": "Blacklist Condition",
+		"Condition Group": "Condition Group",
+		"Conditions": "Conditions",
+		"Department": "Department",
+		"Directory": "Directory",
+		"District": "District",
+		"Log Data": "Log Data",
+		"Ministry": "Ministry",
+		"Organizational Unit": "Organizational Unit",
+		"Policy": "Policy",
+		"Province": "Province",
+		"Query Parameter": "Query Parameter",
+		"Statistics": "Statistics",
+		"Subscriber": "Subscriber",
+		"Ward": "Ward",
+		"Administration": "Administration",
+		"Users": "Users",
+		"AD Organizational Unit": "AD Organizational Unit",
+		"AD Group": "AD Group",
+		"AD User": "AD User",
+		"LDAP Group": "LDAP Group",
+		"LDAP User": "LDAP User",
+		"Para System": "Para System",
+		"Top API Users": "Top API Users",
+		"App Throttled Requests": "App Throttled Requests",
+		"API Usage": "API Usage",
+		"Service Feedback Time": "API Feedback Time",
+		"API Last Access Time": "API Last Access Time",
+		"Service Method": "API Method",
+		"Result Service Usage": "Result API Usage",
+		"Top API Application": "API Top Application",
+		"Message Service Portal": "Message Service Portal",
+		"Adm User": "User",
+		"Adm Role": "Role",
+		"Adm Right": "Right",
+		"Adm Api": "Api",
+		"Adm Access": "Access"
+	},
+	"Button": {
+		"AddNew": "Add New",
+		"Add": "Add",
+		"Create": "Create",
+		"Update": "Update",
+		"Detail": "Detail",
+		"Delete": "Delete",
+		"Browse": "Browse",
+		"Search": "Search",
+		"CopyApi": "Copy Api",
+		"CopyToken": "Copy Token",
+		"StartProcess": "Start Process",
+		"ProcessMultiple": "Process Multiple",
+		"Process": "Process",
+		"Cancel": "Cancel",
+		"Save": "Save",
+		"Back": "Back",
+		"SDKAndroid": "Android",
+		"SDKJava": "Java",
+		"OK": "OK",
+		"Login": "Login",
+		"Logout": "Logout",
+		"Register": "Register",
+		"ChangePassword": "Change Password",
+		"Next": "Next",
+		"Previous": "Previous",
+		"FirstPage": "FirstPage",
+		"LastPage": "LastPage",
+		"View": "View",
+		"Download": "Download",
+		"ShowKey": "Show Keys",
+		"HideKey": "Hide Keys",
+		"CopyKey": "Copy keys",
+		"Response": "Response",
+		"Request": "Request",
+		"UpdateState": "Update State"
+	},
+	"Label": {
+		"InTotal": "In Total",
+		"Items": "Items",
+		"Page": "Page",
+		"Action": "Action"
+	},
+	"Header": {
+		"Home": "Home",
+		"AddNew": "Thêm mới",
+		"Update": "Cập Nhật",
+		"Detail": "Chi Tiết"
+	},
+	"Api": {
+		"Title": "API",
+		"Name": "Api Name",
+		"Context": "Context Template",
+		"Version": "Version",
+		"Policy": "Policy",
+		"Status": "Status",
+		"DefaultVersion": "Default Version",
+		"Input": {
+			"Api": {
+				"Title": "Api",
+				"Placeholder": "Choose Api"
+			},
+			"Context": {
+				"Title": "Context",
+				"Placeholder": "Context"
+			},
+			"Version": {
+				"Title": "Version",
+				"Placeholder": "Version"
+			},
+			"Policy": {
+				"Title": "Policy",
+				"Placeholder": "Choose Policy"
+			},
+			"Status": {
+				"Title": "Status",
+				"Placeholder": "Status"
+			},
+			"Document": {
+				"Title": "Document",
+				"Placeholder": "Document"
+			},
+			"Description": {
+				"Title": "Description",
+				"Placeholder": "Description"
+			}
+		},
+		"StartCreate": {
+			"Title1": "Let's get started!",
+			"Title2": "Add New API",
+			"Option1": {
+				"Title1": "I Have an Existing API",
+				"Title2": "Use an existing API's endpoint or the API Swagger definition to create an API."
+			},
+			"Option2": {
+				"Title1": "I Have a SOAP Endpoint",
+				"Title2": "Use an existing SOAP endpoint to create a managed API. Import the WSDL of the SOAP service."
+			},
+			"Option3": {
+				"Title1": "Design a New REST API",
+				"Title2": "Design and prototype a new REST API."
+			},
+			"Input": {
+				"SwaggerFile": {
+					"Title": "Swagger File",
+					"Placeholder": "Click Browse to add a file"
+				},
+				"SwaggerUrl": {
+					"Title": "Swagger URL",
+					"Placeholder": "http://petstore.swagger.io/v2/swagger.json"
+				},
+				"WsdlUrl": {
+					"Placeholder": "http://appserver/services/echo?wsdl"
+				}
+			}
+		},
+		"Create": {
+			"ApiDesign": "API Design",
+			"Implement": "Implement",
+			"Manage": "Manage",
+			"GeneralDetails": "General Details",
+			"ApiDefinition": "API Definition",
+			"ManagedApi": "Managed API",
+			"ThrottingSettings": "ThrottingSettings",
+			"Input": {
+				"Name": {
+					"Title": "Api Name",
+					"Placeholder": "Api Name",
+					"Detail": "Display name to be shown in the API Store.",
+					"Error": "This field is required"
+				},
+				"Provider": {
+					"Title": "Provider",
+					"Placeholder": "Provider",
+					"Detail": "Api Provider"
+				},
+				"Context": {
+					"Title": "Context",
+					"Placeholder": "Context",
+					"Detail": "URI context path of the API (case sensitive).",
+					"Error": "This field invalid"
+				},
+				"GroupApi": {
+					"Title": "Api Group",
+					"Placeholder": "Choose Api Group",
+					"Detail": "The Group Api",
+					"Error": "This field is required"
+				},
+				"Version": {
+					"Title": "Version",
+					"Placeholder": "Version",
+					"Detail": "",
+					"Error": "This field is required"
+				},
+				"Description": {
+					"Title": "Description",
+					"Placeholder": "Description",
+					"Detail": ""
+				},
+				"UrlPattern": {
+					"Title": "Url Pattern",
+					"Placeholder": "E.g., path/to/resource",
+					"Detail": "",
+					"Error": "Url Pattern invalid"
+				},
+				"Method": {
+					"Title": "Method",
+					"Placeholder": "",
+					"Detail": "",
+					"Error": "Please choose method"
+				},
+				"Wsdl": {
+					"Title": "WSDL",
+					"Placeholder": "Wsdl url",
+					"Detail": ""
+				},
+				"EndpointType": {
+					"Title": "Endpoint Type",
+					"Placeholder": "Endpoint Type",
+					"Detail": ""
+				},
+				"ProductEndpoint": {
+					"Title": "Product Endpoint",
+					"Placeholder": "Product Endpoint",
+					"Detail": ""
+				},
+				"Secured": {
+					"Title": "Secured",
+					"Placeholder": "Secured",
+					"Detail": ""
+				},
+				"Username": {
+					"Title": "Username",
+					"Placeholder": "Username",
+					"Detail": ""
+				},
+				"Password": {
+					"Title": "Password",
+					"Placeholder": "Password",
+					"Detail": ""
+				},
+				"CustomHeader": {
+					"Title": "Custom Header",
+					"Placeholder": "Custom Header",
+					"Detail": ""
+				},
+				"MakeDefaultVersion": {
+					"Title": "Make Default Version",
+					"Placeholder": "Make Default Version",
+					"Detail": ""
+				},
+				"MakeCache": {
+					"Title": "Make Cache",
+					"Placeholder": "Make Cache",
+					"Detail": ""
+				},
+				"ThrottingSettingTo": {
+					"Title": "Throtting Setting To",
+					"Placeholder": "Throtting Setting To",
+					"Detail": ""
+				}
+			},
+			"MethodParameter": {
+				"Title": "Parameters",
+				"HttpMethod": "Http Method",
+				"Name": "Parameter Name",
+				"Description": "Description",
+				"ParameterType": "Parameter Type",
+				"DataType": "Data Type",
+				"Required": "Required",
+				"AddParameter": "Add Parameter",
+				"ParameterIsValid": "Parameter Name invalid",
+				"MethodPolicy": "Policy"
+			}
+		},
+		"Overview": {
+			"Title": "Overview",
+			"Provider": "Provider",
+			"Context": "Context",
+			"CreatedBy": "Created By",
+			"Updated": "Update",
+			"ProductEndpoint": "Product Endpoint",
+			"Description": "Description",
+			"PublishAPI": "Publish API"
+		},
+		"ApiVersion": {
+			"Title": "Api Version",
+			"Context": "Context Template",
+			"Version": "Version",
+			"Policy": "Policy",
+			"Status": "Status",
+			"Cache": "Cache",
+			"DefaultVersion": "Default Version",
+			"Input": {
+				"Context": {
+					"Title": "Context",
+					"Placeholder": "Context"
+				},
+				"Version": {
+					"Title": "Version",
+					"Placeholder": "Version"
+				},
+				"Policy": {
+					"Title": "Policy",
+					"Placeholder": "All"
+				},
+				"Status": {
+					"Title": "Status",
+					"Placeholder": "All"
+				}
+			}
+		},
+		"ApiLifecycle": {
+			"Title": "Lifecycle History",
+			"UpdateTime": "Update Time",
+			"UpdateBy": "Update By",
+			"UpdateFrom": "Update From",
+			"UpdateTo": "Update To"
+		},
+		"Subscription": {
+			"Title": "Subscription",
+			"Application": "Application",
+			"Policy": "Policy",
+			"Status": "Status",
+			"Input": {
+				"Application": {
+					"Title": "Application",
+					"Placeholder": "All"
+				},
+				"Policy": {
+					"Title": "Policy",
+					"Placeholder": "All"
+				},
+				"Status": {
+					"Title": "Status",
+					"Placeholder": "All"
+				}
+			},
+			"Create": {
+				"Input": {
+					"Name": {
+						"Title": "Application",
+						"Placeholder": "Application"
+					},
+					"Description": {
+						"Title": "Mô tả"
+					},
+					"Application": {
+						"Title": "Application",
+						"Placeholder": "Choose Application"
+					},
+					"Policy": {
+						"Title": "Policy",
+						"Placeholder": "Choose Policy"
+					},
+					"Status": {
+						"Title": "Status",
+						"Placeholder": "Choose Status"
+					}
+				}
+			}
+		},
+		"Document": {
+			"Title": "Document",
+			"Name": "Document Name",
+			"Type": "Document Type",
+			"Updated": "Update",
+			"Input": {
+				"Search": {
+					"Title": "Search",
+					"Placeholder": "Filter Search"
+				}
+			},
+			"Create": {
+				"Input": {
+					"Name": {
+						"Title": "Document Name",
+						"Placeholder": "Document Name"
+					},
+					"Description": {
+						"Title": "Description",
+						"Placeholder": "Description"
+					},
+					"Type": {
+						"Title": "Type",
+						"Placeholder": "Type"
+					},
+					"Source": {
+						"Title": "Source",
+						"UrlPlaceholder": "Enter Url",
+						"FilePlaceholder": "Click Browse to choose file"
+					}
+				}
+			}
+		},
+		"Sdk": {
+			"Title": "SDKs",
+			"Message": "Download client-side SDKs for this API."
+		},
+		"UpdateState": {
+			"Title": "Update State Api",
+			"ApiName": "Api Name",
+			"ApiVersion": "Api Version",
+			"CurentState": "Current State",
+			"NewState": "New State"
+		}
+	},
+	"GroupApi": {
+		"Title": "GroupApi",
+		"Name": "Group Api",
+		"Status": "Status",
+		"Created": "Created",
+		"Modified": "Modified",
+		"Input": {
+			"Name": {
+				"Title": "Group Api",
+				"Placeholder": "Group Api Name"
+			},
+			"Code": {
+				"Title": "Code ",
+				"Placeholder": "Group Api Code"
+			},
+			"Status": {
+				"Title": "Status",
+				"Placeholder": "All"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create New Group Api",
+			"UpdateTitle": "Update New Group Api",
+			"Input": {
+				"Name": {
+					"Title": "Group Api Name",
+					"Placeholder": "Group Api Name",
+					"Error": "Name can not be empty or contain special characters."
+				},
+				"Code": {
+					"Title": "Code ",
+					"Placeholder": "Group Api Code",
+					"Error": "Code can not be empty or contain special characters."
+				},
+				"Status": {
+					"Title": "Status",
+					"Placeholder": "Choose Status"
+				}
+			}
+		}
+	},
+	"Application": {
+		"Title": "Application",
+		"Name": "Application Name",
+		"Policy": "Policy",
+		"Status": "Status",
+		"Input": {
+			"Name": {
+				"Title": "Application Name",
+				"Placeholder": "Application Name"
+			},
+			"Policy": {
+				"Title": "Policy",
+				"Placeholder": "Choose Policy"
+			},
+			"Description": {
+				"Title": "Descirption",
+				"Placeholder": "Descirption"
+			},
+			"Status": {
+				"Title": "Status",
+				"Placeholder": "All"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create New Application",
+			"UpdateTitle": "Update Application",
+			"Input": {
+				"Name": {
+					"Title": "Application Name",
+					"Placeholder": "Application Name"
+				},
+				"Policy": {
+					"Title": "Policy",
+					"Placeholder": "Choose Policy"
+				},
+				"Description": {
+					"Title": "Descirption",
+					"Placeholder": "Descirption"
+				},
+				"Status": {
+					"Title": "Status",
+					"Placeholder": "Choose Status"
+				},
+				"Subscriber": {
+					"Title": "Subscriber",
+					"Placeholder": "Choose Subscriber"
+				}
+			}
+		},
+		"Overview": {
+			"Title": "Overview",
+			"Name": "Application Name",
+			"Description": "Description",
+			"Policy": "Policy",
+			"Status": "Status"
+		},
+		"ApplicationToken": {
+			"Title": "Application Token",
+			"StartDate": "Start Date",
+			"EndDate": "End Date",
+			"GrantType": "Grant type",
+			"Status": "Status",
+			"Input": {
+				"StartDate": {
+					"Title": "Start Date",
+					"Placeholder": "Start Date"
+				},
+				"EndDate": {
+					"Title": "End Date",
+					"Placeholder": "End Date"
+				},
+				"GrantType": {
+					"Title": "Grant Type",
+					"Placeholder": "All"
+				},
+				"Status": {
+					"Title": "Status",
+					"Placeholder": "All"
+				}
+			},
+			"Create": {
+				"Input": {
+					"StartDate": {
+						"Title": "Start Date",
+						"Placeholder": "Start Date"
+					},
+					"EndDate": {
+						"Title": "End Date",
+						"Placeholder": "End Date"
+					},
+					"GrantType": {
+						"Title": "Grant Type",
+						"Placeholder": "Choose Grant Type"
+					},
+					"Status": {
+						"Title": "Status",
+						"Placeholder": "Choose Status"
+					}
+				}
+			}
+		},
+		"Subscription": {
+			"Title": "Subscription",
+			"Policy": "Policy",
+			"Version": "Api Version",
+			"Application": "Application",
+			"Status": "Status",
+			"CreateState": "Create State",
+			"CreateBy": "Create By",
+			"CreateTime": "Create Time",
+			"UpdateBy": "Update By",
+			"UpdateTime": "Update Time",
+			"LastAccessed": "Last Accessed",
+			"Input": {
+				"Policy": {
+					"Title": "Policy",
+					"Placeholder": "All"
+				},
+				"Version": {
+					"Title": "Api Version",
+					"Placeholder": "All"
+				},
+				"Status": {
+					"Title": "Status",
+					"Placeholder": "All"
+				}
+			},
+			"Create": {
+				"Input": {
+					"Version": {
+						"Title": "Api Version",
+						"Placeholder": "Choose Api Version"
+					},
+					"Policy": {
+						"Title": "Policy",
+						"Placeholder": "Choose Policy"
+					},
+					"Status": {
+						"Title": "Status",
+						"Placeholder": "Choose Status"
+					}
+				}
+			}
+		},
+		"ProductionKey": {
+			"Title": "Production Key",
+			"ConsumerKeys": "Consumer Keys",
+			"ConsumerSecret": "Consumer Secret"
+		}
+	},
+	"ApiUpdateHistory": {
+		"Title": "Api Update History",
+		"Api": "Api",
+		"Version": "Version",
+		"Status": "Status",
+		"UpdateBy": "Update By",
+		"Updated": "Update Time",
+		"Input": {
+			"FromDate": {
+				"Title": "From Date",
+				"Placeholder": ""
+			},
+			"ToDate": {
+				"Title": "To Date",
+				"Placeholder": ""
+			},
+			"Api": {
+				"Title": "Api",
+				"Placeholder": "All"
+			},
+			"UpdateBy": {
+				"Title": "Update By",
+				"Placeholder": "All"
+			}
+		}
+	},
+	"BlockCondition": {
+		"Title": "Black List",
+		"Type": "Condition Type",
+		"Status": "Status",
+		"Value": "Condition Value",
+		"Input": {
+			"Type": {
+				"Title": "Condition Type",
+				"Placeholder": "All"
+			},
+			"Status": {
+				"Title": "Status",
+				"Placeholder": "All"
+			},
+			"Value": {
+				"Title": "Condition Value",
+				"Placeholder": "Condition Value"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Add New Block Condition",
+			"UpdateTitle": "Update Block Condition",
+			"DetailTitle": "Update Block Condition",
+			"Input": {
+				"Type": {
+					"Title": "Condition Type",
+					"Placeholder": "Choose Condition Type"
+				},
+				"Status": {
+					"Title": "Status",
+					"Placeholder": "Choose Status"
+				},
+				"Value": {
+					"Title": "Condition Value",
+					"Placeholder": "Condition Value"
+				}
+			}
+		}
+	},
+	"Policy": {
+		"Title": "Policy",
+		"Name": "Name",
+		"DisplayName": "Display Name",
+		"PolicyType": "Policy Type",
+		"QuotaType": "Quota Type",
+		"Quota": "Quota",
+		"UnitTime": "Unit Time",
+		"Bandwidth": "Bandwidth",
+		"RequestCount": "Request Count",
+		"Status": "Status",
+		"Description": "Description",
+		"Input": {
+			"Name": {
+				"Title": "Name",
+				"Placeholder": "Name"
+			},
+			"DisplayName": {
+				"Title": "Display Name",
+				"Placeholder": "Display Name"
+			},
+			"Status": {
+				"Title": "Status",
+				"Placeholder": "All"
+			},
+			"PolicyType": {
+				"Title": "Policy Type",
+				"Placeholder": "All"
+			},
+			"QuotaType": {
+				"Title": "Quota Type",
+				"Placeholder": "All"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Add New Throttle Policy",
+			"UpdateTitle": "Update Throttle Policy",
+			"GeneralDetails": "General Details",
+			"DefaultLimits": "Default Limits",
+			"ConditionalGroups": "Conditional Groups",
+			"Input": {
+				"PolicyType": {
+					"Title": "Throttle Policy Type",
+					"Placeholder": "Throttle Policy Type"
+				},
+				"Name": {
+					"Title": "Name",
+					"Placeholder": "Name",
+					"Detail": "Name of policy",
+					"Error": "Name can not be empty or contain special characters."
+				},
+				"DisplayName": {
+					"Title": "Display Name",
+					"Placeholder": "Display Name",
+					"Detail": "DisplayName of policy",
+					"Error": "Display Name can not be empty or contain special characters."
+				},
+				"Description": {
+					"Title": "Description",
+					"Placeholder": "Description"
+				},
+				"RequestCount": {
+					"Title": "Request Count",
+					"Placeholder": "Request Count",
+					"Detail": "Number of requests allowed.",
+					"Error": "Request Count must be greater than 0."
+				},
+				"RequestBandwidth": {
+					"Title": "Request Bandwidth",
+					"Placeholder": "Request Bandwidth",
+					"Detail": "Bandwidth allowed.",
+					"Error": "Request Bandwidth must be greater than 0."
+				},
+				"UnitTime": {
+					"Title": "Unit Time",
+					"Placeholder": "Unit Time",
+					"Detail": "Time Configuration.",
+					"Error": "Unit Time must be greater than 0."
+				}
+			}
+		},
+		"Detail": {
+			"Title": "Detail Policy",
+			"GeneralDetails": "General Details",
+			"DefaultLimits": "Default Limits",
+			"ConditionalGroups": "Conditional Groups",
+			"PolicyType": "Throttle Policy Type",
+			"Name": "Name",
+			"DisplayName": "Display Name",
+			"Description": "Description",
+			"RequestCount": "Request Count",
+			"QuotaType": "Quota Type",
+			"RequestBandwidth": "Request Bandwidth",
+			"UnitTime": "Unit Time"
+		}
+	},
+	"ConditionGroup": {
+		"Title": "Condition Group",
+		"GeneralDetails": "General Details",
+		"DefaultLimits": "Default Limits",
+		"Input": {
+			"Name": {
+				"Title": "Name",
+				"Placeholder": "Enter Name",
+				"Detail": "",
+				"Error": "Name can not be empty or contain special characters."
+			},
+			"Description": {
+				"Title": "Description",
+				"Placeholder": "Enter Description",
+				"Detail": ""
+			},
+			"RequestCount": {
+				"Title": "Request Count",
+				"Placeholder": "Request Count",
+				"Detail": "Number of requests allowed.",
+				"Error": "Request Count must be greater than 0."
+			},
+			"RequestBandwidth": {
+				"Title": "Request Bandwidth",
+				"Placeholder": "Request Bandwidth",
+				"Detail": "Bandwidth allowed.",
+				"Error": "Request Bandwidth must be greater than 0."
+			},
+			"UnitTime": {
+				"Title": "Unit Time",
+				"Placeholder": "Unit Time",
+				"Detail": "Time Configuration.",
+				"Error": "Unit Time must be greater than 0."
+			}
+		},
+		"Ip": {
+			"Title": "IP Condition",
+			"IpType": "IP Condition Type",
+			"StartingIp": "Start IP Address",
+			"SpecificIp": "IP Address",
+			"EndingIp": "End IP Address",
+			"Directional": "Ip Directional",
+			"Status": "Status",
+			"Input": {
+				"IpType": {
+					"Title": "IP Condition Type:",
+					"Placeholder": "Enter IP Condition Type",
+					"Detail": ""
+				},
+				"StartingIp": {
+					"Title": "Start IP Address:",
+					"Placeholder": "Enter Start IP Address",
+					"Detail": "",
+					"Error": "Field can not be empty and must be ip format."
+				},
+				"SpecificIp": {
+					"Title": "IP Address:",
+					"Placeholder": "Enter IP Address",
+					"Detail": "",
+					"Error": "Field can not be empty and must be ip format."
+				},
+				"EndingIp": {
+					"Title": "End IP Address:",
+					"Placeholder": "Enter End IP Address",
+					"Detail": "",
+					"Error": "Field can not be empty and must be ip format."
+				},
+				"Directional": {
+					"Title": "Ip Directional:",
+					"Placeholder": "Ip Directional",
+					"Detail": ""
+				},
+				"Status": {
+					"Title": "Status:",
+					"Placeholder": "Enter Status",
+					"Detail": ""
+				}
+			}
+		},
+		"HeaderField": {
+			"Title": "Header Field",
+			"Name": "Header Field Name",
+			"Value": "Header Field Value",
+			"Directional": "Header Field Directional",
+			"Status": "Status",
+			"Input": {
+				"Name": {
+					"Title": "Header Field Name:",
+					"Placeholder": "Enter Header Field Name",
+					"Detail": "",
+					"Error": "Name can not be empty or contain special characters."
+				},
+				"Value": {
+					"Title": "Header Field Value:",
+					"Placeholder": "Enter Header Field Value",
+					"Detail": "",
+					"Error": "Value can not be empty or contain special characters."
+				},
+				"Directional": {
+					"Title": "Header Field Directional:",
+					"Placeholder": "Header Field Directional",
+					"Detail": ""
+				},
+				"Status": {
+					"Title": "Status:",
+					"Placeholder": "Enter Status",
+					"Detail": ""
+				}
+			}
+		},
+		"JwtClaim": {
+			"Title": "Jwt Claim Condition",
+			"ClaimAttrib": "Claim Attrib",
+			"ClaimUri": "Claim Uri",
+			"IsClaimMapping": "Is Claim Mapping",
+			"Input": {
+				"ClaimAttrib": {
+					"Title": "Claim Attrib:",
+					"Placeholder": "Enter Claim Attrib",
+					"Detail": "",
+					"Error": "Claim Attrib can not be empty or contain special characters."
+				},
+				"ClaimUri": {
+					"Title": "Claim Uri:",
+					"Placeholder": "Enter Claim Uri",
+					"Detail": "",
+					"Error": "Claim Uri can not be empty or contain special characters."
+				},
+				"IsClaimMapping": {
+					"Title": "Is Claim Mapping:",
+					"Placeholder": "Is Claim Mapping",
+					"Detail": ""
+				}
+			}
+		},
+		"QueryParam": {
+			"Title": "Query Param Condition",
+			"Name": "Query Param Name",
+			"Value": "Query Param Value",
+			"IsParamMapping": "Is Param Mapping",
+			"Input": {
+				"Name": {
+					"Title": "Query Param Name:",
+					"Placeholder": "Enter Query Param Name",
+					"Detail": "",
+					"Error": "Name can not be empty or contain special characters."
+				},
+				"Value": {
+					"Title": "Query Param Value:",
+					"Placeholder": "Query Param Value",
+					"Detail": "",
+					"Error": "Value can not be empty or contain special characters."
+				},
+				"IsParamMapping": {
+					"Title": "Is Param Mapping:",
+					"Placeholder": "Is Param Mapping",
+					"Detail": ""
+				}
+			}
+		}
+	},
+	"ApiMostUsedByApplication": {
+		"Title": "Api Most Used By Application"
+	},
+	"err": {
+		"Title": "*cannot be empty"
+	},
+	"LogData": {
+		"Title": "Log Data",
+		"Api": "Api",
+		"Version": "Version",
+		"Ip": "Ip Address",
+		"Code": "Error Code",
+		"ErrorDetail": "Error Detail",
+		"RequestTime": "Request Time",
+		"ResponseTime": "Response Time",
+		"Input": {
+			"Api": {
+				"Title": "Api",
+				"Placeholder": "Choose Api"
+			},
+			"Version": {
+				"Title": "Api Version",
+				"Placeholder": "Choose Version"
+			},
+			"Application": {
+				"Title": "Application",
+				"Placeholder": "Choose Application"
+			},
+			"ErrorCode": {
+				"Title": "Error Code",
+				"Placeholder": "Enter error code"
+			},
+			"StartDate": {
+				"Title": "Start Date",
+				"Placeholder": "Choose Start Date"
+			},
+			"EndDate": {
+				"Title": "End Date",
+				"Placeholder": "Choonse End Date"
+			}
+		},
+		"Detail": {
+			"Title": "Detail",
+			"Api": "Api",
+			"Version": "Version",
+			"Application": "Application",
+			"DataInputApi": "Data Input Api",
+			"DataInputEndpoint": "Data Input Endpoint",
+			"DataOutputApi": "Data Output Api",
+			"DataOutputEndpoint": "Data Output Endpoint",
+			"IpClient": "Ip Client",
+			"ErrorDetail": "Error Detail",
+			"TimeBackendLatency": "Time Backend Latency",
+			"TimeOtherLatency": "Time Other Latency",
+			"TimeRequest": "Time Request",
+			"TimeRequestMediationLatency": "Time Request Mediation Latency",
+			"TimeResponese": "Time Responese",
+			"TimeResponeseMediation": "Time Responese Mediation",
+			"TimeSecurityLatency": "Time Security Latency",
+			"TimeThrottlingLatency": "Time Throttling Latency",
+			"Code": "Error Code",
+			"RequestTime": "Request Time",
+			"ResponseTime": "Response Time"
+		}
+	},
+	"Statistics": {
+		"ApiLastAccessTime": "Api Last Access Time",
+		"ApiMostUsedByApplication": "Api Most Used By Application",
+		"ApiUsage": "Api Usage",
+		"LogData": "Log Data",
+		"MessageServicePortal": {
+			"Title": "Message Service Portal",
+			"Request": "Request",
+			"Response": "Response"
+		},
+		"ResultServiceUsage": "Result Service Usage",
+		"ServiceMethodUsage": "Service Method Usage",
+		"ServiceResponseTime": "Service Response Time",
+		"TopApiUsers": "Top Api Users",
+		"From": "From",
+		"To": "To",
+		"NO": "NO.",
+		"Api": "Api",
+		"Application": "Application",
+		"Version": "Version",
+		"RequestCount": "Request Count",
+		"SubscriptionApplication": "Subscription Application",
+		"Hits": "Hits",
+		"Subscription": "Subscription",
+		"ApiVersion": "Api Version",
+		"ApplicationName": "Application Name",
+		"IPClient": "IP Client",
+		"TimeRequest": "Time Request",
+		"TimeResponse": "Time Response",
+		"ProcessingTime": "Processing Time",
+		"Milliseconds": "Milliseconds",
+		"Search": "Search",
+		"ApplicationUses": "Application Uses",
+		"Method": "Method",
+		"Calls": "Calls",
+		"SuccessfulCalls": "Successful Calls",
+		"FailedCalls": "Failed Calls",
+		"Page": "Page",
+		"Action": "Action",
+		"ErrorCode": "Error Code",
+		"Detail": "Error Detail",
+		"DataOutputApi": "Data Output Api",
+		"DataOutputEndpoint": "Data Output Endpoint",
+		"ErrorDetail": "Error Detail",
+		"TimeBackendLatency": "Time Backend Latency",
+		"TimeSecurityLatency": "Time Security Latency",
+		"TimeOtherLatency": "Time Other Latency",
+		"TimeResponeseMediation": "Time Responese Mediation",
+		"DataInputApi": "Data Input Api",
+		"DataInputEndpoint": "Data Input Endpoint",
+		"TimeThrottlingLatency": "Time Throttling Latency",
+		"TimeRequestMediationLatency": "Time Request Mediation Latency"
+	},
+	"AdmApi": {
+		"Title": "Api",
+		"ApiName": "Api Name",
+		"ApiMethod": "Api Method",
+		"ApiUrl": "Api Url",
+		"Input": {
+			"ApiName": {
+				"Title": "Api Name",
+				"Placeholder": "Enter Api Name"
+			},
+			"ApiMethod": {
+				"Title": "Api Method",
+				"Placeholder": "Choose Api Method"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create Api",
+			"UpdateTitle": "Update Api",
+			"Input": {
+				"ApiName": {
+					"Title": "Api Name",
+					"Placeholder": "Enter Api Name"
+				},
+				"ApiMethod": {
+					"Title": "Api Method",
+					"Placeholder": "Choose Api Method"
+				},
+				"ApiUrl": {
+					"Title": "Api Url",
+					"Placeholder": "Enter Api Url"
+				}
+			}
+		}
+	},
+	"AdmAccess": {
+		"Title": "Access",
+		"AccessName": "Access Name",
+		"AccessType": "Access Type",
+		"AccessKey": "Access Key",
+		"ViewOrder": "View Order",
+		"Input": {
+			"AccessName": {
+				"Title": "Access Name",
+				"Placeholder": "Enter Access Name"
+			},
+			"AccessKey": {
+				"Title": "Access Key",
+				"Placeholder": "Enter Access Key"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create Access",
+			"UpdateTitle": "Update Access",
+			"Input": {
+				"AccessName": {
+					"Title": "Access Name",
+					"Placeholder": "Enter Access Name"
+				},
+				"AccessType": {
+					"Title": "Access Type",
+					"Placeholder": "Choose Access Type"
+				},
+				"AccessKey": {
+					"Title": "Access Key",
+					"Placeholder": "Choose Access Key"
+				},
+				"ViewOrder": {
+					"Title": "View Order",
+					"Placeholder": "Enter View Order"
+				}
+			}
+		}
+	},
+	"AdmRight": {
+		"Title": "Right",
+		"RightName": "Right Name",
+		"RightCode": "Right Code",
+		"RightParent": "Right Parent",
+		"Status": "Is Show",
+		"RightOrder": "Right Order",
+		"HasChild": "Has Child",
+		"UrlRewrite": "Url Rewrite",
+		"IconUrl": "Icon Url",
+		"Description": "Description",
+		"Application": "Application",
+		"Input": {
+			"RightName": {
+				"Title": "Right Name",
+				"Placeholder": "Enter Right Name"
+			},
+			"RightCode": {
+				"Title": "Right Code",
+				"Placeholder": "Enter Right Code"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create Right",
+			"UpdateTitle": "Update Right",
+			"Input": {
+				"RightName": {
+					"Title": "Right Name",
+					"Placeholder": "Enter Right Name"
+				},
+				"RightCode": {
+					"Title": "Right Code",
+					"Placeholder": "Enter Right Code"
+				},
+				"RightParent": {
+					"Title": "Right Parent",
+					"Placeholder": "Choose Right Parent"
+				},
+				"Status": {
+					"Title": "Is Show",
+					"Placeholder": "Is Show"
+				},
+				"RightOrder": {
+					"Title": "Right Order",
+					"Placeholder": "Enter Right Order"
+				},
+				"HasChild": {
+					"Title": "Has Child",
+					"Placeholder": "Has Child"
+				},
+				"UrlRewrite": {
+					"Title": "Url Rewrite",
+					"Placeholder": "Enter Url Rewrite"
+				},
+				"IconUrl": {
+					"Title": "IconUrl",
+					"Placeholder": "Enter Icon Url"
+				},
+				"Description": {
+					"Title": "Description",
+					"Placeholder": "Description"
+				},
+				"Application": {
+					"Title": "Application",
+					"Placeholder": "Choose Application"
+				}
+			}
+		}
+	},
+	"AdmRole": {
+		"Title": "Role",
+		"RoleName": "Role Name",
+		"RoleCode": "Role Code",
+		"LoweredRoleName": "Lowered Role Name",
+		"Status": "Status",
+		"EnableDelete": "Enable Delete",
+		"Description": "Description",
+		"Application": "Application",
+		"Input": {
+			"RoleName": {
+				"Title": "Role Name",
+				"Placeholder": "Enter Role Name"
+			},
+			"RoleCode": {
+				"Title": "Role Code",
+				"Placeholder": "Enter Role Code"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create Role",
+			"UpdateTitle": "Update Role",
+			"Input": {
+				"RoleName": {
+					"Title": "Role Name",
+					"Placeholder": "Enter Role Name"
+				},
+				"RoleCode": {
+					"Title": "Role Code",
+					"Placeholder": "Enter Role Code"
+				},
+				"LoweredRoleName": {
+					"Title": "Lowered Role Name",
+					"Placeholder": "Choose Lowered Role Name"
+				},
+				"Status": {
+					"Title": "Status",
+					"Placeholder": "Choose Status"
+				},
+				"EnableDelete": {
+					"Title": "Enable Delete",
+					"Placeholder": "Enter Enable Delete"
+				},
+				"Description": {
+					"Title": "Description",
+					"Placeholder": "Description"
+				},
+				"Application": {
+					"Title": "Application",
+					"Placeholder": "Choose Application"
+				}
+			}
+		}
+	},
+	"AdmUser": {
+		"Title": "User",
+		"UserName": "User Name",
+		"LoweredUserName": "Lowered User Name",
+		"MobileAlias": "Mobile Alias",
+		"IsAnonymous": "Is Anonymous",
+		"LastActivityDate": "Last Activity Date",
+		"UserType": "User Type",
+		"Application": "Application",
+		"Input": {
+			"UserName": {
+				"Title": "User Name",
+				"Placeholder": "Enter User Name"
+			},
+			"MobileAlias": {
+				"Title": "Mobile Alias",
+				"Placeholder": "Mobile Alias"
+			}
+		},
+		"Business": {
+			"CreateTitle": "Create User",
+			"UpdateTitle": "Update User",
+			"Input": {
+				"UserName": {
+					"Title": "User Name",
+					"Placeholder": "Enter User Name"
+				},
+				"MobileAlias": {
+					"Title": " Mobile Alias",
+					"Placeholder": "Enter Mobile Alias"
+				},
+				"LoweredUserName": {
+					"Title": "Lowered User Name",
+					"Placeholder": "Enter Lowered User Name"
+				},
+				"Surname": {
+					"Title": "Surname",
+					"Placeholder": "Enter Surname"
+				},
+				"GivenName": {
+					"Title": "Given Name",
+					"Placeholder": "Enter Given Name"
+				},
+				"DisplayName": {
+					"Title": "Display Name",
+					"Placeholder": "Enter Display Name"
+				},
+				"IsAnonymous": {
+					"Title": "Is Anonymous",
+					"Placeholder": "Is Anonymous"
+				},
+				"UserType": {
+					"Title": "User Type",
+					"Placeholder": "User Type"
+				},
+				"Application": {
+					"Title": "Application",
+					"Placeholder": "Choose Application"
+				}
+			}
+		}
+	},
+	"ApiProcess": {
+		"Title": "Api Process",
+		"ApiName": "Api Name",
+		"TaskName": "Task Name",
+		"Process": {
+			"Title": "Process Api",
+			"Input": {
+				"ApiName": {
+					"Title": "Api Name",
+					"Placeholder": "Enter Api Name"
+				},
+				"Process": {
+					"Title": "Process Name",
+					"Placeholder": ""
+				},
+				"Content": {
+					"Title": "Process Content",
+					"Placeholder": "Enter Process Content"
+				}
+			}
+		}
+	},
+	"UserProfile": {
+		"Title": "User Profile ",
+		"ProfileAccount": "PROFILE ACCOUNT",
+		"PersonalInfo": "Personal Info",
+		"UserName": "User Name",
+		"LoweredUsername": "Lowered Username",
+		"Surname":"Surname",
+		"GivenName":"Givenname",
+		"DisplayName":"Display Name",
+		"MobileAlias": "Mobile Number",
+		"CurrentPassword": "Current Password",
+		"NewPassword": "New Password",
+		"ReTypeNewPassword": "Re-type New Password"
+	}
+}

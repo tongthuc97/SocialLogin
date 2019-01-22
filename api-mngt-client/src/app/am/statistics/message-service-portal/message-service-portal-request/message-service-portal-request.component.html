@@ -1,0 +1,137 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.Statistics'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="/message-service-portal">{{'Statistics.MessageServicePortal.Title'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>{{'Statistics.MessageServicePortal.Request'|translate}}</span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<div style="padding:10px;"></div>
+<!-- BEGIN TABLE CONTENT-->
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal align-middle">
+      <div class="row">
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label col-md-4" for="dataInputApi">{{'Statistics.DataInputApi'|translate}}</label>
+                <div class="col-md-8">
+                  <ngx-json-viewer [json]="dataInputApi"></ngx-json-viewer>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label col-md-4" for="dataInputEndpoint">{{'Statistics.DataInputEndpoint'|translate}}</label>
+                <div class="col-md-8">
+                  <ngx-json-viewer [json]="dataInputEndpoint"></ngx-json-viewer>
+                </div>
+              </div>
+            </div>
+        </div>
+        <hr>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="apiVersionName">{{'Api.Version'|translate}}</label>
+            <div class="col-md-8">
+              <input id="apiVersionName" type="text" [value]="logdata?.apiVersionName" class="form-control" disabled />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="applicationName">{{'Application.Title'|translate}}</label>
+            <div class="col-md-8">
+              <input id="applicationName" type="text" [value]="logdata?.applicationName" class="form-control" disabled />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="ipClient">{{'Statistics.IPClient'|translate}}</label>
+            <div class="col-md-8">
+              <input id="ipClient" type="text" [value]="logdata?.ipClient" class="form-control" disabled />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="timeBackendLatency">{{'Statistics.TimeBackendLatency'|translate}}</label>
+            <div class="col-md-8">
+              <input id="timeBackendLatency" type="text" [value]="logdata?.timeBackendLatency" class="form-control"
+                disabled />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="timeOtherLatency">{{'Statistics.TimeOtherLatency'|translate}}</label>
+            <div class="col-md-8">
+              <input id="timeOtherLatency" type="text" [value]="logdata?.timeOtherLatency | date: 'dd/MM/yyyy HH:mm:ss'"
+                class="form-control" disabled />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="timeRequest">{{'Statistics.TimeRequest'|translate}}</label>
+            <div class="col-md-8">
+              <input id="timeRequest" type="text" [value]="logdata?.timeRequest | date: 'dd/MM/yyyy HH:mm:ss'" class="form-control"
+                disabled />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="timeRequestMediationLatency">{{'Statistics.TimeRequestMediationLatency'|translate}}</label>
+            <div class="col-md-8">
+              <input id="timeRequestMediationLatency" type="text" [value]="logdata?.timeRequestMediationLatency" class="form-control"
+                disabled />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="timeSecurityLatency">{{'Statistics.TimeSecurityLatency'|translate}}</label>
+            <div class="col-md-8">
+              <input id="timeSecurityLatency" type="text" [value]="logdata?.timeSecurityLatency" class="form-control"
+                disabled />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label col-md-4" for="timeThrottlingLatency">{{'Statistics.TimeThrottlingLatency'|translate}}</label>
+            <div class="col-md-8">
+              <input id="timeThrottlingLatency" type="text" [value]="logdata?.timeThrottlingLatency" class="form-control"
+                disabled />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{
+          'Common.Back' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- BEGIN TABLE CONTENT-->

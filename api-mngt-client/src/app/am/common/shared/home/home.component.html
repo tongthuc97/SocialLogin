@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-6 col-sm-6">
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-table font-blue"></i>
+                <span class="caption-subject font-blue bold uppercase">Recently Visited Api Version List</span>
+            </div>
+        </div>
+      <div class="portlet-body">
+        <div class="table-scrollable scroll-bar">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th> # </th>
+                <th> API Name </th>
+                <th> Version </th>
+                <th> Time Request </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let apiVersionLastAccessedItem of apiVersionLastAccessedList; let i = index;">
+                <td> {{i+1}} </td>
+                <td> {{apiVersionLastAccessedItem.apiName}} </td>
+                <td> {{apiVersionLastAccessedItem.apiVersion}} </td>
+                <td> {{apiVersionLastAccessedItem.timeRequest | date: 'dd/MM/yyyy | HH:mm:ss'}} </td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6">
+      <div class="portlet light bordered">
+          <div class="portlet-title">
+          <div class="caption">
+              <i class="icon-bar-chart font-green"></i>
+              <span class="caption-subject font-green bold uppercase">Api Version of the most used</span>
+          </div>
+          </div>
+        <div class="portlet-body">
+          <ng-container *ngIf="isUpdatedBarChart==true">
+            <chart style="display:block; width: 100% !important;" [options]="barChartOptions"></chart>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+</div>

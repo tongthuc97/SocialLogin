@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="portlet-body">
+      <div class="table-toolbar">
+        <div class="row">
+          <div class="col-md-12">
+            <form class="form-horizontal align-middle" [formGroup]="applicationTokenForm" (ngSubmit)="submit(applicationTokenForm.value)">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="startDate">{{'Application.ApplicationToken.Create.Input.StartDate.Title'|translate}}<span style = "color:red;"> *</span></label>
+                    <div class="col-md-8">
+                      <input id="startDate" type="date" (change)="checkValidStartDate()" class="form-control" formControlName="startDate" placeholder="Start Date"
+                      />
+                      <small class="error" *ngIf="applicationTokenForm.get('startDate').invalid && (applicationTokenForm.get('startDate').touched || responseMessage!=null)">
+                        <span *ngIf="applicationTokenForm.get('startDate').errors.required">
+                          {{ 'Message.Required' | translate }}  
+                        </span>
+                      </small>
+                      <small class="error" *ngIf="!checkStartDate">
+                        <span >
+                          {{ 'Message.StartDate' | translate }}
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="endDate">{{'Application.ApplicationToken.Create.Input.EndDate.Title'|translate}}<span style = "color:red;"> *</span></label>
+                    <div class="col-md-8">
+                      <input id="endDate" type="date" (change)="checkValidEndDate()" class="form-control" formControlName="endDate" placeholder="End Date"
+                      />
+                      <small class="error" *ngIf="applicationTokenForm.get('endDate').invalid && (applicationTokenForm.get('endDate').touched || responseMessage!=null)">
+                        <span *ngIf="applicationTokenForm.get('endDate').errors.required">
+                          {{ 'Message.Required' | translate }}  
+                        </span>
+                      </small>
+                      <small class="error" *ngIf="!checkEndDate">
+                        <span >
+                          {{ 'Message.EndDate' | translate }}  
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="grantType">{{'Application.ApplicationToken.Create.Input.GrantType.Title'|translate}}</label>
+                    <div class="col-md-8">
+                      <input type="hidden" required>
+                      <select class="form-control" formControlName="grantType" autofocus>
+                         <option value="0">{{'Application.ApplicationToken.Create.Input.GrantType.Placeholder'|translate}}</option>   
+                        <option *ngFor="let grantType of listGrantType"  [value]="grantType.id" >{{grantType.value}}</option> 
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="status">{{'Application.ApplicationToken.Create.Input.Status.Title'|translate}}</label>
+                    <div class="col-md-8">
+                      <select id="status" class="form-control" formControlName="status" autofocus>
+                          <option *ngFor="let status of listStatus"  [value]="status.id" >{{status.value}}</option> 
+	                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <input id="applicationTokenId" type="hidden" class="form-control" formControlName="applicationTokenId" />
+                  <div class="form-group" formGroupName="amApplication">
+                    <input id="applicationId" type="hidden" class="form-control" formControlName="applicationId" />
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">{{ 'Common.Save' | translate }}</button>
+                <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{ 'Common.Back' | translate }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

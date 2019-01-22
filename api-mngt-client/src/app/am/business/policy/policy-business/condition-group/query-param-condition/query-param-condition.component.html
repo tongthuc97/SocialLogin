@@ -1,0 +1,66 @@
+<h3 class="title">{{'ConditionGroup.QueryParam.Title'|translate}}</h3>
+<div class="row">
+  <form class="form-body" [formGroup]="queryParamForm" (ngSubmit)="addQueryParam(queryParamForm.value)">
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.QueryParam.Input.Name.Title'|translate}}
+        <span class="required">* </span>
+      </label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="parameterName" placeholder="{{'ConditionGroup.QueryParam.Input.Name.Placeholder'|translate}}">
+        <small class="error" *ngIf="queryParamForm.get('parameterName').invalid && (queryParamForm.get('parameterName').touched || queryParamForm.get('parameterName').dirty)">
+          {{'ConditionGroup.JwtClaim.Input.ClaimUri.Error'|translate}}
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.QueryParam.Input.Value.Title'|translate}}
+        <span class="required">* </span>
+      </label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="parameterValue" placeholder="{{'ConditionGroup.QueryParam.Input.Value.Placeholder'|translate}}">
+        <small class="error" *ngIf="queryParamForm.get('parameterValue').invalid && (queryParamForm.get('parameterValue').touched || queryParamForm.get('parameterValue').dirty)">
+          {{'ConditionGroup.JwtClaim.Input.ClaimUri.Error'|translate}}
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-3 control-label">{{'ConditionGroup.QueryParam.Input.IsParamMapping.Title'|translate}}
+      </label>
+      <div class="col-md-6">
+        <select id="ipConditionType" class="form-control" formControlName="isParamMapping">
+          <option *ngFor="let item of listStatus" [value]="item.id">
+            {{item.value}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <button class="btn green" type="submit">{{'Button.AddNew'|translate}}</button>
+    <div class="table-scrollable">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th> # </th>
+            <th> {{'ConditionGroup.QueryParam.Name'|translate}} </th>
+            <th> {{'ConditionGroup.QueryParam.Value'|translate}} </th>
+            <th> {{'ConditionGroup.QueryParam.IsParamMapping'|translate}} </th>
+            <th> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listQueryParam; let i = index">
+            <td> {{i+1}}</td>
+            <td> {{item.parameterName}}</td>
+            <td> {{item.parameterValue}}</td>
+            <td> {{item.isParamMapping}}</td>
+            <td>
+              <a class="label label-sm label-danger" (click)="removeQueryParam(i)">
+                <i class="fa fa-trash-o"></i>
+                {{'Button.Delete'|translate}}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>

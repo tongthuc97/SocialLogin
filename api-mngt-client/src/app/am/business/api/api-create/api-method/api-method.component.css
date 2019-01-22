@@ -1,0 +1,80 @@
+#api-method-title{
+    background-color: #F5F5F5;
+    width: 100%;
+    min-height: 35px;
+    margin-bottom: 2px;
+}
+#api-method-title tr:first-child td:first-child{
+    width: 7%;
+}
+
+#api-method-title tr:first-child td:nth-child(2){
+    padding-left: 15px;
+}
+
+#api-method-title tr:first-child td:nth-child(2){
+    width: 18%;
+}
+#api-method-title tr:first-child td:nth-child(3){
+    width: 40%;
+}
+#api-method-title tr:first-child td:nth-child(4){
+    width: 30%;
+}
+#api-method-title tr:first-child td:nth-child(5){
+    width: 5%;
+    text-align: center;
+}
+
+#api-method-detail{
+    background-color: #F5F5F5;
+    width: 100%;
+}
+#api-method-detail tr td{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#api-method-detail tr:last-child input{
+    width: 250px;
+    float: left;
+}
+#GET-title{
+    background-color: #0F6AB4;
+    color: white;
+    text-align: center;
+}
+#POST-title{
+    background-color: #10A54A;
+    color: white;
+    text-align: center;
+}
+#PUT-title{
+    background-color: #C5862B;
+    color: white;
+    text-align: center;
+}
+#DELETE-title{
+    background-color: #A41E22;
+    color: white;
+    text-align: center;
+}
+#parameter-list{
+    width: 100%;
+    border-collapse: collapse;
+}
+#parameter-list tr th{
+    text-align: center
+}
+#parameter-list tr td:first-child{
+    text-align: center
+}
+#parameter-list tr td:last-child{
+    text-align: center
+}
+#api-method-detail tr td:nth-child(1),  td:nth-child(2),  td:nth-child(3),  td:nth-child(4),  td:nth-child(5){
+    width: 19%;
+}
+#parameter-list tr td input{
+    width: 100%;
+}

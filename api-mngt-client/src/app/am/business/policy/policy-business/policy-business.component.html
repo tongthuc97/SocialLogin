@@ -1,0 +1,268 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.Conditions'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="/policy">{{'Policy.Title'|translate}}</a>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title" *ngIf="isUpdate===false">{{'Policy.Business.CreateTitle'|translate}}</h3>
+<h3 class="page-title" *ngIf="isUpdate===true">{{'Policy.Business.UpdateTitle'|translate}}</h3>
+<hr>
+<!-- END PAGE TITLE-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal" role="form" [formGroup]="businessForm" (ngSubmit)="submit(businessForm.value)">
+      <div class="form-body">
+        <!-- BEGIN POLICY FORM-->
+        <!-- BEGIN POLICY INFOMATION-->
+        <input id="amPolicyId" type="hidden" class="form-control" formControlName="amPolicyId" />
+        <h3>{{'Policy.Business.Input.PolicyType.Title'|translate}}</h3>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-6">
+            <div class="radio-list">
+              <label *ngFor="let policyType of policyTypes" class="radio-inline">
+                <input type="radio" formControlName="policyType" id="policyType" [value]="policyType.id" checked>
+                {{policyType.value}}
+              </label>
+            </div>
+          </div>
+        </div>
+        <h3>{{'Policy.Business.GeneralDetails'|translate}}</h3>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{'Policy.Business.Input.Name.Title'|translate}}
+            <span class="required">* </span>
+            <i class="glyphicon glyphicon-question-sign" title="{{'Policy.Business.Input.Name.Detail'|translate}}"></i>
+          </label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" formControlName="name" placeholder="{{'Policy.Business.Input.Name.Placeholder'|translate}}">
+            <small class="error" *ngIf="businessForm.get('name').invalid && (businessForm.get('name').touched || businessForm.get('name').dirty)">
+              {{ 'Policy.Business.Input.Name.Error' | translate }}
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{'Policy.Business.Input.DisplayName.Title'|translate}}
+            <span class="required">* </span>
+            <i class="glyphicon glyphicon-question-sign" title="{{'Policy.Business.Input.DisplayName.Detail'|translate}}"></i>
+          </label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" formControlName="displayName" placeholder="{{'Policy.Business.Input.DisplayName.Placeholder'|translate}}">
+            <small class="error" *ngIf="businessForm.get('displayName').invalid && (businessForm.get('displayName').touched || businessForm.get('displayName').dirty)">
+              {{ 'Policy.Business.Input.DisplayName.Error' | translate }}
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{'Policy.Business.Input.Description.Title'|translate}}</label>
+          <div class="col-md-6">
+            <input type="text" class="form-control" formControlName="description" placeholder="{{'Policy.Business.Input.Description.Placeholder'|translate}}">
+          </div>
+        </div>
+        <h3>{{'Policy.Business.DefaultLimits'|translate}}</h3>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-6">
+            <div class="radio-list">
+              <label *ngFor="let quotaType of quotaTypes" class="radio-inline">
+                <input type="radio" formControlName="quotaType" id="quotaType" [value]="quotaType.id" checked>
+                {{quotaType.value}}
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" *ngIf="businessForm.get('quotaType').value===2">
+          <label class="col-md-3 control-label">{{'Policy.Business.Input.RequestCount.Title'|translate}}
+            <span class="required">* </span>
+            <i class="glyphicon glyphicon-question-sign" title="{{'Policy.Business.Input.RequestCount.Detail'|translate}}"></i>
+          </label>
+          <div class="col-md-6">
+            <input type="number" class="form-control" formControlName="quota" placeholder="{{'Policy.Business.Input.RequestCount.Placeholder'|translate}}">
+            <small class="error" *ngIf="businessForm.get('quota').invalid && (businessForm.get('quota').touched || businessForm.get('quota').dirty)">
+              {{ 'Policy.Business.Input.RequestCount.Error' | translate }}
+            </small>
+          </div>
+        </div>
+        <div class="form-group" *ngIf="businessForm.get('quotaType').value===1">
+          <label class="col-md-3 control-label">{{'Policy.Business.Input.RequestBandwidth.Title'|translate}}
+            <span class="required">* </span>
+            <i class="glyphicon glyphicon-question-sign" title="{{'Policy.Business.Input.RequestBandwidth.Detail'|translate}}"></i>
+          </label>
+          <div class="col-md-6">
+            <input type="number" class="form-control" formControlName="quota" placeholder="{{'Policy.Business.Input.RequestBandwidth.Placeholder'|translate}}">
+            <small class="error" *ngIf="businessForm.get('quota').invalid && (businessForm.get('quota').touched || businessForm.get('quota').dirty)">
+              {{ 'Policy.Business.Input.RequestBandwidth.Error' | translate }}
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">{{'Policy.Business.Input.UnitTime.Title'|translate}}
+            <span class="required">* </span>
+            <i class="glyphicon glyphicon-question-sign" title="{{'Policy.Business.Input.UnitTime.Detail'|translate}}"></i>
+          </label>
+          <div class="col-md-6">
+            <input type="number" class="form-control" formControlName="unitTime" placeholder="{{'Policy.Business.Input.UnitTime.Placeholder'|translate}}">
+            <small class="error" *ngIf="businessForm.get('unitTime').invalid && (businessForm.get('unitTime').touched || businessForm.get('unitTime').dirty)">
+              {{ 'Policy.Business.Input.UnitTime.Error' | translate }}
+            </small>
+          </div>
+        </div>
+        <!-- END POLICY INFOMATION-->
+        <!-- BEGIN CONDITION GROUPS-->
+        <div *ngIf="businessForm.get('policyType').value===2" formArrayName="amConditionGroups">
+          <h3>{{'Policy.Business.ConditionalGroups'|translate}}</h3>
+          <hr>
+          <button class="btn green" type="button" (click)="addConditionGroup()"><i class="fa fa-plus"></i>{{'Button.AddNew'|translate}}</button>
+          <div class="clearfix margin-bottom-20"> </div>
+          <div class="row" *ngFor="let itemrow of businessForm.controls.amConditionGroups.controls; let i=index"
+            [formGroupName]="i">
+            <div class="col-md-12 ">
+              <div class="portlet box default">
+                <div class="portlet-title">
+                  <div class="caption font-red-sunglo" data-toggle="collapse" [attr.href]="'#collapse'+i">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject font-dark sbold uppercase">{{'ConditionGroup.Title'|translate}}</span>
+                  </div>
+                  <div class="tools">
+                    <a class="remove" (click)="removeConditionGroup()"></a>
+                  </div>
+                </div>
+                <div class="portlet-body form panel-collapse collapse in" [id]="'collapse'+i">
+                  <!--BEGIN CONDITION GROUP INFOMATION-->
+                  <div class="form-body">
+                    <h3>{{'ConditionGroup.Title'|translate}}</h3>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label">{{'ConditionGroup.Input.Name.Title'|translate}}
+                        <span class="required">* </span>
+                        <i class="glyphicon glyphicon-question-sign" title="{{'ConditionGroup.Input.Name.Detail'|translate}}"></i>
+                      </label>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" formControlName="name" placeholder="{{'ConditionGroup.Input.Name.Placeholder'|translate}}">
+                        <small class="error" *ngIf="businessForm.controls.amConditionGroups.controls[i].get('name').invalid && (businessForm.controls.amConditionGroups.controls[i].get('name').touched || businessForm.controls.amConditionGroups.controls[i].get('name').dirty)">
+                          {{ 'ConditionGroup.Input.Name.Error' | translate }}
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label">{{'ConditionGroup.Input.Description.Title'|translate}}</label>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" formControlName="description" placeholder="{{'ConditionGroup.Input.Description.Placeholder'|translate}}">
+                      </div>
+                    </div>
+                    <h3>{{'ConditionGroup.DefaultLimits'|translate}}</h3>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label"></label>
+                      <div class="col-md-6">
+                        <div class="radio-list">
+                          <label *ngFor="let quotaType of quotaTypes" class="radio-inline">
+                            <input type="radio" formControlName="quotaType" id="quotaType" [value]="quotaType.id"
+                              checked>
+                            {{quotaType.value}}
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group" *ngIf="businessForm.controls.amConditionGroups.controls[i].get('quotaType').value===2">
+                      <label class="col-md-3 control-label">{{'ConditionGroup.Input.RequestCount.Title'|translate}}
+                        <span class="required">* </span>
+                        <i class="glyphicon glyphicon-question-sign" title="{{'ConditionGroup.Input.RequestCount.Detail'|translate}}"></i>
+                      </label>
+                      <div class="col-md-6">
+                        <input type="number" class="form-control" formControlName="quota" placeholder="{{'ConditionGroup.Input.RequestCount.Placeholder'|translate}}">
+                        <small class="error" *ngIf="businessForm.controls.amConditionGroups.controls[i].get('quota').invalid && (businessForm.controls.amConditionGroups.controls[i].get('quota').touched || businessForm.controls.amConditionGroups.controls[i].get('quota').dirty)">
+                          {{ 'ConditionGroup.Input.RequestCount.Error' | translate }}
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group" *ngIf="businessForm.controls.amConditionGroups.controls[i].get('quotaType').value===1">
+                      <label class="col-md-3 control-label">{{'ConditionGroup.Input.RequestBandwidth.Title'|translate}}
+                        <span class="required">* </span>
+                        <i class="glyphicon glyphicon-question-sign" title="{{'ConditionGroup.Input.RequestBandwidth.Detail'|translate}}"></i>
+                      </label>
+                      <div class="col-md-6">
+                        <input type="number" class="form-control" formControlName="quota" placeholder="{{'ConditionGroup.Input.RequestBandwidth.Placeholder'|translate}}">
+                        <small class="error" *ngIf="businessForm.controls.amConditionGroups.controls[i].get('quota').invalid && (businessForm.controls.amConditionGroups.controls[i].get('quota').touched || businessForm.controls.amConditionGroups.controls[i].get('quota').dirty)">
+                          {{ 'ConditionGroup.Input.RequestBandwidth.Error' | translate }}
+                        </small>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-3 control-label">{{'ConditionGroup.Input.UnitTime.Title'|translate}}
+                        <span class="required">* </span>
+                        <i class="glyphicon glyphicon-question-sign" title="{{'ConditionGroup.Input.UnitTime.Detail'|translate}}"></i>
+                      </label>
+                      <div class="col-md-6">
+                        <input type="number" class="form-control" formControlName="unitTime" placeholder="{{'ConditionGroup.Input.UnitTime.Placeholder'|translate}}">
+                        <small class="error" *ngIf="businessForm.controls.amConditionGroups.controls[i].get('unitTime').invalid && (businessForm.controls.amConditionGroups.controls[i].get('unitTime').touched || businessForm.controls.amConditionGroups.controls[i].get('unitTime').dirty)">
+                          {{ 'ConditionGroup.Input.UnitTime.Error' | translate }}
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <!--END CONDITION GROUP INFOMATION-->
+                  <ul class="nav nav-tabs" style="padding: 15px">
+                    <li class="active">
+                      <a href="#tab_1_1" data-toggle="tab"> {{'ConditionGroup.Ip.Title'|translate}} </a>
+                    </li>
+                    <li>
+                      <a href="#tab_1_2" data-toggle="tab"> {{'ConditionGroup.HeaderField.Title'|translate}} </a>
+                    </li>
+                    <li>
+                      <a href="#tab_1_3" data-toggle="tab"> {{'ConditionGroup.QueryParam.Title'|translate}}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#tab_1_4" data-toggle="tab"> {{'ConditionGroup.JwtClaim.Title'|translate}}
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="tab-content" style="padding: 0 15px 0 15px">
+                    <div class="tab-pane fade active in" id="tab_1_1">
+                      <app-ip-condition (messageEvent)="changeIpCondition($event,i)" [listIpCondition]="policy.amConditionGroups[i].amIpConditions"></app-ip-condition>
+                    </div>
+                    <div class="tab-pane fade" id="tab_1_2">
+                      <app-header-field-condition (messageEvent)="changeHeaderFieldCondition($event,i)"
+                        [listHeaderField]="policy.amConditionGroups[i].amHeaderFieldConditions"></app-header-field-condition>
+                    </div>
+                    <div class="tab-pane fade" id="tab_1_3">
+                      <app-query-param-condition (messageEvent)="changeQueryParamCondition($event,i)" [listQueryParam]="policy.amConditionGroups[i].amQueryParameterConditions"></app-query-param-condition>
+                    </div>
+                    <div class="tab-pane fade" id="tab_1_4">
+                      <app-jwt-claim-condition (messageEvent)="changeJwtClaimCondition($event,i)" [listJwtClaim]="policy.amConditionGroups[i].amJwtClaimConditions"></app-jwt-claim-condition>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- BEGIN CONDITION GROUPS-->
+        <!-- END POLICY FORM-->
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-9">
+            <button type="submit" class="btn btn-primary">{{ 'Button.Save' | translate }}</button>
+            <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{
+              'Button.Back' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END CONTENT PAGE-->

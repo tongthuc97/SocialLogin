@@ -1,0 +1,101 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.API Management'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>{{'ApiProcess.Title'|translate}}</span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<div style="padding:2px;"></div>
+<!-- BEGIN TABLE TOOLBAR-->
+<div class="table-toolbar">
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-primary" [disabled]="!getNumberDeleteItems()>0" (click)="processMultipleTask()">
+        {{'Button.ProcessMultiple'|translate}}</button>
+    </div>
+  </div>
+</div>
+<!-- END TABLE TOOLBAR-->
+<!-- BEGIN TABLE CONTENT-->
+<table class="table table-striped table-bordered table-hover" id="list-data-table" [mfData]="tasks" #mf="mfDataTable">
+  <thead>
+    <tr>
+      <th (change)="countNumberDeleteItems()">
+        <div class="checker">
+          <span [class.checked]="checkAllItemFlag">
+            <input id="checkAll" type="checkbox" [(ngModel)]="checkAllItemFlag" (click)="checkAllItem()" />
+          </span>
+        </div>
+      </th>
+      <th>
+        <mfDefaultSorter by="description">{{'ApiProcess.ApiName'|translate}}</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="name">{{'ApiProcess.TaskName'|translate}}</mfDefaultSorter>
+      </th>
+      <th style="width: 18%;">
+        <a>{{'Label.Action'|translate}}</a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="odd gradeX" *ngFor="let task of mf.data">
+      <td class="table-checkbox" (change)="countNumberDeleteItems()">
+        <div class="checker">
+          <span [class.checked]="task.checked">
+            <input id="checkOne" type="checkbox" [(ngModel)]="task.checked" />
+          </span>
+        </div>
+      </td>
+      <td>{{task.description}}</td>
+      <td>{{task.name}}</td>
+      <td text-align="center">
+        <a *ngIf="isAuthoriziedNavigation()" title="{{'Button.Process'|translate}}" class="btn green" id="business-btn"
+          [routerLink]="['./', task.id, 'process']">{{'Button.Process'|translate}}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- END TABLE CONTENT-->
+<!-- BEGIN PAGING-->
+<div class="row">
+  <div class="col-md-4">
+    {{fromNumber}} - {{toNumber}} {{'Label.InTotal'|translate}} {{apiProcessInstanceInfo?.totalElements}}
+    {{'Label.Items'|translate}}
+  </div>
+  <div class="col-md-4 pull-right">
+    {{'Label.Page'|translate}}
+    <button type="button" title="{{'Button.FirstPage'|translate}}" class="btn btn-sm default prev" [disabled]="(currentPageView)<=1"
+      (click)="choosePageNumber(0)">
+      <i class="fa fa-angle-double-left"></i>
+    </button>
+    <button type="button" title="{{'Button.Previous'|translate}}" class="btn btn-sm default prev" [disabled]="(currentPageView)<=1"
+      (click)="choosePageNumber(apiProcessInstanceInfo?.number - 1)">
+      <i class="fa fa-angle-left"></i>
+    </button>
+    <input type="number" min="1" max="{{totalPages}}" style="border: none; width: 30px; text-align: center;" [value]="currentPageView"
+      #page (keyup.enter)="choosePageNumber(page.value - 1)"> /
+    <label style="padding-right: 5px;">{{apiProcessInstanceInfo?.totalPages}}</label>
+    <button type="button" title="{{'Button.Next'|translate}}" class="btn btn-sm default next" [disabled]="currentPageView>=apiProcessInstanceInfo?.totalPages"
+      (click)="choosePageNumber(currentPageView)">
+      <i class="fa fa-angle-right"></i>
+    </button>
+    <button type="button" title="{{'Button.LastPage'|translate}}" class="btn btn-sm default next" [disabled]="currentPageView>=apiProcessInstanceInfo?.totalPages"
+      (click)="choosePageNumber(apiProcessInstanceInfo?.totalPages - 1)">
+      <i class="fa fa-angle-double-right"></i>
+    </button>
+  </div>
+</div>
+<!-- END PAGING-->

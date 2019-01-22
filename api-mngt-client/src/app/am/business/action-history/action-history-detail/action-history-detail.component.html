@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN TABLE PORTLET-->
+    <div class="portlet box grey-cascade">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="fa fa-globe"></i>{{'SIDEBAR.Statistics'|translate}} > {{'ActionHistory.Title'|translate}} > {{'Common.Detail'|translate}}
+        </div>
+      </div>
+      <div class="portlet-body">
+        <div class="row">
+          <div class="col-md-12">
+            <form class="form-horizontal align-middle">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="userName">{{'ActionHistory.UserName'|translate}}</label>
+                    <div class="col-md-8">
+                      <input id="userName" type="text" [value]="actionHistory?.userName" class="form-control" disabled/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="action">{{'ActionHistory.Action'|translate}}</label>
+                    <div class="col-md-8">
+                      <input id="action" type="text" [value]="actionHistory?.action" class="form-control" disabled/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="action">{{'ActionHistory.DetailAction'|translate}}</label>
+                    <div class="col-md-8">
+                      <input id="action" type="text" [value]="actionHistory?.detailAction" class="form-control" disabled/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="module">{{'ActionHistory.Module'|translate}}</label>
+                    <div class="col-md-8">
+                      <input id="module" type="text" [value]="actionHistory?.module" class="form-control" disabled/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="dateAction">{{'ActionHistory.DateAction'|translate}}</label>
+                    <div class="col-md-8">
+                      <input id="dateAction" type="text" [value]="actionHistory?.dateAction | date: 'dd/MM/yyyy HH:mm:ss'" class="form-control" disabled/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{ 'Common.Back' | translate }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END TABLE PORTLET-->
+  </div>
+</div>

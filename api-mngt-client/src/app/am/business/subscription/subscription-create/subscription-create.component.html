@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="portlet-body">
+      <div class="table-toolbar">
+        <div class="row">
+          <div class="col-md-12">
+            <form class="form-horizontal align-middle" [formGroup]="createForm" (ngSubmit)="create(createForm.value)">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group" formGroupName="amPolicy">
+                    <label class="col-md-3 control-label col-md-4" for="amPolicyId">{{
+                      'Application.Subscription.Create.Input.Policy.Title' | translate }}<span style="color:red;"> *</span></label>
+                    <div class="col-md-8">
+                      <select id="amPolicyId" class="form-control" formControlName="amPolicyId">
+                        <option value="0" disabled>{{ 'Application.Subscription.Create.Input.Policy.Placeholder' |
+                          translate }}</option>
+                        <option *ngFor="let policy of policies" [value]="policy.amPolicyId">
+                          {{policy.displayName}}
+                        </option>
+                      </select>
+                      <small class="error" *ngIf="createForm.get('amPolicy.amPolicyId').invalid 
+                                && (createForm.get('amPolicy.amPolicyId').touched || responseMessage!=null)">
+                        <span *ngIf="createForm.get('amPolicy.amPolicyId').errors.min!=null">
+                          {{ 'Message.Select' | translate }}
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" formGroupName="amApiVersion">
+                    <label class="col-md-3 control-label col-md-4" for="apiVersionId">{{
+                      'Application.Subscription.Create.Input.Version.Title' | translate }}<span style="color:red;"> *</span></label>
+                    <div class="col-md-8">
+                      <select id="apiVersionId" class="form-control" formControlName="apiVersionId">
+                        <option value="0" disabled>{{ 'Application.Subscription.Create.Input.Version.Placeholder' |
+                          translate }}</option>
+                        <option *ngFor="let apiVersion of apiVersions" [value]="apiVersion.apiVersionId">
+                          {{apiVersion?.amApi.apiName }} &lt;{{apiVersion.apiVersion}}&gt;
+                        </option>
+                      </select>
+                      <small class="error" *ngIf="createForm.get('amApiVersion.apiVersionId').invalid 
+                                && (createForm.get('amApiVersion.apiVersionId').touched || responseMessage!=null)">
+                        <span *ngIf="createForm.get('amApiVersion.apiVersionId').errors.min!=null">
+                          {{ 'Message.Select' | translate }}
+                        </span>
+                      </small>
+                    </div>
+                  </div>
+                  <div class="form-group" formGroupName="amApplication">
+                    <input id="applicationId" type="hidden" class="form-control" formControlName="applicationId" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class=" control-label col-md-4" for="subStatus">{{
+                      'Application.Subscription.Create.Input.Status.Title' | translate }}<span style="color:red;"> *</span></label>
+                    <div class="col-md-8">
+                      <select id="subStatus" class="form-control" formControlName="subStatus">
+                        <option *ngFor="let status of statuses" [value]="status.id">
+                          {{status.value}}
+                        </option>
+                      </select>
+                      <small class="error" *ngIf="createForm.get('subStatus').invalid 
+                                && (createForm.get('subStatus').touched || responseMessage!=null)">
+                        <!-- <span *ngIf="createForm.get('subStatus').errors.min!=null">
+                          Must be selected one option
+                        </span> -->
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">{{ 'Button.Save' | translate }}</button>
+                <button type="button" class="btn default" (click)="goBack()"><i class="fa fa-undo" aria-hidden="true"></i>{{
+                  'Common.Back' | translate }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END EXAMPLE TABLE PORTLET-->
+  </div>
+</div>

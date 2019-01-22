@@ -1,0 +1,153 @@
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+    <div class="portlet-body">
+      <div class="table-toolbar">
+        <div class="row">
+          <div class="col-md-6">
+            <button *ngIf="isAuthoriziedNavigation()" class="btn green" id="form-add-btn" routerLink="./create"><i class="fa fa-plus"></i>{{ 'Button.Create' | translate }}</button>
+            <button class="btn red" *ngIf="getNumberDeleteItems()>0&&isAuthoriziedNavigation()" id="form-remove-btn" (click)="deleteCheckedItems()"><i class="fa fa-trash-o"></i>{{ 'Button.Delete' | translate }}</button>
+          </div>
+        </div>
+        <br />
+        <div style="padding:2px;"></div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <form class="form-horizontal align-middle" [formGroup]="filterForm" (ngSubmit)="search(filterForm.value, 0)" method="POST">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group" formGroupName="amPolicy">
+                    <label class="control-label col-md-4" for="amPolicyId">{{'Application.Subscription.Input.Policy.Title'|translate}}</label>
+                    <div class="col-md-8">
+                      <select id="amPolicyId" class="form-control" formControlName="amPolicyId">
+                        <option value="0" >{{ 'Application.Subscription.Input.Policy.Placeholder' | translate }}</option>
+	                        <option *ngFor="let policy of policies" [value]="policy.amPolicyId">
+	                          {{policy.displayName}}
+	                        </option>
+                      	</select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" formGroupName="amApiVersion">
+                    <label class="control-label col-md-4" for="apiVersionId">{{'Application.Subscription.Input.Version.Title'|translate}}</label>
+                    <div class="col-md-8">
+                      <select id="apiVersionId" class="form-control" formControlName="apiVersionId">
+                        <option value="0" >{{ 'Application.Subscription.Input.Version.Placeholder' | translate }}</option>
+	                        <option *ngFor="let apiVersion of apiVersions" [value]="apiVersion.apiVersionId">
+	                          {{apiVersion.amApi.apiName }} &lt;{{apiVersion.apiVersion}}&gt;
+	                        </option>
+                      	</select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label col-md-4" for="subStatus">{{'Application.Subscription.Input.Status.Title'|translate}}</label>
+                    <div class="col-md-8">
+                      <select id="subStatus" class="form-control" formControlName="subStatus">
+                          <option value="" >{{ 'Application.Subscription.Input.Status.Placeholder' | translate }}</option>
+	                        <option *ngFor="let status of statuses" [value]="status.id">{{status.value}}</option>
+                      	</select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" formGroupName="amApplication">
+                    <div class="col-md-8">
+                      <input id="applicationId" type="hidden" class="form-control" formControlName="applicationId" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <button type="submit" class="btn green"><i class="fa fa-search"></i>{{ 'Button.Search' | translate }}</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped table-bordered table-hover" id="list-data-table" [mfData]="subscriptions" #mf="mfDataTable">
+        <thead>
+          <tr>
+            <th (change)="countNumberDeleteItems()">
+              <div class="checker">
+                <span [class.checked]="checkAllItemFlag">
+                    <input id="checkAll" type="checkbox" [(ngModel)]="checkAllItemFlag" (click)="checkAllItem()" />
+                  </span>
+              </div>
+            </th>
+            <th>
+              <mfDefaultSorter by="amPolicy.amPolicyId">{{ 'Application.Subscription.Policy' | translate }}</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="amApiVersion.amApi.name">{{ 'Application.Subscription.Version' | translate }}</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="subStatus">{{ 'Application.Subscription.Status' | translate }}</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="createdBy">{{ 'Application.Subscription.CreateBy' | translate }}</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="createdTime">{{ 'Application.Subscription.CreateTime' | translate }}</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="lastAccessed">{{ 'Application.Subscription.LastAccessed' | translate }}</mfDefaultSorter>
+            </th>
+            <th><a>{{ 'Label.Action' | translate }}</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="odd gradeX" *ngFor="let item of mf.data let i = index" [ngClass]="item.checked===true?'info':''">
+            <td class="table-checkbox" (change)="countNumberDeleteItems()">
+              <div class="checker">
+                <span [class.checked]="item.checked">
+                    <input id="checkOne" type="checkbox" [(ngModel)]="item.checked" />
+                  </span>
+              </div>
+            </td>
+            <td>{{item.amPolicy.displayName}}</td>
+            <td>{{item.amApiVersion.amApi?.apiName}} &lt;{{item.amApiVersion?.apiVersion}}&gt;</td>
+            <td>{{getStatusById(item.subStatus)}}</td>
+            <td>{{item.createdBy}}</td>
+            <td>{{item.createdTime | date:'dd-MM-yyyy'}}</td>
+            <td>{{item.lastAccessed}}</td>
+            <td text-align="center">
+              <a class="btn btn-icon-only blue" title="{{ 'Button.Detail' | translate }}" id="business-btn" [routerLink]="['./', item.subscriptionId, 'detail']"><i class="fa fa-info" aria-hidden="true"></i></a>
+              <a *ngIf="isAuthoriziedNavigation()" title="{{ 'Button.Update' | translate }}" class="btn btn-icon-only green" id="business-btn"
+                [routerLink]="['./', item.subscriptionId, 'update']"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+              <a *ngIf="isAuthoriziedNavigation()" title="{{ 'Button.Delete' | translate }}" class="btn btn-icon-only red" id="business-btn"
+                (click)="delete(item)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="col-md-4">
+          {{fromNumber}} - {{toNumber}} {{ 'Label.InTotal' | translate }} {{subscriptionInfo?.totalElements}} {{ 'Label.Items' |
+          translate }}
+        </div>
+        <div class="col-md-4 pull-right">
+          {{ 'Label.Page' | translate }}
+          <button type="button" title="{{ 'Button.FirstPage' | translate }}" class="btn btn-sm default prev" [disabled]="(currentPageView)<=1"
+            (click)="choosePageNumber(0)"><i class="fa fa-angle-double-left"></i></button>
+          <button type="button" title="{{ 'Button.Previous' | translate }}" class="btn btn-sm default prev" [disabled]="(currentPageView)<=1"
+            (click)="choosePageNumber(subscriptionInfo?.number - 1)"><i class="fa fa-angle-left"></i></button>
+          <input type="number" min="1" max="{{totalPages}}" style="border: none; width: 30px; text-align: center;" [value]="currentPageView"
+            #page (keyup.enter)="choosePageNumber(page.value - 1)"> /
+          <label style="padding-right: 5px;">{{subscriptionInfo?.totalPages}}</label>
+          <button type="button" title="{{ 'Button.Next' | translate }}" class="btn btn-sm default next" [disabled]="currentPageView>=subscriptionInfo?.totalPages"
+            (click)="choosePageNumber(currentPageView)"><i class="fa fa-angle-right"></i></button>
+          <button type="button" title="{{ 'Button.LastPage' | translate }}" class="btn btn-sm default next" [disabled]="currentPageView>=subscriptionInfo?.totalPages"
+            (click)="choosePageNumber(subscriptionInfo?.totalPages - 1)"><i class="fa fa-angle-double-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

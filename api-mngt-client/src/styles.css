@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+.error{
+    color: red;
+}
+
+.detail-hover:hover {
+    color: blue;
+    font-weight: 700;
+}
+
+.detail-hover a {
+    all: unset;
+    display:block !important;
+}
+
+.overview-header-field {
+    font-weight: 600;
+}
+
+.overview-sub-header {
+    font-size: 2em;
+    margin: 0 0 20px;
+    /* margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    border-bottom: 1px solid #eeeeee;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(238, 238, 238); */
+}
+
+.router-tab-link {
+	background-color: #F4F9FD;
+}
+
+.router-tab-link ul{
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #E1EFFD;
+}
+
+.router-tab-link li {
+    float: left;
+}
+
+.router-tab-link li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 0.875em 1em;
+    text-decoration: none;
+}
+
+.router-tab-link li a:hover {
+    background-color: #F4F9FD;
+}
+
+
+.router-tab-link a.active {
+	background-color: #F4F9FD;
+}
+.router-tab-link #tab_others{
+    margin: 0 1em;
+}
+
+span.ui-select-match-text.pull-left.ui-select-allow-clear {
+    display:inline-block;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+}
+
+

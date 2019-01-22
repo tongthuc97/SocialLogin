@@ -1,0 +1,140 @@
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li>
+      <a href="/home">{{'Header.Home'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <a href="#">{{'SIDEBAR.Administration'|translate}}</a>
+      <i class="fa fa-circle"></i>
+    </li>
+    <li>
+      <span>{{'AdmRight.Title'|translate}}</span>
+    </li>
+  </ul>
+</div>
+<!-- END PAGE BAR -->
+<!-- END PAGE HEADER-->
+<div style="padding:2px;"></div>
+<!-- BEGIN TABLE TOOLBAR-->
+<div class="table-toolbar">
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn green" [routerLink]="['create']" id="form-add-btn">
+        <i class="fa fa-plus"></i>{{'Button.AddNew'|translate}}</button>
+      <button *ngIf="getNumberDeleteItems()>0" class="btn red" (click)="deleteCheckedItems()" id="form-remove-btn">
+        <i class="fa fa-trash-o"></i>{{'Button.Delete'|translate}}</button>
+      <button class="btn green" (click)="getPageAdmRight(filterForm.value, 0)"><i class="fa fa-search"></i>{{'Button.Search'|translate}}</button>
+    </div>
+  </div>
+  <div style="padding:2px;"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <form class="form-horizontal align-middle" [formGroup]="filterForm" method="POST">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">{{'AdmRight.Input.RightName.Title'|translate}}</label>
+              <div class="col-md-8">
+                <input id="rightName" type="text" class="form-control" placeholder="{{'AdmRight.Input.RightName.Placeholder'|translate}}"
+                  formControlName="rightName">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="control-label col-md-4">{{'AdmRight.Input.RightCode.Title'|translate}}</label>
+              <div class="col-md-8">
+                <input id="rightCode" type="text" class="form-control" placeholder="{{'AdmRight.Input.RightCode.Placeholder'|translate}}"
+                  formControlName="rightCode">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- END TABLE TOOLBAR-->
+<!-- BEGIN TABLE CONTENT-->
+<table class="table table-striped table-bordered table-hover" id="list-data-table" [mfData]="admRights" #mf="mfDataTable">
+  <thead>
+    <tr>
+      <th (change)="countNumberDeleteItems()">
+        <div class="checker">
+          <span [class.checked]="checkAllItemFlag">
+            <input id="checkAll" type="checkbox" [(ngModel)]="checkAllItemFlag" (click)="checkAllItem()" />
+          </span>
+        </div>
+      </th>
+      <th>
+        <mfDefaultSorter by="rightName">{{ 'AdmRight.RightName' | translate }}</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="rightCode">{{ 'AdmRight.RightCode' | translate }}</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="urlRewrite">{{ 'AdmRight.UrlRewrite' | translate }}</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="status">{{ 'AdmRight.Status' | translate }}</mfDefaultSorter>
+      </th>
+      <th style="width: 20%;">
+        <a>{{'Label.Action'|translate}}</a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="odd gradeX" *ngFor="let item of mf.data" [ngClass]="item.checked===true?'info':''">
+      <td class="table-checkbox" (change)="countNumberDeleteItems()">
+        <div class="checker">
+          <span [class.checked]="item.checked">
+            <input id="checkOne" type="checkbox" [(ngModel)]="item.checked" />
+          </span>
+        </div>
+      </td>
+      <td> {{item.rightName}}</td>
+      <td>{{item.rightCode}}</td>
+      <td>{{item.urlRewrite}}</td>
+      <td>{{item.status==1? 'Show':Hide}}</td>
+      <td text-align="center">
+        <a class="btn btn-icon-only green" title="{{ 'Action.Update' | translate }}" id="business-btn" [routerLink]="['/adm-right', 'update', item.rightId]">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+        <a class="btn btn-icon-only red" title="{{ 'Action.Delete' | translate }}" id="business-btn" (click)="deleteOneItem(item.rightId  )">
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="row">
+  <div class="col-md-4">
+    {{fromElement}} - {{toElement}} {{ 'Label.InTotal' | translate }} {{totalElements}} {{ 'Label.Items' | translate }}
+  </div>
+  <div class="col-md-4 pull-right">
+    {{ 'Label.Page' | translate }}
+    <button type="button" title="{{ 'Action.FirstPage' | translate }}" class="btn btn-sm default prev" [disabled]="(currentPage+1)<=1"
+      (click)="choosePageNumber(0)">
+      <i class="fa fa-angle-double-left"></i>
+    </button>
+    <button type="button" title="{{ 'Action.Previous' | translate }}" class="btn btn-sm default prev" [disabled]="(currentPage+1)<=1"
+      (click)="choosePageNumber(currentPage-1)">
+      <i class="fa fa-angle-left"></i>
+    </button>
+    <!--max="{{admRightInfo?.totalPages}}"-->
+    <input type="number" step="1" style="border: none; width: 30px; text-align: center;" [value]="currentPageView"
+      #page (keyup.enter)="choosePageNumber(page)"> /
+    <label style="padding-right: 5px;">{{totalPages}}</label>
+    <button type="button" title="{{ 'Action.Next' | translate }}" class="btn btn-sm default next" [disabled]="(currentPage+1)>=totalPages"
+      (click)="choosePageNumber(currentPage+1)">
+      <i class="fa fa-angle-right"></i>
+    </button>
+    <button type="button" title="{{ 'Action.LastPage' | translate }}" class="btn btn-sm default next" [disabled]="(currentPage+1)>=totalPages"
+      (click)="choosePageNumber(totalPages-1)">
+      <i class="fa fa-angle-double-right"></i>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<h3 class="page-title"> {{ 'UserProfile.Title' | translate }}
+  <small></small>
+</h3>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="profile-sidebar">
+      <div class="portlet light profile-sidebar-portlet ">
+        <div class="profile-userpic">
+          <img src="assets/layouts/layout/img/avatar.png" class="img-responsive" alt=""> </div>
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name"> {{currentUser?.userName}} </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END BEGIN PROFILE SIDEBAR -->
+    <!-- BEGIN PROFILE CONTENT -->
+    <div class="profile-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="portlet light ">
+            <div class="portlet-title tabbable-line">
+              <div class="caption caption-md">
+                <i class="icon-globe theme-font hide"></i>
+                <span class="caption-subject font-blue-madison bold uppercase">{{
+                  'UserProfile.ProfileAccount' | translate }}</span>
+              </div>
+              <ul class="nav nav-tabs">
+                <li class="active">
+                  <a href="#tab_1_1" data-toggle="tab">{{ 'UserProfile.PersonalInfo' | translate }}</a>
+                </li>
+                <li>
+                  <a href="#tab_1_3" data-toggle="tab">{{ 'Common.ChangePassword' | translate }}</a>
+                </li>
+              </ul>
+            </div>
+            <div class="portlet-body">
+              <div class="tab-content">
+                <!-- PERSONAL INFO TAB -->
+                <div class="tab-pane active" id="tab_1_1">
+                  <form role="form" [formGroup]="updateInfoForm" (ngSubmit)="updateProfile(updateInfoForm.value)">
+                    <div class="form-group">
+                      <label class="control-label">{{ 'UserProfile.UserName' | translate }}<span style="color:red;"> *</span></label>
+                      <input type="text" placeholder="John" class="form-control" readonly formControlName="userName">
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">{{ 'UserProfile.Surname' | translate }}<span style="color:red;">
+                          *</span></label>
+                      <input type="text" placeholder="Doe" class="form-control" #surname formControlName="surname">
+                      <small class="error" *ngIf="updateInfoForm.get('surname').invalid && (updateInfoForm.get('surname').touched || responseMessage!=null)">
+                        <span *ngIf="updateInfoForm.get('surname').errors.required||updateInfoForm.get('surname').errors.pattern!=null">
+                          {{ 'Message.Required' | translate }}
+                        </span>
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">{{ 'UserProfile.GivenName' | translate }}<span style="color:red;">
+                          *</span></label>
+                      <input type="text" placeholder="Doe" class="form-control" #givenName formControlName="givenName">
+                      <small class="error" *ngIf="updateInfoForm.get('givenName').invalid && (updateInfoForm.get('givenName').touched || responseMessage!=null)">
+                        <span *ngIf="updateInfoForm.get('givenName').errors.required||updateInfoForm.get('givenName').errors.pattern!=null">
+                          {{ 'Message.Required' | translate }}
+                        </span>
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">{{ 'UserProfile.DisplayName' | translate }}<span style="color:red;">
+                          *</span></label>
+                      <input type="text" placeholder="Doe" class="form-control" readonly value="{{surname.value + ' '+ givenName.value }}">
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">{{ 'UserProfile.MobileAlias' | translate }}<span style="color:red;">
+                          *</span></label>
+                      <input type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control" formControlName="mobileAlias">
+                      <small class="error" *ngIf="updateInfoForm.get('mobileAlias').invalid && (updateInfoForm.get('mobileAlias').touched || responseMessage!=null)">
+                        <span *ngIf="updateInfoForm.get('mobileAlias').errors.required||updateInfoForm.get('mobileAlias').errors.pattern!=null">
+                          {{ 'Message.Required' | translate }}
+                        </span>
+                      </small>
+                    </div>
+                    <div class="margiv-top-10">
+                      <button type="submit" class="btn green"> {{ 'Button.Save' | translate }}</button>
+                      <a href="javascript:;" class="btn default"> {{ 'Button.Cancel' | translate }} </a>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- END CHANGE AVATAR TAB -->
+                <!-- CHANGE PASSWORD TAB -->
+                <div class="tab-pane" id="tab_1_3">
+                  <form [formGroup]="changePasswordForm" (ngSubmit)="updatePassword(changePasswordForm.value)">
+                    <div class="form-group">
+                      <label class="control-label">{{ 'UserProfile.CurrentPassword' | translate }}<span style="color:red;">
+                          *</span></label>
+                      <input type="password" class="form-control" formControlName="oldPass">
+                      <small class="error" *ngIf="changePasswordForm.get('oldPass').invalid && (changePasswordForm.get('oldPass').touched || responseMessage!=null)">
+                        <span *ngIf="changePasswordForm.get('oldPass').errors.required">
+                          {{ 'Message.Required' | translate }}
+                        </span>
+                        <span *ngIf="changePasswordForm.get('oldPass').errors.required||changePasswordForm.get('oldPass').errors.pattern!=null">
+                          {{ 'Message.Invalid' | translate }}
+                        </span>
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">{{ 'UserProfile.NewPassword' | translate }}<span style="color:red;">
+                          *</span></label>
+                      <input type="password" class="form-control" formControlName="newPass">
+                      <small class="error" *ngIf="changePasswordForm.get('newPass').invalid && (changePasswordForm.get('newPass').touched || responseMessage!=null)">
+                        <span *ngIf="changePasswordForm.get('newPass').errors.required">
+                          {{ 'Message.Required' | translate }}
+                        </span>
+                        <span *ngIf="changePasswordForm.get('newPass').errors.required||changePasswordForm.get('newPass').errors.pattern!=null">
+                          {{ 'Message.Invalid' | translate }}
+                        </span>
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">{{ 'UserProfile.ReTypeNewPassword' | translate }}<span style="color:red;">
+                          *</span></label>
+                      <input type="password" class="form-control" formControlName="reNewPass">
+                      <small class="error" *ngIf="changePasswordForm.get('reNewPass').invalid && (changePasswordForm.get('reNewPass').touched || responseMessage!=null)">
+                        <span *ngIf="changePasswordForm.get('reNewPass').errors.required">
+                          {{ 'Message.Required' | translate }}
+                        </span>
+                        <span *ngIf="changePasswordForm.get('reNewPass').errors.required||changePasswordForm.get('reNewPass').errors.pattern!=null">
+                          {{ 'Message.Invalid' | translate }}
+                        </span>
+                      </small>
+                      <small class="error" *ngIf="notMap"><span>New passwords do not match.</span></small>
+                    </div>
+                    <div class="margin-top-10">
+                      <button type="submit" class="btn green"> {{ 'Button.ChangePassword' | translate }}</button>
+                      <a href="javascript:;" class="btn default"> {{ 'Button.Cancel' | translate }} </a>
+                    </div>
+                  </form>
+                </div>
+                <!-- END CHANGE PASSWORD TAB -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END PROFILE CONTENT -->
+  </div>
+</div>
